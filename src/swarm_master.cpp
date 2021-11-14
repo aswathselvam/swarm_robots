@@ -1,5 +1,5 @@
 #include <swarm_robots/swarm_master.h>
-#include <swarm_robots/robot.h>
+#include <swarm_robots/agent.h>
 
 int main(int argc, char **argv) {
   ros::init(argc, argv, "swarm_master_node");
