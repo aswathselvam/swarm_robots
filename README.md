@@ -1,3 +1,5 @@
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+
 # Husky Rescue Robot
 
 This project is an implementation of a rescue operation using a swarm of [Clearpath Husky robots](https://clearpathrobotics.com/husky-unmanned-ground-vehicle-robot/).
@@ -19,3 +21,7 @@ It is built using ROS 1 and C++
 ### Tested on:
 1. Ubuntu 20.04 and Ubuntu 18.04
 2. OMPL library version: 
+
+
+## Licensing
+The project is licensed under the [3-Clause BSD License](https://opensource.org/licenses/BSD-3-Clause). Click [here](https://github.com/kavyadevd/swarm_robots/blob/main/LICENSE) to know more
