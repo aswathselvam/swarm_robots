@@ -39,6 +39,13 @@ Search and rescue is one of the most widely implemented problems in real-life ro
    </div
 </div>
 
+## UML
+
+### Activity diagram
+<img src="https://github.com/kavyadevd/swarm_robots/blob/test/UML/ActivityDiagram.png?raw=true" alt="Activity Diagram" width="500px"></img>
+
+### Class diagram
+<img src="https://github.com/kavyadevd/swarm_robots/blob/test/UML/Class%20diagram.png?raw=true" width="500px" alt="Class Diagram"></img>
 
 
 ### Assumptions:
