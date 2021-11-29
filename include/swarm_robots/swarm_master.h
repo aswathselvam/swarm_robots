@@ -1,16 +1,16 @@
-#ifndef INCLUDE_SWARM_ROBOTS_SWARM_MASTER_HPP_
-#define INCLUDE_SWARM_ROBOTS_SWARM_MASTER_HPP_
+#ifndef INCLUDE_SWARM_ROBOTS_SWARM_MASTER_H_
+#define INCLUDE_SWARM_ROBOTS_SWARM_MASTER_H_
 
 #include <ros/ros.h>
 #include <std_msgs/String.h>
-#include <String>
-
-using std::String;
+#include <string>
+#include "swarm_robots/agent.h"
+using std::string;
 
 class SwarmMaster {
-    String nodename_
--ros::NodeHandle n_
--Agent agents
+    string nodename_;
+    ros::NodeHandle n_;
+    Agent agents;
 
 };
-#endif  // INCLUDE_SWARM_ROBOTS_SWARM_MASTER_HPP_
+#endif  // INCLUDE_SWARM_ROBOTS_SWARM_MASTER_H_
