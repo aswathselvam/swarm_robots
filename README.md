@@ -1,5 +1,5 @@
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
-![Build Status](https://app.travis-ci.com/aswathselvam/swarm_robots.svg?branch=main)
+[![Build Status](https://app.travis-ci.com/aswathselvam/swarm_robots.svg?branch=main)](https://app.travis-ci.com/aswathselvam/swarm_robots)
 [![Coverage Status](https://coveralls.io/repos/github/aswathselvam/swarm_robots/badge.svg?branch=main)](https://coveralls.io/github/aswathselvam/swarm_robots?branch=main)
 
 # Jackal Rescue Robot
