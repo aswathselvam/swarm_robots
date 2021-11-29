@@ -4,7 +4,7 @@
 int main(int argc, char **argv) {
   ros::init(argc, argv, "swarm_master_node");
   ros::NodeHandle* nh_master = new ros::NodeHandle();
-  MasterNode master_node;
+  SwarmMaster master_node;
   Agent agent;
   delete nh_master;
   return 0;
