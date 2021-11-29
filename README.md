@@ -1,5 +1,5 @@
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
-[![Build Status](https://app.travis-ci.com/aswathselvam/swarm_robots.svg?branch=main)
+![Build Status](https://app.travis-ci.com/aswathselvam/swarm_robots.svg?branch=main)
 [![Coverage Status](https://coveralls.io/repos/github/aswathselvam/swarm_robots/badge.svg?branch=main)](https://coveralls.io/github/aswathselvam/swarm_robots?branch=main)
 
 # Jackal Rescue Robot
@@ -10,7 +10,15 @@ It is built using ROS 1 and C++
 ## 
 
 ## Overview
-Search and rescue is one of the most widely implemented problems in real-life robotic applications. The task of rescue can be generalized and used for moving an object from a source to any desired destination. In this project, we propose to develop a system that will deploy a swarm of 20 robots in a simulated gazebo environment and help rescue an object successfully to the defined end goal. The robot we propose to use is the Jackal unmanned ground vehicle [1]. Agents in the rescue swarm will spawn at a pre-set start position and then navigate towards the object to be rescued. Once they reach the object contact point the agents will push the object synchronously and start moving towards the goal location.
+Search and rescue is one of the most widely implemented problems in real-life robotic applications. The task of rescue can be generalized and used for moving an object from a source to any desired destination. In this project, we propose to develop a system that will deploy a swarm of 20 robots in a simulated gazebo environment and help rescue an object successfully to the defined end goal. The robot we propose to use is the Jackal unmanned ground vehicle. Agents in the rescue swarm will spawn at a pre-set start position and then navigate towards the object to be rescued. Once they reach the object contact point the agents will push the object synchronously and start moving towards the goal location.
+
+##### Specifications:
+~~~
+1. Number of agents in swarm : We propose to implement 20 agents and scale it to 30 in final sprint if time permits
+2. Arena : The Gazebo world will will a closed area iwth wall surroundings and will contain immobile obstacles
+3. Robot : The dimensions of the jackal robot can be seen in the figure [below](https://clearpathrobotics.com/wp-content/uploads/2015/06/front.jpg)
+4. Object : The object to be rescued is a rectangle of dimensions approimately equal to ~ 9m X 3m
+ ~~~
 
 <span align="centre">
 <img src="https://clearpathrobotics.com/wp-content/uploads/2015/06/front.jpg" alt="cool Robot"></img>
