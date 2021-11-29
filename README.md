@@ -64,7 +64,7 @@ The project will be developed using industry-grade agile methodologies. The agil
 
 [Sprint sheet](https://docs.google.com/document/d/1nNpMe6DLzv8XDJHyTaXOK77MExHqAslBlWCvYTAc9Zk/edit?usp=sharing)
 
-[AIP Spreadsheet](https://docs.google.com/spreadsheets/d/1MNWeD2yTx-lCCY7rWnJg1NkhetYaLv5tJLHqlxLPmRo/edit?usp=sharing)
+[AIP Spreadsheet](https://docs.google.com/spreadsheets/d/1eQ78AiMMgUXJpQEjbjUjjJoJ0I1oSbPfRSU09nT6VKE/edit?usp=sharing)
 
 ## Licensing
 The project is licensed under the [3-Clause BSD License](https://opensource.org/licenses/BSD-3-Clause). Click [here](https://github.com/kavyadevd/swarm_robots/blob/main/LICENSE) to know more
