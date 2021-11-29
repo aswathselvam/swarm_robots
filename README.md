@@ -62,7 +62,7 @@ Search and rescue is one of the most widely implemented problems in real-life ro
 ### Development process
 The project will be developed using industry-grade agile methodologies. The agile method being adaptive in nature will quickly adapt to software requirements and changes due to challenges faced if any during the project development cycle. For software development, pair programming strategies will be used which will ensure a robust, bug-free package. We have hierarchical test suites, which will test the submodules by implementing unit test cases and the validity of the whole system. To simulate real-world challenges we plan to use different Gmock test cases and confirm the correctness of the system.
 
-[Sprint sheet](https://docs.google.com/document/d/1nNpMe6DLzv8XDJHyTaXOK77MExHqAslBlWCvYTAc9Zk/edit?usp=sharing)
+[Meeting notes](https://docs.google.com/document/d/1nNpMe6DLzv8XDJHyTaXOK77MExHqAslBlWCvYTAc9Zk/edit?usp=sharing)
 
 [AIP Spreadsheet](https://docs.google.com/spreadsheets/d/1eQ78AiMMgUXJpQEjbjUjjJoJ0I1oSbPfRSU09nT6VKE/edit?usp=sharing)
 
