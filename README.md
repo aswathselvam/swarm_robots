@@ -1,3 +1,4 @@
+
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 ![Build Status](https://app.travis-ci.com/aswathselvam/swarm_robots.svg?branch=main)
 [![Coverage Status](https://coveralls.io/repos/github/aswathselvam/swarm_robots/badge.svg?branch=main)](https://coveralls.io/github/aswathselvam/swarm_robots?branch=main)
@@ -5,9 +6,7 @@
 # Jackal Rescue Robot
 
 This project is an implementation of a rescue operation using a swarm of [Clearpath Jackal robots](https://clearpathrobotics.com/jackal-small-unmanned-ground-vehicle/).
-It is built using ROS 1 and C++
 
-## 
 
 ## Overview
 Search and rescue is one of the most widely implemented problems in real-life robotic applications. The task of rescue can be generalized and used for moving an object from a source to any desired destination. In this project, we propose to develop a system that will deploy a swarm of 20 robots in a simulated gazebo environment and help rescue an object successfully to the defined end goal. The robot we propose to use is the Jackal unmanned ground vehicle. Agents in the rescue swarm will spawn at a pre-set start position and then navigate towards the object to be rescued. Once they reach the object contact point the agents will push the object synchronously and start moving towards the goal location.
@@ -58,6 +57,7 @@ Search and rescue is one of the most widely implemented problems in real-life ro
 <img src="https://github.com/kavyadevd/swarm_robots/blob/test/UML/Class%20diagram.png?raw=true" width="500px" alt="Class Diagram"></img>
 
 
+
 ### Assumptions:
 1. Robots are not aware of its neighbours.
 2. Centralized communication, there is a common node(rosmaster) through which all robots communicates with each other. 
@@ -76,3 +76,4 @@ The project will be developed using industry-grade agile methodologies. The agil
 
 ## Licensing
 The project is licensed under the [3-Clause BSD License](https://opensource.org/licenses/BSD-3-Clause). Click [here](https://github.com/kavyadevd/swarm_robots/blob/main/LICENSE) to know more
+
