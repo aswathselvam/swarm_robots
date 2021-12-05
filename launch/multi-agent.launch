@@ -4,7 +4,7 @@
 	<arg name="gui" default="true" />
 	<arg name="headless" default="false" />
 	<arg name="config" default="front_laser" doc="Add front argument"/>
-	<arg name="world_name" value="$(find swarm_robots)/world/moveworld.world"/>
+	<arg name="world_name" value="$(find swarm_robots)/world/Rescue.world"/>
 	<group>
 		<include file="$(find gazebo_ros)/launch/empty_world.launch">
 			<arg name="debug" value="0" />
