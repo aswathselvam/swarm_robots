@@ -26,8 +26,8 @@
 	<group ns="agent1">
 		<param name="tf_prefix" value="robot1_tf" />
 		<include file="$(find swarm_robots)/launch/spawn_jackal.launch" >
-			<arg name="x" value="-4" />
-			<arg name="y" value="0" />
+			<arg name="y" value="46" />
+			<arg name="x" value="50" />
 			<arg name="z" value="0" />
 			<arg name="yaw" value="0" />
 			<arg name="config" value="$(arg config)" />
@@ -37,8 +37,8 @@
 	<group ns="agent2">
 		<param name="tf_prefix" value="robot2_tf" />
 		<include file="$(find swarm_robots)/launch/spawn_jackal.launch" >
-			<arg name="x" value="-4" />
-			<arg name="y" value="2" />
+			<arg name="y" value="46" />
+			<arg name="x" value="36" />
 			<arg name="z" value="0.0" />
 			<arg name="yaw" value="0" />
 			<arg name="config" value="$(arg config)" />
@@ -48,8 +48,8 @@
 	<group ns="agent3">
 		<param name="tf_prefix" value="robot3_tf" />
 		<include file="$(find swarm_robots)/launch/spawn_jackal.launch" >
-			<arg name="x" value="-4" />
-			<arg name="y" value="4" />
+			<arg name="y" value="46" />
+			<arg name="x" value="34" />
 			<arg name="z" value="0.0" />
 			<arg name="yaw" value="0" />
 			<arg name="config" value="$(arg config)" />
@@ -59,19 +59,19 @@
 	<group ns="agent4">
 		<param name="tf_prefix" value="robot4_tf" />
 		<include file="$(find swarm_robots)/launch/spawn_jackal.launch" >
-			<arg name="x" value="-4" />
-			<arg name="y" value="6" />
+			<arg name="y" value="46" />
+			<arg name="x" value="32" />
 			<arg name="z" value="0.0" />
 			<arg name="yaw" value="0" />
 			<arg name="config" value="$(arg config)" />
 			<arg name="model_name" value="Jackal_4" />
 		</include>
-	<!-- </group>
-    	<group ns="agent5">
+	</group>
+    	<!-- <group ns="agent5">
 		<param name="tf_prefix" value="robot5_tf" />
 		<include file="$(find swarm_robots)/launch/spawn_jackal.launch" >
-			<arg name="x" value="-4" />
-			<arg name="y" value="8" />
+			<arg name="y" value="46" />
+			<arg name="x" value="30" />
 			<arg name="z" value="0.0" />
 			<arg name="yaw" value="0" />
 			<arg name="config" value="$(arg config)" />
@@ -81,8 +81,8 @@
     	<group ns="agent6">
 		<param name="tf_prefix" value="robot6_tf" />
 		<include file="$(find swarm_robots)/launch/spawn_jackal.launch" >
-			<arg name="x" value="-4" />
-			<arg name="y" value="10" />
+			<arg name="y" value="46" />
+			<arg name="x" value="28" />
 			<arg name="z" value="0.0" />
 			<arg name="yaw" value="0" />
 			<arg name="config" value="$(arg config)" />
@@ -92,8 +92,8 @@
     	<group ns="agent7">
 		<param name="tf_prefix" value="robot7_tf" />
 		<include file="$(find swarm_robots)/launch/spawn_jackal.launch" >
-			<arg name="x" value="-4" />
-			<arg name="y" value="12" />
+			<arg name="y" value="46" />
+			<arg name="x" value="26" />
 			<arg name="z" value="0.0" />
 			<arg name="yaw" value="0" />
 			<arg name="config" value="$(arg config)" />
@@ -103,8 +103,8 @@
     <group ns="agent8">
 	    <param name="tf_prefix" value="robot8_tf" />
 	    <include file="$(find swarm_robots)/launch/spawn_jackal.launch" >
-	    	<arg name="x" value="-4" />
-	    	<arg name="y" value="14" />
+	    	<arg name="y" value="46" />
+	    	<arg name="x" value="14" />
 	    	<arg name="z" value="0.0" />
 	    	<arg name="yaw" value="0" />
 	    	<arg name="config" value="$(arg config)" />
@@ -114,8 +114,8 @@
     <group ns="agent9">
 	    <param name="tf_prefix" value="robot9_tf" />
 	    <include file="$(find swarm_robots)/launch/spawn_jackal.launch" >
-	    	<arg name="x" value="-4" />
-	    	<arg name="y" value="16" />
+	    	<arg name="y" value="46" />
+	    	<arg name="x" value="16" />
 	    	<arg name="z" value="0.0" />
 	    	<arg name="yaw" value="0" />
 	    	<arg name="config" value="$(arg config)" />
@@ -125,8 +125,8 @@
     <group ns="agent10">
 	    <param name="tf_prefix" value="robot10_tf" />
 	    <include file="$(find swarm_robots)/launch/spawn_jackal.launch" >
-	    	<arg name="x" value="-4" />
-	    	<arg name="y" value="18" />
+	    	<arg name="y" value="46" />
+	    	<arg name="x" value="18" />
 	    	<arg name="z" value="0.0" />
 	    	<arg name="yaw" value="0" />
 	    	<arg name="config" value="$(arg config)" />
