@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="use_sim_time" default="true" />
+	<arg name="gui" default="true" />
+	<arg name="headless" default="false" />
+	<arg name="config" default="front_laser" doc="Add front argument"/>
+	<arg name="world_name" value="$(find swarm_robots)/world/moveworld.world"/>
+	<group>
+		<include file="$(find gazebo_ros)/launch/empty_world.launch">
+			<arg name="debug" value="0" />
+			<arg name="gui" value="$(arg gui)" />
+			<arg name="use_sim_time" value="$(arg use_sim_time)" />
+			<arg name="headless" value="$(arg headless)" />
+			<arg name="world_name" value="$(arg world_name)" />
+		</include>
+		<param name="config" value="$(arg config)" />
+	</group>
+	<!-- Spawn Jackal -->
+	<group ns="agent1">
+		<param name="tf_prefix" value="robot1_tf" />
+		<include file="$(find swarm_robots)/launch/spawn_jackal.launch" >
+			<arg name="x" value="0" />
+			<arg name="y" value="0" />
+			<arg name="z" value="0.0" />
+			<arg name="yaw" value="0" />
+			<arg name="config" value="$(arg config)" />
+			<arg name="model_name" value="Jackal_1" />
+		</include>
+	</group>
+	<group ns="agent2">
+		<param name="tf_prefix" value="robot2_tf" />
+		<include file="$(find swarm_robots)/launch/spawn_jackal.launch" >
+			<arg name="x" value="0" />
+			<arg name="y" value="0" />
+			<arg name="z" value="0.0" />
+			<arg name="yaw" value="0" />
+			<arg name="config" value="$(arg config)" />
+			<arg name="model_name" value="Jackal_2" />
+		</include>
+	</group>
+	<group ns="agent3">
+		<param name="tf_prefix" value="robot3_tf" />
+		<include file="$(find swarm_robots)/launch/spawn_jackal.launch" >
+			<arg name="x" value="0" />
+			<arg name="y" value="0" />
+			<arg name="z" value="0.0" />
+			<arg name="yaw" value="0" />
+			<arg name="config" value="$(arg config)" />
+			<arg name="model_name" value="Jackal_3" />
+		</include>
+	</group>
+	<group ns="agent4">
+		<param name="tf_prefix" value="robot4_tf" />
+		<include file="$(find swarm_robots)/launch/spawn_jackal.launch" >
+			<arg name="x" value="0" />
+			<arg name="y" value="0" />
+			<arg name="z" value="0.0" />
+			<arg name="yaw" value="0" />
+			<arg name="config" value="$(arg config)" />
+			<arg name="model_name" value="Jackal_4" />
+		</include>
+	</group>
+    	<group ns="agent5">
+		<param name="tf_prefix" value="robot5_tf" />
+		<include file="$(find swarm_robots)/launch/spawn_jackal.launch" >
+			<arg name="x" value="0" />
+			<arg name="y" value="0" />
+			<arg name="z" value="0.0" />
+			<arg name="yaw" value="0" />
+			<arg name="config" value="$(arg config)" />
+			<arg name="model_name" value="Jackal_5" />
+		</include>
+	</group>
+    	<group ns="agent6">
+		<param name="tf_prefix" value="robot6_tf" />
+		<include file="$(find swarm_robots)/launch/spawn_jackal.launch" >
+			<arg name="x" value="0" />
+			<arg name="y" value="0" />
+			<arg name="z" value="0.0" />
+			<arg name="yaw" value="0" />
+			<arg name="config" value="$(arg config)" />
+			<arg name="model_name" value="Jackal_6" />
+		</include>
+	</group>
+    	<group ns="agent7">
+		<param name="tf_prefix" value="robot7_tf" />
+		<include file="$(find swarm_robots)/launch/spawn_jackal.launch" >
+			<arg name="x" value="0" />
+			<arg name="y" value="0" />
+			<arg name="z" value="0.0" />
+			<arg name="yaw" value="0" />
+			<arg name="config" value="$(arg config)" />
+			<arg name="model_name" value="Jackal_7" />
+		</include>
+	</group>
+    <group ns="agent8">
+	    <param name="tf_prefix" value="robot8_tf" />
+	    <include file="$(find swarm_robots)/launch/spawn_jackal.launch" >
+	    	<arg name="x" value="0" />
+	    	<arg name="y" value="0" />
+	    	<arg name="z" value="0.0" />
+	    	<arg name="yaw" value="0" />
+	    	<arg name="config" value="$(arg config)" />
+	    	<arg name="model_name" value="Jackal_8" />
+	    </include>
+	</group>
+    <group ns="agent9">
+	    <param name="tf_prefix" value="robot9_tf" />
+	    <include file="$(find swarm_robots)/launch/spawn_jackal.launch" >
+	    	<arg name="x" value="0" />
+	    	<arg name="y" value="0" />
+	    	<arg name="z" value="0.0" />
+	    	<arg name="yaw" value="0" />
+	    	<arg name="config" value="$(arg config)" />
+	    	<arg name="model_name" value="Jackal_9" />
+	    </include>
+	</group>
+    <group ns="agent10">
+	    <param name="tf_prefix" value="robot10_tf" />
+	    <include file="$(find swarm_robots)/launch/spawn_jackal.launch" >
+	    	<arg name="x" value="0" />
+	    	<arg name="y" value="0" />
+	    	<arg name="z" value="0.0" />
+	    	<arg name="yaw" value="0" />
+	    	<arg name="config" value="$(arg config)" />
+	    	<arg name="model_name" value="Jackal_10" />
+	    </include>
+	</group>
+	<!-- <node pkg = "teleop_twist_keyboard" type = "teleop_twist_keyboard.py" name = "teleop_controller" output = "screen" /> -->
+	<include file="$(find jackal_viz)/launch/view_robot.launch" />
+</launch>
