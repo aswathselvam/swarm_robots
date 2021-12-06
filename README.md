@@ -74,6 +74,35 @@ The project will be developed using industry-grade agile methodologies. The agil
 
 [AIP Spreadsheet](https://docs.google.com/spreadsheets/d/1eQ78AiMMgUXJpQEjbjUjjJoJ0I1oSbPfRSU09nT6VKE/edit?usp=sharing)
 
+### Installations
+
+It is assumed that the system has Ubuntu 18.04 and above with ROS Melodic/Noetic installed.
+If not, install Ubuntu from [here](https://ubuntu.com/download/desktop) and ROS from [here](http://wiki.ros.org/melodic/Installation/Ubuntu)
+
+#### First step is to install Jackal robot
+```bash
+sudo apt-get install ros-melodic-jackal-simulator ros-melodic-jackal-desktop
+cd ~
+mkdir -p swarm_robots/src
+cd swarm_robots/src && catkin_init_workspace
+git clone https://github.com/jackal/jackal.git
+git clone https://github.com/jackal/jackal_simulator.git
+git clone https://github.com/clearpathrobotics/LMS1xx.git
+git clone https://github.com/ros-drivers/pointgrey_camera_driver.git
+cd ..
+catkin_make
+```
+
+#### Clone git repository
+```bash
+cd swarm_robots/src
+git clone --recursive https://github.com/kavyadevd/swarm_robots.git
+cd ..
+catkin_make
+roslaunch swarm_robots main.launch
+```
+
+
 ## Licensing
 The project is licensed under the [3-Clause BSD License](https://opensource.org/licenses/BSD-3-Clause). Click [here](https://github.com/kavyadevd/swarm_robots/blob/main/LICENSE) to know more
 
