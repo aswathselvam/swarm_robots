@@ -1,0 +1,13 @@
+Done processing ./src/agent.cpp
+Done processing ./src/arena.cpp
+Done processing ./src/forward_kinematics.cpp
+Done processing ./src/inverse_kinematics.cpp
+Done processing ./src/main.cpp
+Done processing ./src/obstacle.cpp
+Done processing ./src/path_planner.cpp
+Done processing ./src/safety_check.cpp
+Done processing ./src/state.cpp
+Done processing ./src/swarm_master.cpp
+Done processing ./test/main.cpp
+Done processing ./test/testswarm.cpp
+Total errors found: 15
