@@ -15,6 +15,7 @@
 #include <std_msgs/String.h>
 #include <geometry_msgs/Twist.h>
 #include <string>
+#include <utility>
 #include "path_planner.h"
 #include "state.h"
 #include "forward_kinematics.h"
@@ -33,7 +34,7 @@ class Agent : public FK {
         std::pair<double, double> destination_;
 
     public:        //  NOLINT
-        void Initialize();
+        void Initialize(ros::NodeHandle, string);
         void PathPlanner();
         void InverseKinematics();
         void ForwardKinematics();

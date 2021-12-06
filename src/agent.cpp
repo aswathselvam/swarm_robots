@@ -16,6 +16,7 @@
 #include "swarm_robots/arena.h"
 
 
-void Initiaize() {
+void Agent::Initiaize(ros::NodeHandle nh, string agent_id) {
+    ros::init(argc, argv, "agent4"+agent_id)
     return;
 }
