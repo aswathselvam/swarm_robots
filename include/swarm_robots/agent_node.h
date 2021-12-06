@@ -17,25 +17,13 @@
 #include <string>
 #include <vector>
 #include "state.h"    //  NOLINT
+#include "agent_node.h"    //  NOLINT
 
 using std::vector;
 
-class Agent {
+class AgentNode : public Agent {
   private :  // NOLINT
-    std::string robot_id;
-    ros::NodeHandle nh;
-    ros::Publisher state_pub_;
-    ros::Publisher vel_pub_;
-    ros::Subscriber obs_sub_;
-    geometry_msgs::msg::Twist twist_;
-    State state_;
-    std::vector<double, double> destination_;
-  public :  // NOLINT
-    void Initialize();
-    void PathPlanner();
-    void InverseKinematics();
-    void ForwardKinematics();
-    void Stop();
+    std::string agent_id;
 };
 
 #endif  // INCLUDE_SWARM_ROBOTS_AGENT_NODE_H_
