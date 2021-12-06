@@ -97,11 +97,45 @@ catkin_make
 ```bash
 cd swarm_robots/src
 git clone --recursive https://github.com/kavyadevd/swarm_robots.git
-cd ..
+```
+
+#### Execute program
+```bash
 catkin_make
 roslaunch swarm_robots main.launch
 ```
 
+### Running ROS test/ Gtest
+
+To make the test files execute the following commands successively
+```bash
+catkin_make tests
+catkin_make test
+```
+
+Output will be similiar to :
+
+```bash
+... logging to /home/kavya/.ros/log/rostest-Matrix-27255.log
+[ROSUNIT] Outputting test results to /home/kavya/.ros/test_results/swarm_robots
+/rostest-test_testswarm.xml
+[ WARN] [1636828912.923804367]: Publisher message will be changed.
+[Testcase: testtestswarm] ... ok
+
+[ROSTEST]-----------------------------------------------------------------------
+
+[swarm_robots.rosunit-testswarm/TestArentsInit][passed]
+[swarm_robots.rosunit-testswarm/TestSwarmSize][passed]
+
+SUMMARY
+ * RESULT: SUCCESS
+ * TESTS: 2
+ * ERRORS: 0
+ * FAILURES: 0
+
+rostest log file is in /home/kavya/.ros/log/rostest-Matrix-27255.log
+
+```
 
 ## Licensing
 The project is licensed under the [3-Clause BSD License](https://opensource.org/licenses/BSD-3-Clause). Click [here](https://github.com/kavyadevd/swarm_robots/blob/main/LICENSE) to know more
