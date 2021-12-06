@@ -21,10 +21,10 @@
                     $(find xacro)/xacro $(find jackal_description)/urdf/jackal.urdf.xacro
                     --inorder" />
 		<include file="$(find swarm_robots)/launch/spawn_jackal.launch" >
-			<arg name="y" value="46" />
-			<arg name="x" value="50" />
+			<arg name="y" value="8" />
+			<arg name="x" value="4" />
 			<arg name="z" value="0" />
-			<arg name="yaw" value="0" />
+			<arg name="yaw" value="90" />
 			<arg name="config" value="$(arg config)" />
 			<arg name="model_name" value="Jackal_1" />
 		</include>
@@ -37,10 +37,10 @@
                     --inorder" />
 		<param name="tf_prefix" value="robot2_tf" />
 		<include file="$(find swarm_robots)/launch/spawn_jackal.launch" >
-			<arg name="y" value="46" />
-			<arg name="x" value="36" />
+			<arg name="y" value="8" />
+			<arg name="x" value="5" />
 			<arg name="z" value="0.0" />
-			<arg name="yaw" value="0" />
+			<arg name="yaw" value="90" />
 			<arg name="config" value="$(arg config)" />
 			<arg name="model_name" value="Jackal_2" />
 		</include>
@@ -53,10 +53,10 @@
                     --inorder" />
 		<param name="tf_prefix" value="robot3_tf" />
 		<include file="$(find swarm_robots)/launch/spawn_jackal.launch" >
-			<arg name="y" value="46" />
-			<arg name="x" value="34" />
+			<arg name="y" value="8" />
+			<arg name="x" value="6" />
 			<arg name="z" value="0.0" />
-			<arg name="yaw" value="0" />
+			<arg name="yaw" value="90" />
 			<arg name="config" value="$(arg config)" />
 			<arg name="model_name" value="Jackal_3" />
 		</include>
@@ -69,10 +69,10 @@
                     --inorder" />
 		<param name="tf_prefix" value="robot4_tf" />
 		<include file="$(find swarm_robots)/launch/spawn_jackal.launch" >
-			<arg name="y" value="46" />
-			<arg name="x" value="32" />
+			<arg name="y" value="8" />
+			<arg name="x" value="7" />
 			<arg name="z" value="0.0" />
-			<arg name="yaw" value="0" />
+			<arg name="yaw" value="90" />
 			<arg name="config" value="$(arg config)" />
 			<arg name="model_name" value="Jackal_4" />
 		</include>
@@ -80,16 +80,15 @@
 	<!-- <group ns="agent5"><param name="tf_prefix" value="robot5_tf" /><param name="robot_description"
          command="$(find jackal_description)/scripts/$(arg env_runner)
                     $(find jackal_description)/urdf/configs/$(arg config)
-                    $(find xacro)/xacro $(find jackal_description)/urdf/jackal.urdf.xacro
-                    --inorder" /><include file="$(find swarm_robots)/launch/spawn_jackal.launch" ><arg name="y" value="46" /><arg name="x" value="30" /><arg name="z" value="0.0" /><arg name="yaw" value="0" /><arg name="config" value="$(arg config)" /><arg name="model_name" value="Jackal_5" /></include></group><group ns="agent6"><param name="robot_description"
+                    $(find xacro)/xacro $(find jackal_description)/urdf/jackal.urdf.xacro" /><include file="$(find swarm_robots)/launch/spawn_jackal.launch" ><arg name="y" value="46" /><arg name="x" value="30" /><arg name="z" value="0.0" /><arg name="yaw" value="0" /><arg name="config" value="$(arg config)" /><arg name="model_name" value="Jackal_5" /></include></group><group ns="agent6"><param name="robot_description"
          command="$(find jackal_description)/scripts/$(arg env_runner)
                     $(find jackal_description)/urdf/configs/$(arg config)
                     $(find xacro)/xacro $(find jackal_description)/urdf/jackal.urdf.xacro
-                    --inorder" /><param name="tf_prefix" value="robot6_tf" /><include file="$(find swarm_robots)/launch/spawn_jackal.launch" ><arg name="y" value="46" /><arg name="x" value="28" /><arg name="z" value="0.0" /><arg name="yaw" value="0" /><arg name="config" value="$(arg config)" /><arg name="model_name" value="Jackal_6" /></include></group><group ns="agent7"><param name="robot_description"
+                    " /><param name="tf_prefix" value="robot6_tf" /><include file="$(find swarm_robots)/launch/spawn_jackal.launch" ><arg name="y" value="46" /><arg name="x" value="28" /><arg name="z" value="0.0" /><arg name="yaw" value="0" /><arg name="config" value="$(arg config)" /><arg name="model_name" value="Jackal_6" /></include></group><group ns="agent7"><param name="robot_description"
          command="$(find jackal_description)/scripts/$(arg env_runner)
                     $(find jackal_description)/urdf/configs/$(arg config)
                     $(find xacro)/xacro $(find jackal_description)/urdf/jackal.urdf.xacro
-                    --inorder" /><param name="tf_prefix" value="robot7_tf" /><include file="$(find swarm_robots)/launch/spawn_jackal.launch" ><arg name="y" value="46" /><arg name="x" value="26" /><arg name="z" value="0.0" /><arg name="yaw" value="0" /><arg name="config" value="$(arg config)" /><arg name="model_name" value="Jackal_7" /></include></group><group ns="agent8"><param name="tf_prefix" value="robot8_tf" /><include file="$(find swarm_robots)/launch/spawn_jackal.launch" ><arg name="y" value="46" /><arg name="x" value="14" /><arg name="z" value="0.0" /><arg name="yaw" value="0" /><arg name="config" value="$(arg config)" /><arg name="model_name" value="Jackal_8" /></include></group><group ns="agent9"><param name="tf_prefix" value="robot9_tf" /><include file="$(find swarm_robots)/launch/spawn_jackal.launch" ><arg name="y" value="46" /><arg name="x" value="16" /><arg name="z" value="0.0" /><arg name="yaw" value="0" /><arg name="config" value="$(arg config)" /><arg name="model_name" value="Jackal_9" /></include></group><group ns="agent10"><param name="tf_prefix" value="robot10_tf" /><include file="$(find swarm_robots)/launch/spawn_jackal.launch" ><arg name="y" value="46" /><arg name="x" value="18" /><arg name="z" value="0.0" /><arg name="yaw" value="0" /><arg name="config" value="$(arg config)" /><arg name="model_name" value="Jackal_10" /></include></group> -->
+                    " /><param name="tf_prefix" value="robot7_tf" /><include file="$(find swarm_robots)/launch/spawn_jackal.launch" ><arg name="y" value="46" /><arg name="x" value="26" /><arg name="z" value="0.0" /><arg name="yaw" value="0" /><arg name="config" value="$(arg config)" /><arg name="model_name" value="Jackal_7" /></include></group><group ns="agent8"><param name="tf_prefix" value="robot8_tf" /><include file="$(find swarm_robots)/launch/spawn_jackal.launch" ><arg name="y" value="46" /><arg name="x" value="14" /><arg name="z" value="0.0" /><arg name="yaw" value="0" /><arg name="config" value="$(arg config)" /><arg name="model_name" value="Jackal_8" /></include></group><group ns="agent9"><param name="tf_prefix" value="robot9_tf" /><include file="$(find swarm_robots)/launch/spawn_jackal.launch" ><arg name="y" value="46" /><arg name="x" value="16" /><arg name="z" value="0.0" /><arg name="yaw" value="0" /><arg name="config" value="$(arg config)" /><arg name="model_name" value="Jackal_9" /></include></group><group ns="agent10"><param name="tf_prefix" value="robot10_tf" /><include file="$(find swarm_robots)/launch/spawn_jackal.launch" ><arg name="y" value="46" /><arg name="x" value="18" /><arg name="z" value="0.0" /><arg name="yaw" value="0" /><arg name="config" value="$(arg config)" /><arg name="model_name" value="Jackal_10" /></include></group> -->
 	<!-- <node pkg = "teleop_twist_keyboard" type = "teleop_twist_keyboard.py" name = "teleop_controller" output = "screen" /> -->
 	<!-- <include file="$(find jackal_viz)/launch/view_robot.launch" /> -->
 </launch>

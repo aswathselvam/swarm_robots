@@ -3,7 +3,7 @@
 
   <!-- start world -->
   <node name="gazebo" pkg="gazebo_ros" type="gazebo" 
-   args="$(find swarm_robots)/world/Rescue.world" respawn="false" output="screen" />
+   args="$(find swarm_robots)/world/Rescue_small.world" respawn="false" output="screen" />
 
   <!-- start gui -->
   <!-- <node name="gazebo_gui" pkg="gazebo" type="gui" respawn="false" output="screen"/> -->

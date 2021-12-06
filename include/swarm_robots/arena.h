@@ -20,12 +20,13 @@ using std::vector;
 class Arena{
     private:        //  NOLINT
         vector<Agent> agents;
-        vector<double, double> boundary;
+        // vector<double, double> boundary;
         State origin;
     public:        //  NOLINT
-        void InitializeAgents();
+        bool InitializeAgents();
         State GetOrigin();
-        vector GetBoundary();
+        std::vector<std::vector<double>> GetBoundary();
+        void Play();
 };
 
 #endif   // INCLUDE_SWARM_ROBOTS_ARENA_HPP_        //  NOLINT
