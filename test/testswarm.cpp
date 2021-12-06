@@ -20,7 +20,7 @@
 /**
  * @brief Test if Initialization is successful
  */
-TEST(TestStub1, TestPublisherExists) {
+TEST(TestStub1, TestArentsInit) {
   ros::NodeHandle nh;
   Arena arena;
   EXPECT_TRUE(arena.InitializeAgents());
@@ -29,7 +29,7 @@ TEST(TestStub1, TestPublisherExists) {
 /**
  * @brief Tests total agents spawned
  */
-TEST(TestStub2, TestMessageChangeService) {
+TEST(TestStub2, TestSwarmSize) {
   Arena arena;
   EXPECT_EQ(arena.GetSwarmSize(), 4);
 }
