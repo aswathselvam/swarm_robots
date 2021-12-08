@@ -93,6 +93,24 @@ cd ..
 catkin_make
 ```
 
+#### Install dependencies
+##### OMPL
+```bash
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu `lsb_release -sc` main" > /etc/apt/sources.list.d/ros-latest.list'
+wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
+
+sudo apt-get update
+sudo apt-get install ros-`rosversion -d`-ompl
+```
+
+##### octomap_mapping
+```bash
+sudo apt-get install ros-<ros-version>-octomap ros-<ros-version>-octomap-mapping
+rosdep install octomap_mapping
+rosmake octomap_mapping
+
+```
+
 #### Clone git repository
 ```bash
 cd swarm_robots/src
