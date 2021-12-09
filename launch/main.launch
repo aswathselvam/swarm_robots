@@ -2,7 +2,7 @@
 	<param name="/use_sim_time" value="true" />
 	<!-- start world -->
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
-	  <!-- <arg name="config" default="front_laser" doc="Add front argument"/> -->
+		<!-- <arg name="config" default="front_laser" doc="Add front argument"/> -->
 		<arg name="world_name" value="$(find swarm_robots)/world/Rescue_light.world" />
 		<arg name="paused" value="false"/>
 		<arg name="use_sim_time" value="true"/>
@@ -11,57 +11,56 @@
 		<arg name="debug" value="false"/>
 	</include>
 	<!-- start world -->
-	<!-- <node name="gazebo" pkg="gazebo_ros" type="gazebo" 
-   args="$(find swarm_robots)/world/Rescue_light.world" respawn="false" output="screen" /> -->
+	<!-- <node name="gazebo" pkg="gazebo_ros" type="gazebo" args="$(find swarm_robots)/world/Rescue_light.world" respawn="false" output="screen" /> -->
 	<!-- include robots -->
 	<!-- <include file="$(find swarm_robots)/launch/multi-agent.launch"/> -->
 	<group ns="agent1">
 		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-		<arg name="namespace" value="agent1" />
+			<arg name="namespace" value="agent1" />
 			<arg name="y" value="6" />
 			<arg name="x" value="4" />
 			<arg name="z" value="0.0" />
 			<arg name="yaw" value = "1.6" />
 			<!-- <arg name="config" value="$(arg config)" /> -->
-			<arg name="model_name" value="Jackal_1" />
+			<!-- <arg name="model_name" value="Jackal_1" /> -->
 		</include>
 	</group>
 	<group ns="agent2">
 		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-		<arg name="namespace" value="agent2" />
+			<arg name="namespace" value="agent2" />
 			<arg name="y" value="6" />
 			<arg name="x" value="4.6" />
 			<arg name="z" value="0.0" />
 			<arg name="yaw" value = "1.6" />
 			<!-- <arg name="config" value="$(arg config)" /> -->
-			<arg name="model_name" value="Jackal_2" />
+			<!-- <arg name="model_name" value="Jackal_2" /> -->
 		</include>
 	</group>
 	<group ns="agent3">
 		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-		<arg name="namespace" value="agent3" />
+			<arg name="namespace" value="agent3" />
 			<arg name="y" value="6" />
 			<arg name="x" value="5.2" />
 			<arg name="z" value="0.0" />
 			<arg name="yaw" value = "1.6" />
 			<!-- <arg name="config" value="$(arg config)" /> -->
-			<arg name="model_name" value="Jackal_3" />
+			<!-- <arg name="model_name" value="Jackal_3" /> -->
 		</include>
 	</group>
 	<group ns="agent4">
 		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-		<arg name="namespace" value="agent4" />
+			<arg name="namespace" value="agent4" />
 			<arg name="y" value="6" />
 			<arg name="x" value="5.8" />
 			<arg name="z" value="0.0" />
 			<arg name="yaw" value = "1.6" />
 			<!-- <arg name="config" value="$(arg config)" /> -->
-			<arg name="model_name" value="Jackal_4" />
+			<!-- <arg name="model_name" value="Jackal_4" /> -->
 		</include>
 	</group>
 	<group ns="agent5">
 		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-		<arg name="namespace" value="agent5" />
+			<arg name="namespace" value="agent5" />
 			<arg name="y" value="6" />
 			<arg name="x" value="6.4" />
 			<arg name="z" value="0.0" />
@@ -72,9 +71,9 @@
 	</group>
 	<group ns="agent6">
 		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-		<arg name="namespace" value="agent6" />
+			<arg name="namespace" value="agent6" />
 			<arg name="y" value="7" />
-			<arg name="x" value="4" />
+			<arg name="x" value="5.6" />
 			<arg name="z" value="0.0" />
 			<arg name="yaw" value = "1.6" />
 			<!-- <arg name="config" value="$(arg config)" /> -->
@@ -83,9 +82,9 @@
 	</group>
 	<group ns="agent7">
 		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-		<arg name="namespace" value="agent7" />
+			<arg name="namespace" value="agent7" />
 			<arg name="y" value="7" />
-			<arg name="x" value="5" />
+			<arg name="x" value="6.2" />
 			<arg name="z" value="0.0" />
 			<arg name="yaw" value = "1.6" />
 			<!-- <arg name="config" value="$(arg config)" /> -->
@@ -94,9 +93,9 @@
 	</group>
 	<group ns="agent8">
 		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-		<arg name="namespace" value="agent8" />
+			<arg name="namespace" value="agent8" />
 			<arg name="y" value="7" />
-			<arg name="x" value="6" />
+			<arg name="x" value="6.8" />
 			<arg name="z" value="0.0" />
 			<arg name="yaw" value = "1.6" />
 			<!-- <arg name="config" value="$(arg config)" /> -->
@@ -105,9 +104,9 @@
 	</group>
 	<group ns="agent9">
 		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-		<arg name="namespace" value="agent9" />
+			<arg name="namespace" value="agent9" />
 			<arg name="y" value="7" />
-			<arg name="x" value="7" />
+			<arg name="x" value="7.4" />
 			<arg name="z" value="0.0" />
 			<arg name="yaw" value = "1.6" />
 			<!-- <arg name="config" value="$(arg config)" /> -->
@@ -116,7 +115,7 @@
 	</group>
 	<group ns="agent10">
 		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-		<arg name="namespace" value="agent10" />
+			<arg name="namespace" value="agent10" />
 			<arg name="y" value="7" />
 			<arg name="x" value="8" />
 			<arg name="z" value="0.0" />
@@ -127,7 +126,7 @@
 	</group>
 	<group ns="agent11">
 		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-		<arg name="namespace" value="agent11" />
+			<arg name="namespace" value="agent11" />
 			<arg name="y" value="8" />
 			<arg name="x" value="4" />
 			<arg name="z" value="0.0" />
@@ -138,9 +137,9 @@
 	</group>
 	<group ns="agent12">
 		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-		<arg name="namespace" value="agent12" />
+			<arg name="namespace" value="agent12" />
 			<arg name="y" value="8" />
-			<arg name="x" value="5" />
+			<arg name="x" value="4.6" />
 			<arg name="z" value="0.0" />
 			<arg name="yaw" value = "1.6" />
 			<!-- <arg name="config" value="$(arg config)" /> -->
@@ -149,9 +148,9 @@
 	</group>
 	<group ns="agent13">
 		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-		<arg name="namespace" value="agent13" />
+			<arg name="namespace" value="agent13" />
 			<arg name="y" value="8" />
-			<arg name="x" value="6" />
+			<arg name="x" value="5.2" />
 			<arg name="z" value="0.0" />
 			<arg name="yaw" value = "1.6" />
 			<!-- <arg name="config" value="$(arg config)" /> -->
@@ -160,9 +159,9 @@
 	</group>
 	<group ns="agent14">
 		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-		<arg name="namespace" value="agent14" />
+			<arg name="namespace" value="agent14" />
 			<arg name="y" value="8" />
-			<arg name="x" value="7" />
+			<arg name="x" value="5.8" />
 			<arg name="z" value="0.0" />
 			<arg name="yaw" value = "1.6" />
 			<!-- <arg name="config" value="$(arg config)" /> -->
@@ -171,9 +170,9 @@
 	</group>
 	<group ns="agent15">
 		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-		<arg name="namespace" value="agent15" />
+			<arg name="namespace" value="agent15" />
 			<arg name="y" value="8" />
-			<arg name="x" value="8" />
+			<arg name="x" value="6.4" />
 			<arg name="z" value="0.0" />
 			<arg name="yaw" value = "1.6" />
 			<!-- <arg name="config" value="$(arg config)" /> -->
@@ -182,9 +181,9 @@
 	</group>
 	<group ns="agent16">
 		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-		<arg name="namespace" value="agent16" />
+			<arg name="namespace" value="agent16" />
 			<arg name="y" value="9" />
-			<arg name="x" value="4" />
+			<arg name="x" value="5.6" />
 			<arg name="z" value="0.0" />
 			<arg name="yaw" value = "1.6" />
 			<!-- <arg name="config" value="$(arg config)" /> -->
@@ -193,9 +192,9 @@
 	</group>
 	<group ns="agent17">
 		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-		<arg name="namespace" value="agent17" />
+			<arg name="namespace" value="agent17" />
 			<arg name="y" value="9" />
-			<arg name="x" value="5" />
+			<arg name="x" value="6.2" />
 			<arg name="z" value="0.0" />
 			<arg name="yaw" value = "1.6" />
 			<!-- <arg name="config" value="$(arg config)" /> -->
@@ -204,9 +203,9 @@
 	</group>
 	<group ns="agent18">
 		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-		<arg name="namespace" value="agent18" />
+			<arg name="namespace" value="agent18" />
 			<arg name="y" value="9" />
-			<arg name="x" value="6" />
+			<arg name="x" value="6.8" />
 			<arg name="z" value="0.0" />
 			<arg name="yaw" value = "1.6" />
 			<!-- <arg name="config" value="$(arg config)" /> -->
@@ -215,9 +214,9 @@
 	</group>
 	<group ns="agent19">
 		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-		<arg name="namespace" value="agent19" />
+			<arg name="namespace" value="agent19" />
 			<arg name="y" value="9" />
-			<arg name="x" value="7" />
+			<arg name="x" value="7.4" />
 			<arg name="z" value="0.0" />
 			<arg name="yaw" value = "1.6" />
 			<!-- <arg name="config" value="$(arg config)" /> -->
@@ -226,7 +225,7 @@
 	</group>
 	<group ns="agent20">
 		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-		<arg name="namespace" value="agent20" />
+			<arg name="namespace" value="agent20" />
 			<arg name="y" value="9" />
 			<arg name="x" value="8" />
 			<arg name="z" value="0.0" />
@@ -235,4 +234,5 @@
 			<!-- <arg name="model_name" value="Jackal_20" /> -->
 		</include>
 	</group>
+
 </launch>
