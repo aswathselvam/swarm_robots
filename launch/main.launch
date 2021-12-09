@@ -1,8 +1,11 @@
 <launch>
 	<param name="/use_sim_time" value="true" />
 
-	<!-- Arguments for visualization tools launch -->
+	<!-- Arguments for visualization and debugging toold launch -->
 	<arg name="rviz" value="y"/>
+	<arg name="rqt_topic" value="y"/>
+	<arg name="rqt_graph" value="y"/>
+	<arg name="rqt_tf_tree" value="y"/>
 
 
 	<!-- start world -->
@@ -240,4 +243,8 @@
 	<!-- Visualize in Rviz -->
 	<node if="$(eval arg('rviz') == 'y')"  name="rviz" pkg="rviz" type="rviz" args="-d $(find swarm_robots)/rviz/Rviz_config.rviz" output="screen"/>
 
+	<!-- For Debugging -->
+	<node if="$(eval arg('rqt_topic') == 'y')" name="rqt_topic" pkg="rqt_topic" type="rqt_topic" output="screen" />
+	<node if="$(eval arg('rqt_graph') == 'y')" name="rqt_graph" pkg="rqt_graph" type="rqt_graph" output="screen" />
+	<node if="$(eval arg('rqt_tf_tree') == 'y')" name="rqt_tf_tree" pkg="rqt_tf_tree" type="rqt_tf_tree" output="screen" />
 </launch>
