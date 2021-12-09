@@ -1,11 +1,15 @@
-#include <swarm_robots/swarm_master.h>
-#include <swarm_robots/agent.h>
+#include <vector>
+#include "swarm_robots/agent_node.h"
+
+using std::vector;
 
 int main(int argc, char **argv) {
-  ros::init(argc, argv, "swarm_master_node");
-  ros::NodeHandle* nh_master = new ros::NodeHandle();
-  SwarmMaster master_node;
-  Agent agent;
-  delete nh_master;
+
+  vector<AgentNode> agent_nodes;
+  for (int i = 0; i < 2; i++) {
+    AgentNode agent_node = new AgentNode(std::to_string(i));
+    agent_nodes.push_back(agent_node);
+  }
+
   return 0;
 }

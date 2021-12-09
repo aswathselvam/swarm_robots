@@ -8,9 +8,12 @@
 using std::string;
 
 class SwarmMaster {
+    public:
     string nodename_;
     ros::NodeHandle n_;
     Agent agents;
 
+    SwarmMaster();
+        
 };
 #endif  // INCLUDE_SWARM_ROBOTS_SWARM_MASTER_H_
