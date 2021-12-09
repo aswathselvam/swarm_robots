@@ -23,19 +23,34 @@
 #include <ompl/geometric/SimpleSetup.h>
 
 #include <ompl/config.h>
+#include <vector>
+
+#include "state.h"
 
 namespace ob = ompl::base;
 namespace og = ompl::geometric;
+using std::string;
+using std::vector;
 
-
-// Declear some global variables
-
-//ROS publishers
-ros::Publisher vis_pub;
-ros::Publisher traj_pub;
-
-octomap::OcTree *temp_tree;
 
 class PathPlanner {
+
+public:
+    State start_;
+    State goal_;
+    vector<State> waypoints_;
+    bool success_;
+    PathPlanner(string ns, ros::NodeHandle nh);
+    bool Plan(State start, State goal);
+
+private:
+    //ROS publishers
+    string ns;
+    ros::NodeHandle nh_;
+    string fixed_frame;
+    ros::Publisher vis_pub_;
+    octomap::OcTree *oct_tree_;
+
+
 };
 #endif  // INCLUDE_SWARM_ROBOTS_PATH_PLANNER_HPP_
