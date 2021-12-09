@@ -1,3 +1,4 @@
+
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 [![Build Status](https://app.travis-ci.com/aswathselvam/swarm_robots.svg?branch=main)](https://app.travis-ci.com/aswathselvam/swarm_robots)
 [![Coverage Status](https://coveralls.io/repos/github/aswathselvam/swarm_robots/badge.svg?branch=main)](https://coveralls.io/github/aswathselvam/swarm_robots?branch=main)
@@ -5,9 +6,7 @@
 # Jackal Rescue Robot
 
 This project is an implementation of a rescue operation using a swarm of [Clearpath Jackal robots](https://clearpathrobotics.com/jackal-small-unmanned-ground-vehicle/).
-It is built using ROS 1 and C++
 
-## 
 
 ## Overview
 Search and rescue is one of the most widely implemented problems in real-life robotic applications. The task of rescue can be generalized and used for moving an object from a source to any desired destination. In this project, we propose to develop a system that will deploy a swarm of 20 robots in a simulated gazebo environment and help rescue an object successfully to the defined end goal. The robot we propose to use is the Jackal unmanned ground vehicle. Agents in the rescue swarm will spawn at a pre-set start position and then navigate towards the object to be rescued. Once they reach the object contact point the agents will push the object synchronously and start moving towards the goal location.
@@ -58,6 +57,7 @@ Search and rescue is one of the most widely implemented problems in real-life ro
 <img src="https://github.com/kavyadevd/swarm_robots/blob/test/UML/Class%20diagram.png?raw=true" width="500px" alt="Class Diagram"></img>
 
 
+
 ### Assumptions:
 1. Robots are not aware of its neighbours.
 2. Centralized communication, there is a common node(rosmaster) through which all robots communicates with each other. 
@@ -74,5 +74,87 @@ The project will be developed using industry-grade agile methodologies. The agil
 
 [AIP Spreadsheet](https://docs.google.com/spreadsheets/d/1eQ78AiMMgUXJpQEjbjUjjJoJ0I1oSbPfRSU09nT6VKE/edit?usp=sharing)
 
+### Installations
+
+It is assumed that the system has Ubuntu 18.04 and above with ROS Melodic/Noetic installed.
+If not, install Ubuntu from [here](https://ubuntu.com/download/desktop) and ROS from [here](http://wiki.ros.org/melodic/Installation/Ubuntu)
+
+#### First step is to install Jackal robot
+```bash
+sudo apt-get install ros-melodic-jackal-simulator ros-melodic-jackal-desktop
+cd ~
+mkdir -p swarm_robots/src
+cd swarm_robots/src && catkin_init_workspace
+git clone https://github.com/jackal/jackal.git
+git clone https://github.com/jackal/jackal_simulator.git
+git clone https://github.com/clearpathrobotics/LMS1xx.git
+git clone https://github.com/ros-drivers/pointgrey_camera_driver.git
+cd ..
+catkin_make
+```
+
+#### Install dependencies
+##### OMPL
+```bash
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu `lsb_release -sc` main" > /etc/apt/sources.list.d/ros-latest.list'
+wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
+
+sudo apt-get update
+sudo apt-get install ros-`rosversion -d`-ompl
+```
+
+##### octomap_mapping
+```bash
+sudo apt-get install ros-<ros-version>-octomap ros-<ros-version>-octomap-mapping
+rosdep install octomap_mapping
+rosmake octomap_mapping
+
+```
+
+#### Clone git repository
+```bash
+cd swarm_robots/src
+git clone --recursive https://github.com/kavyadevd/swarm_robots.git
+```
+
+#### Execute program
+```bash
+catkin_make
+roslaunch swarm_robots main.launch
+```
+
+### Running ROS test/ Gtest
+
+To make the test files execute the following commands successively
+```bash
+catkin_make tests
+catkin_make test
+```
+
+Output will be similiar to :
+
+```bash
+... logging to /home/kavya/.ros/log/rostest-Matrix-27255.log
+[ROSUNIT] Outputting test results to /home/kavya/.ros/test_results/swarm_robots
+/rostest-test_testswarm.xml
+[ WARN] [1636828912.923804367]: Publisher message will be changed.
+[Testcase: testtestswarm] ... ok
+
+[ROSTEST]-----------------------------------------------------------------------
+
+[swarm_robots.rosunit-testswarm/TestArentsInit][passed]
+[swarm_robots.rosunit-testswarm/TestSwarmSize][passed]
+
+SUMMARY
+ * RESULT: SUCCESS
+ * TESTS: 2
+ * ERRORS: 0
+ * FAILURES: 0
+
+rostest log file is in /home/kavya/.ros/log/rostest-Matrix-27255.log
+
+```
+
 ## Licensing
 The project is licensed under the [3-Clause BSD License](https://opensource.org/licenses/BSD-3-Clause). Click [here](https://github.com/kavyadevd/swarm_robots/blob/main/LICENSE) to know more
+
