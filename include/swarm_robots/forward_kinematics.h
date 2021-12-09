@@ -10,8 +10,8 @@
  */
 
 
-#ifndef INCLUDE_SWARM_ROBOTS_FK_H_        //  NOLINT
-#define INCLUDE_SWARM_ROBOTS_FK_H_
+#ifndef INCLUDE_SWARM_ROBOTS_FORWARD_KINEMATICS_H_        //  NOLINT
+#define INCLUDE_SWARM_ROBOTS_FORWARD_KINEMATICS_H_
 
 #include <ros/ros.h>
 #include <std_msgs/String.h>
@@ -22,12 +22,11 @@
 
 using std::string;
 
-class FK {
+class ForwardKinematics {
     private:        //  NOLINT
         double *drive_velocity_;
         double *steering_;
     public:        //  NOLINT
-        void RotateMotors();
         bool PublishData();
 };
-#endif  // INCLUDE_SWARM_ROBOTS_FK_H_        //  NOLINT
+#endif  // INCLUDE_SWARM_ROBOTS_FORWARD_KINEMATICS_H_        //  NOLINT
