@@ -1,32 +1,58 @@
 <?xml version="1.0"?>
-<robot name="swarm_jackal" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:arg name="namespace" default="agent0" />  <!-- doc="Robot model name" -->
-  <xacro:arg name="tf_prefix" default="jackal1_tf" />
-  
-  <xacro:include filename="$(find jackal_description)/urdf/jackal.urdf.xacro" />
-  
-
-   <!-- Get Robot’s actual position to compare your state estimation
+<robot name="swarm_jackal"
+	xmlns:xacro="http://ros.org/wiki/xacro">
+	<xacro:arg name="nsp" default="agent0" />
+	<!-- doc="Robot model name" -->
+	<xacro:arg name="tf_prefix_" default="jackal1_tf" />
+	<xacro:include filename="$(find jackal_description)/urdf/jackal.urdf.xacro" />
+	<!-- Get Robot’s actual position to compare your state estimation
    TODO: Use/Remove   -->
-  <!-- <gazebo>
-    <plugin name="ground_truth" filename="libgazebo_ros_p3d.so">
-      <frameName>map</frameName>
-      <bodyName>base_link</bodyName>
-      <topicName>base_pose_ground_truth</topicName>
-      <updateRate>30.0</updateRate>
-    </plugin>
-  </gazebo>
-   -->
-
-  <!-- Gazebo plugin for ROS Control -->
-   <gazebo>
-    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <robotNamespace>/$(arg namespace)</robotNamespace>
-    </plugin>
-  </gazebo>
-<!--   
+	<gazebo>
+		<plugin name="ground_truth" filename="libgazebo_ros_p3d.so">
+			<frameName>map</frameName>
+			<bodyName>base_link</bodyName>
+			<topicName>base_pose_ground_truth</topicName>
+			<updateRate>30.0</updateRate>
+		</plugin>
+	</gazebo>
+	<!-- <gazebo>
+		<plugin name="imu_controller" filename="libhector_gazebo_ros_imu.so">
+			<robotNamespace>/$(arg nsp)</robotNamespace>
+			<frameId>$(arg tf_prefix_)/base_link</frameId>
+			<updateRate>50.0</updateRate>
+			<bodyName>base_link</bodyName>
+			<topicName>imu/data</topicName>
+			<accelDrift>0.005 0.005 0.005</accelDrift>
+			<accelGaussianNoise>0.005 0.005 0.005</accelGaussianNoise>
+			<rateDrift>0.005 0.005 0.005 </rateDrift>
+			<rateGaussianNoise>0.005 0.005 0.005 </rateGaussianNoise>
+			<headingDrift>0.005</headingDrift>
+			<headingGaussianNoise>0.005</headingGaussianNoise>
+		</plugin>
+	</gazebo>
+	<gazebo>
+		<plugin name="gps_controller" filename="libhector_gazebo_ros_gps.so">
+			<updateRate>40</updateRate>
+			<robotNamespace>/$(arg nsp)</robotNamespace>
+			<frameId>$(arg tf_prefix_)/base_link</frameId>
+			<bodyName>base_link</bodyName>
+			<topicName>navsat/fix</topicName>
+			<velocityTopicName>navsat/vel</velocityTopicName>
+			<referenceLatitude>49.9</referenceLatitude>
+			<referenceLongitude>8.9</referenceLongitude>
+			<referenceHeading>0</referenceHeading>
+			<referenceAltitude>0</referenceAltitude>
+			<drift>0.0001 0.0001 0.0001</drift>
+		</plugin>
+	</gazebo> -->
+	<!-- Gazebo plugin for ROS Control -->
+	<gazebo>
+		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+			<robotNamespace>/$(arg nsp)</robotNamespace>
+			<legacyModeNS>true</legacyModeNS>
+		</plugin>
+	</gazebo>
+	<!--   
   <xacro:include filename="$(find jackal_description)/urdf/jackal.urdf.xacro" /> -->
-  <xacro:include filename="$(find jackal_description)/urdf/jackal.gazebo" />
-
-  
+	<xacro:include filename="$(find jackal_description)/urdf/jackal.gazebo" />
 </robot>
