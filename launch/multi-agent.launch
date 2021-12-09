@@ -1,65 +1,57 @@
 <?xml version="1.0"?>
 <launch>
-	<!-- <arg name="config" default="front_laser" doc="Add front argument"/> -->
 	<arg name="world_name" value="$(find swarm_robots)/world/Rescue_light.world"/>
 	<arg name="env_runner" value="$(eval 'env_run' if not optenv('OS', 'unknown').lower().startswith('windows') else 'env_run.bat')" />
 	<arg name="namespace" default="agent0" />
-	<!-- <arg name="model_name" default="Jackal_0" /> -->
+
+
+  <arg name="ns" default="jackal"/>  <!--Namespace -->
+  <arg name="config" default="base" />
+
+  <!-- Arguments required for multi-jackal package [start] -->
+  <arg name="config_id" default="0"/>
+  <arg name="gps_rate"  default="1"/>
+  <arg name="gps_drift" default="0.0001"/>
+  <!-- Arguments required for multi-jackal package [end] -->
+
 	<arg name="x" default="0.0" />
 	<arg name="y" default="0.0" />
 	<arg name="z" default="0.0" />
 	<arg name="yaw" default="0.0" />
 	<arg name="tf_prefix" default="$(arg namespace)_tf" />
-	<!-- <param name="robot_description"
-         command="$(find jackal_description)/scripts/$(arg env_runner)
-                    $(find jackal_description)/urdf/configs/front_laser
-                    $(find xacro)/xacro $(find jackal_description)/urdf/jackal.urdf.xacro
-                    hyphen hyphen inorder" /> -->
-	<param name="robot_description" command="
-	$(find xacro)/xacro --inorder '$(find swarm_robots)/xacro/swarm_jackal.gazebo.xacro'			
-					   namespace:=$(arg namespace)
-					   tf_prefix:=$(arg tf_prefix)" />
-	<!-- <include file="$(find jackal_control)/launch/control.launch" /> -->
+	
+    <param name="/$(arg ns)/robot_description"
+         command="$(find multi_jackal_description)/scripts/env_run
+                  $(find multi_jackal_description)/urdf/configs/$(arg config)
+                  $(find xacro)/xacro '$(find multi_jackal_description)/urdf/jackal.urdf.xacro' 
+                      'namespace:=$(arg ns)' 'config_id:=$(arg config_id)'
+                      'gps_rate:=$(arg gps_rate)' 'gps_drift:=$(arg gps_drift)'" />
+
+  <!-- Publish the robot joints. -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" ns="$(arg ns)">
+    <param name="tf_prefix"         value="$(arg ns)"/>
+    <param name="robot_description" value="/$(arg ns)/robot_description"/>
+  </node>
 	<!-- Spawn Jackal in Gazebo package -->
 	<node name="jackal_spawner" pkg="gazebo_ros" type="spawn_model"
-	args="-urdf -param  /$(arg namespace)/robot_description -model Jackal_$(arg namespace) -x $(arg x) -y $(arg y) -z $(arg z) -R 0 -P 0 -Y $(arg yaw)"  
+	args="-urdf -param robot_description -model Jackal_$(arg namespace) -x $(arg x) -y $(arg y) -z $(arg z) -R 0 -P 0 -Y $(arg yaw)"  
    output="screen"/>
 
- <!-- Start the state publisher node in the namespace - uses the 
-       joint states from gazebo
-       along with the URDF model (robot_description) to publish 
-       the joint positions to /tf --> 
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
-  
-  <!-- Here we spawn (load and launch) two controllers which become 
-       part of Gazebo. The key thing we need to do is to set the 
-       "base_frame_id" of the diff_drive_controller
-       to include the tf_prefix so that our tf trees work out.   
-       So, we load the default control configuration and then overwrite 
-       the base_frame_id -->
+  <!-- Add Jackal controller nodes -->
   <rosparam command="load" file="$(find jackal_control)/config/control.yaml" />
   <rosparam param="jackal_velocity_controller/base_frame_id" subst_value="True">$(arg tf_prefix)/base_link</rosparam>
-  <node name="base_controller_spawner" pkg="controller_manager" type="spawner" args="jackal_joint_publisher jackal_velocity_controller --shutdown-timeout 3"/>
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" args="jackal_joint_publisher jackal_velocity_controller --shutdown-timeout 3"/>
   
-  <!-- Localization using imu and odometry simulated by Gazebo -->
-  <!-- <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
-    <rosparam command="load" file="$(find nre_simmultijackal)/config/localization.yaml" />
-  </node> -->
-
-
-
      
-  <!-- Twister server for rviz control-->
+  <!-- Add Twister server for Rviz-->
  <node pkg="interactive_marker_twist_server" type="marker_server" name="twist_marker_server" output="screen">
    <param name="link_name" value="$(arg tf_prefix)/base_link" />
  </node>
 
- <!-- Twist mux is a node from Clearpath that mixes control commands from multiple sources -->
+  <!-- Twist mux is a node from Clearpath that mixes control commands from multiple sources -->
   <node pkg="twist_mux" type="twist_mux" name="twist_mux">
     <rosparam command="load" file="$(find jackal_control)/config/twist_mux.yaml" />
     <remap from="cmd_vel_out" to="jackal_velocity_controller/cmd_vel"/>
   </node>
 
-
-	<!-- <group><include file="$(find gazebo_ros)/launch/empty_world.launch"><arg name="debug" value="0" /><arg name="gui" value="$(arg gui)" /><arg name="use_sim_time" value="$(arg use_sim_time)" /><arg name="headless" value="$(arg headless)" /><arg name="world_name" value="$(arg world_name)" /></include><param name="config" value="front_laser" /></group> -->
 </launch>
