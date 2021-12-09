@@ -3,9 +3,9 @@
 
 	<!-- Arguments for visualization and debugging toold launch -->
 	<arg name="rviz" value="y"/>
-	<arg name="rqt_topic" value="y"/>
-	<arg name="rqt_graph" value="y"/>
-	<arg name="rqt_tf_tree" value="y"/>
+	<arg name="rqt_topic" value="n"/>
+	<arg name="rqt_graph" value="n"/>
+	<arg name="rqt_tf_tree" value="n"/>
 
 
 	<!-- start world -->

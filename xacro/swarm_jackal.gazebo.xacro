@@ -50,6 +50,7 @@
 		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
 			<robotNamespace>/$(arg nsp)</robotNamespace>
 			<legacyModeNS>true</legacyModeNS>
+			 <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
 		</plugin>
 	</gazebo>
 	<!--   
