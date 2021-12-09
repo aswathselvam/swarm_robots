@@ -16,28 +16,34 @@
 #include <geometry_msgs/Twist.h>
 #include <string>
 #include <utility>
-#include "path_planner.h"
-#include "state.h"
-#include "forward_kinematics.h"
+#include "swarm_robots/path_planner.h"
+#include "swarm_robots/state.h"
+#include "swarm_robots/forward_kinematics.h"
+#include "swarm_robots/inverse_kinematics.h"
+#include "swarm_robots/safety_check.h"
 
 using std::string;
 
-class Agent : public FK {
-    private:        //  NOLINT
-        string robot_id_;
-        ros::NodeHandle n_;
-        ros::Publisher state_pub_;
-        ros::Publisher vel_pub_;
-        ros::Subscriber obs_sub_;
-        geometry_msgs::Twist twist_;
-        State state_;
-        std::pair<double, double> destination_;
+class Agent{
 
     public:        //  NOLINT
-        void Initialize(ros::NodeHandle, string);
-        void PathPlanner();
-        void InverseKinematics();
-        void ForwardKinematics();
+        Agent(string agent_id);
+        void PlanPath();
+        void PerformInverseKinematics();
+        void PerformForwardKinematics();
         void Stop();
+
+    protected:        //  NOLINT
+        State position_;
+        State velocity_;
+        double heading_angle_;
+        State goal_pos_;
+        PathPlanner path_planner_;
+        SafetyCheck safety_check_;
+        ForwardKinematics forward_kinematics;
+        InverseKinematics inverse_kinematics; 
+    
+    private:
+        string agent_id_;
 };
 #endif  // INCLUDE_SWARM_ROBOTS_AGENT_H_
