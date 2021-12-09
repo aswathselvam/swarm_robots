@@ -10,8 +10,8 @@
  */
 
 
-#ifndef INCLUDE_SWARM_ROBOTS_IK_H_        //  NOLINT
-#define INCLUDE_SWARM_ROBOTS_IK_H_
+#ifndef INCLUDE_SWARM_ROBOTS_INVERSE_KINEMATICS_H_        //  NOLINT
+#define INCLUDE_SWARM_ROBOTS_INVERSE_KINEMATICS_H_
 
 #include <ros/ros.h>
 #include <std_msgs/String.h>
@@ -22,14 +22,18 @@
 
 using std::string;
 
-class IK {
+class InverseKinematics {
+    public:        //  NOLINT
+        bool PerformIK();
+        void PerformModelIK();
+        void CheckSafety();
+
+    
     private:        //  NOLINT
-        State reference_point;
+        State reference_point_;
         double drive_velocity;
         double steering_val;
-    public:        //  NOLINT
-        void SafetyCheck();
-        void PerformModelIK();
-        bool PerformIK();
+        SafetyCheck safety_check_;
+        
 };
-#endif  // INCLUDE_SWARM_ROBOTS_IK_H_        //  NOLINT
+#endif  // INCLUDE_SWARM_ROBOTS_INVERSE_KINEMATICS_H_        //  NOLINT

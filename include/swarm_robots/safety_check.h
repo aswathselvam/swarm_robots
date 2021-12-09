@@ -16,20 +16,23 @@
 #include <ros/ros.h>
 #include <std_msgs/String.h>
 #include <geometry_msgs/Twist.h>
+#include <sensor_msgs/LaserScan.h>
 #include <utility>
 #include <vector>
 #include <string>
-#include <agent_node.h>
 
 using std::string;
 
 class SafetyCheck {
-    private:        //  NOLINT
-        double error_tolerance;
-        std::vector<std::pair<double, double>> distance;
-        double max_range_;
-        ros::Subscriber laser_sub_;
     public:        //  NOLINT
-        bool IsSafe(AgentNode);
+        SafetyCheck(string ns, ros::NodeHandle* nh);
+        State GetSafeDirection();
+
+    private:        //  NOLINT
+        double max_range_;
+        const double kfov_degrees_;
+        ros::Subscriber laser_sub_;
+        ros::NodeHandle nh_;
+        sensor_msgs::LaserScan laser_scan_;
 };
 #endif  // INCLUDE_SWARM_ROBOTS_SAFETY_CHECK_H_        //  NOLINT
