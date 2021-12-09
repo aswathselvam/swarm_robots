@@ -1,5 +1,10 @@
 <launch>
 	<param name="/use_sim_time" value="true" />
+
+	<!-- Arguments for visualization tools launch -->
+	<arg name="rviz" value="y"/>
+
+
 	<!-- start world -->
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
 		<!-- <arg name="config" default="front_laser" doc="Add front argument"/> -->
@@ -10,10 +15,7 @@
 		<arg name="headless" value="false"/>
 		<arg name="debug" value="false"/>
 	</include>
-	<!-- start world -->
-	<!-- <node name="gazebo" pkg="gazebo_ros" type="gazebo" args="$(find swarm_robots)/world/Rescue_light.world" respawn="false" output="screen" /> -->
-	<!-- include robots -->
-	<!-- <include file="$(find swarm_robots)/launch/multi-agent.launch"/> -->
+	
 	<group ns="agent1">
 		<include file="$(find swarm_robots)/launch/multi-agent.launch">
 			<arg name="namespace" value="agent1" />
@@ -234,5 +236,8 @@
 			<!-- <arg name="model_name" value="Jackal_20" /> -->
 		</include>
 	</group>
+
+	<!-- Visualize in Rviz -->
+	<node if="$(eval arg('rviz') == 'y')"  name="rviz" pkg="rviz" type="rviz" args="-d $(find swarm_robots)/rviz/Rviz_config.rviz" output="screen"/>
 
 </launch>
