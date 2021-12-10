@@ -23,10 +23,14 @@
 using std::string;
 
 class ForwardKinematics {
-    private:        //  NOLINT
-        double *drive_velocity_;
-        double *steering_;
     public:        //  NOLINT
-        bool PublishData();
+        ForwardKinematics();
+        State PerformFK(State velocity);
+
+    private:        //  NOLINT
+        State velocity_;
+        double kDriveVelocityLimit;
+        double kSteerVelocityLimit;
+
 };
 #endif  // INCLUDE_SWARM_ROBOTS_FORWARD_KINEMATICS_H_        //  NOLINT
