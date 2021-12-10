@@ -32,7 +32,7 @@ class SafetyCheck {
         double max_range_;
         const double kfov_degrees_;
         ros::Subscriber laser_sub_;
-        ros::NodeHandle nh_;
+        ros::NodeHandle* nh_;
         sensor_msgs::LaserScan laser_scan_;
 };
 #endif  // INCLUDE_SWARM_ROBOTS_SAFETY_CHECK_H_        //  NOLINT
