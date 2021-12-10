@@ -18,33 +18,41 @@
 #include "swarm_robots/path_planner.h"
 #include "swarm_robots/state.h"
 #include "swarm_robots/forward_kinematics.h"
+#include "swarm_robots/inverse_kinematics.h"
 #include "swarm_robots/safety_check.h"
 
 
 using std::string;
 
-void Agent::Agent(string agent_id) {    
-    this->agent_id = agent_id;
+Agent::Agent(string agent_id) {    
+    this->agent_id_ = agent_id;
 }
 
 void Agent::PlanPath(){
-    pathplanner_->PathPlanner();
+    path_planner_->Plan(this->position_, this->goal_pos_);
 }
 
 void Agent::PerformInverseKinematics(){
-      if(!pathplanner_.waypoints.size()>0)
+      if(!path_planner_->waypoints_.size()>0)
         PlanPath();
 
-    State intermediate_goal = pathplanner.waypoints.begin();
-    this->velocity_ = inverse_kinemaics_->PerformIK(intermediate_goal, this->position_);
+    State intermediate_goal = *( path_planner_->waypoints_.begin() );
+    this->velocity_ = inverse_kinematics_->PerformIK(intermediate_goal, this->position_);
+    double dist = sqrt(pow(intermediate_goal.x_ - this->position_.x_,2) + pow(intermediate_goal.y_ - this->position_.y_,2));
+    double THRESHOLD = 1;
+    if(dist<THRESHOLD){
+        path_planner_->waypoints_.pop_back();
+    }
+    
+
 }
 
 void Agent::PerformForwardKinematics(){
-  
+  this->velocity_ = forward_kinematics_->PerformFK(this->velocity_);
 }
 
 void Agent::Stop(){
-    velocity_.x=0;
-    velocity_.y=0;
-    velocity_.yaw=0;
+    velocity_.x_=0;
+    velocity_.y_=0;
+    velocity_.yaw_=0;
 }
