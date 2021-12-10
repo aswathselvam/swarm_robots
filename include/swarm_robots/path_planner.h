@@ -25,7 +25,7 @@
 #include <ompl/config.h>
 #include <vector>
 
-#include "state.h"
+#include "swarm_robots/state.h"
 
 namespace ob = ompl::base;
 namespace og = ompl::geometric;
@@ -40,13 +40,15 @@ public:
     State goal_;
     vector<State> waypoints_;
     bool success_;
-    PathPlanner(string ns, ros::NodeHandle nh);
+    PathPlanner(std::string ns, ros::NodeHandle* nh);
+    void CreateEmptyMap();
+    bool IsStateValid(const ob::State *state);
     bool Plan(State start, State goal);
 
 private:
     //ROS publishers
     string ns;
-    ros::NodeHandle nh_;
+    ros::NodeHandle* nh_;
     string fixed_frame;
     ros::Publisher vis_pub_;
     octomap::OcTree *oct_tree_;

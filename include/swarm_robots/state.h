@@ -14,11 +14,12 @@
 
 class State {
  public:
+  State();
+  State(double x, double y);
+  State(double x, double y, double yaw);
   double x_;
   double y_;
   double yaw_;
-  State(double x, double y);
-  State(double x, double y, double yaw);
 };
 
 

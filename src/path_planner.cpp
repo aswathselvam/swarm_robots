@@ -21,8 +21,8 @@
 
 #include <ompl/config.h>
 
-#include "path_planner.h"
-#include "State.h"
+#include "swarm_robots/path_planner.h"
+#include "swarm_robots/state.h"
 
 namespace ob = ompl::base;
 namespace og = ompl::geometric;
@@ -37,16 +37,16 @@ using std::string;
 #define DEBUG_MSG(str) do { } while ( false )
 #endif
 
-PathPlanner::PathPlanner(string ns, ros::NodeHandle* nh){
+PathPlanner::PathPlanner(std::string ns, ros::NodeHandle* nh){
     this->ns= "_jackal_"+ns;
     this->fixed_frame = "map";
 	this->nh_ = nh;
 	//ros::Subscriber octree_sub = n.subscribe("/octomap_binary", 1, octomapCallback);
-	vis_pub = nh_.advertise<visualization_msgs::Marker>("visualization_marker"+this->ns, 0 );
+	this->vis_pub_ = nh_->advertise<visualization_msgs::Marker>("visualization_marker"+this->ns, 0 );
     DEBUG_MSG("OMPL version: " << OMPL_VERSION << std::endl);
 }
 
-bool isStateValid(const ob::State *state){
+bool PathPlanner::IsStateValid(const ob::State *state){
 
 	return true;
 
@@ -66,7 +66,7 @@ bool isStateValid(const ob::State *state){
 }
 
 
-void PathPlanner::Plan(State start, State goal) {
+bool PathPlanner::Plan(State start, State goal) {
 	// construct the state space we are planning in
 	ob::StateSpacePtr space(new ob::RealVectorStateSpace(2));
 
@@ -77,26 +77,26 @@ void PathPlanner::Plan(State start, State goal) {
 	ob::SpaceInformationPtr si(new ob::SpaceInformation(space));
 
     // set state validity checking for this space
-	si->setStateValidityChecker(std::bind(&isStateValid, std::placeholders::_1));
+	si->setStateValidityChecker(std::bind(&PathPlanner::IsStateValid, std::placeholders::_1));
 
 	// Set our robot's starting state to be the bottom-left corner of
 	// the environment, or (0,0).
-	ob::ScopedState<> start(space);
-	start->as<ob::RealVectorStateSpace::StateType>()->values[0] = start_.x;
-	start->as<ob::RealVectorStateSpace::StateType>()->values[1] = start_.y;
+	ob::ScopedState<> start_state(space);
+	start_state->as<ob::RealVectorStateSpace::StateType>()->values[0] = start_.x_;
+	start_state->as<ob::RealVectorStateSpace::StateType>()->values[1] = start_.y_;
 	
 	// Set our robot's goal state to be the top-right corner of the
 	// environment, or (1,1).
-	ob::ScopedState<> goal(space);
-	goal->as<ob::RealVectorStateSpace::StateType>()->values[0] = goal_.x;
-	goal->as<ob::RealVectorStateSpace::StateType>()->values[1] = goal_.y;
+	ob::ScopedState<> goal_state(space);
+	goal_state->as<ob::RealVectorStateSpace::StateType>()->values[0] = goal_.x_;
+	goal_state->as<ob::RealVectorStateSpace::StateType>()->values[1] = goal_.y_;
 
     // create a problem instance
 	ob::ProblemDefinitionPtr pdef(new ob::ProblemDefinition(si));
 
     // set the start and goal states
    og::PathGeometric* pth;
-	pdef->setStartAndGoalStates(start, goal);
+	pdef->setStartAndGoalStates(start_state, goal_state);
 
 	//pdef->setOptimizationObjective(getPathLengthObjective(si));
 
@@ -132,7 +132,7 @@ void PathPlanner::Plan(State start, State goal) {
 		//Publish path as markers
 		visualization_msgs::Marker path_marker;
 		path_marker.action = visualization_msgs::Marker::DELETEALL;
-		vis_pub.publish(path_marker);
+		vis_pub_.publish(path_marker);
 
 		for (std::size_t idx = 0; idx < pth->getStateCount (); idx++)
 		{
@@ -170,7 +170,7 @@ void PathPlanner::Plan(State start, State goal) {
 			path_marker.color.r = 1.0;
 			path_marker.color.g = 1.0;
 			path_marker.color.b = 0.0;
-			vis_pub.publish(path_marker);
+			vis_pub_.publish(path_marker);
 			ros::Duration(0.001).sleep();
 		}
         #include <algorithm>
@@ -187,9 +187,14 @@ void PathPlanner::Plan(State start, State goal) {
 }
 
 
-PathPlanner::CreateEmptyMap(){
+void PathPlanner::CreateEmptyMap(){
    oct_tree_ = new octomap::OcTree(0.01);
-   oct_tree_.updateNode(endpoint, false);
+	for (int x =0 ; x<10; x++){
+		for (int y =0 ; y<10; y++){
+			octomap::point3d endpoint((float)x * 0.01f* 1, (float)y * 0.01f * 1, 0.0f);
+			oct_tree_->updateNode(endpoint, false);
+		}
+	}
 }
 
 

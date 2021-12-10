@@ -1,5 +1,10 @@
+#include <ros/ros.h>
+#include <sensor_msgs/LaserScan.h>
+#include <string>
 #include <cmath>
 #include "swarm_robots/safety_check.h"
+
+using std::string;
 
 SafetyCheck::SafetyCheck(string ns, ros::NodeHandle* nh){
     this->nh_ = nh;

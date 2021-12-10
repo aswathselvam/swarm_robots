@@ -17,8 +17,7 @@
 #include <string>
 #include <vector>
 #include "state.h"    //  NOLINT
-#include "agent_node.h"    //  NOLINT
-#include "agent.h"
+#include "swarm_robots/agent.h"
 
 using std::vector;
 using std::string;
@@ -26,12 +25,15 @@ using std::string;
 class AgentNode : public Agent {
 
   public:
-    explicit AgentNode(std::string id);
+    AgentNode(std::string id);
+    void PlanPath();
+    void PerformInverseKinematics();
+    void PerformForwardKinematics();
     void Loop();
 
   private :  // NOLINT
-    const int krate_;
-    ros::NodeHandle nh_;
+    int krate_;
+    ros::NodeHandle* nh_;
     ros::Publisher vel_pub_;
     geometry_msgs::Twist twist_msg_;
     std::string agent_id;

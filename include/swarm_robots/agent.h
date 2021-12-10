@@ -38,10 +38,9 @@ class Agent{
         State velocity_;
         double heading_angle_;
         State goal_pos_;
-        PathPlanner path_planner_;
-        SafetyCheck safety_check_;
-        ForwardKinematics forward_kinematics;
-        InverseKinematics inverse_kinematics; 
+        PathPlanner* path_planner_;
+        ForwardKinematics* forward_kinematics_;
+        InverseKinematics* inverse_kinematics_; 
     
     private:
         string agent_id_;

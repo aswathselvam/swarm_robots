@@ -36,7 +36,18 @@ include_directories(
   
 )
 
-add_executable(${PROJECT_NAME}_node src/swarm_master.cpp src/arena.cpp)
+add_executable(${PROJECT_NAME}_node 
+src/swarm_master.cpp 
+src/agent_node.cpp 
+src/agent.cpp 
+src/forward_kinematics.cpp 
+src/inverse_kinematics.cpp 
+src/path_planner.cpp 
+src/safety_check.cpp 
+src/state.cpp 
+src/obstacle.cpp 
+src/arena.cpp
+)
 
 ## Specify libraries to link a library or executable target against
  target_link_libraries(${PROJECT_NAME}_node
