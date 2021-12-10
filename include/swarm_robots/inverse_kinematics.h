@@ -17,23 +17,24 @@
 #include <std_msgs/String.h>
 #include <geometry_msgs/Twist.h>
 #include <string>
-#include "state.h"        //  NOLINT
-#include "safety_check.h"        //  NOLINT
+#include "swarm_robots/state.h"        //  NOLINT
+#include "swarm_robots/safety_check.h"        //  NOLINT
 
 using std::string;
 
 class InverseKinematics {
     public:        //  NOLINT
-        bool PerformIK();
-        void PerformModelIK();
-        void CheckSafety();
+        InverseKinematics(string ns, ros::NodeHandle* nh);
+        State PerformIK(State start, State goal);
+        State PerformModelIK();
+        State CheckSafety();
 
     
     private:        //  NOLINT
-        State reference_point_;
-        double drive_velocity;
-        double steering_val;
-        SafetyCheck safety_check_;
+        State goal_location_;
+        State current_location_;
+        State velocity_;
+        SafetyCheck *safety_check_;
         
 };
 #endif  // INCLUDE_SWARM_ROBOTS_INVERSE_KINEMATICS_H_        //  NOLINT
