@@ -8,43 +8,58 @@
  * @copyright BSD3 Copyright (c) 2021
  *
  */
-
+#include <ros/ros.h>
+#include <geometry_msgs/Twist.h>
+#include <std_msgs/String.h>
+#include <string>
+#include <iostream>
 #include "swarm_robots/agent.h"
+#include "swarm_robots/agent_node.h"
+#include "swarm_robots/path_planner.h"
 
-AgentNode::AgentNode(std::string id): agent_id(id), Agent(id) {
-  ros::init("agent_" + agent_id + "_node");
+using std::string;
+
+AgentNode::AgentNode(std::string ns):  Agent::Agent(ns) {
+  this->agent_id = ns;
+  int argc;
+  char** argv;
+  ros::init(argc,argv,"id");
   this->nh_ = new ros::NodeHandle();
-  this->vel_pub_ ros::Publisher(); = obstacle_sub_ = twist_ =
+  
+  this->path_planner_ = new PathPlanner(ns, nh_);
+  this->forward_kinematics_ = new ForwardKinematics();
+  this->inverse_kinematics_ = new InverseKinematics(ns, nh_);
+  this->vel_pub_ = this->nh_->advertise<geometry_msgs::Twist>("cmd_vel", this->krate_, this);
   this->krate_ = 20;
 }
 
-AgentNode::Loop(){
+void AgentNode::Loop(){
   ros::Rate loop_rate(this->krate_);
   while(ros::ok()){
     AgentNode::PlanPath();
-    AgentNode::InverseKinematics();
-    AgentNode::ForwardKinematics();
+    AgentNode::PerformInverseKinematics();
+    AgentNode::PerformForwardKinematics();
     ros::spinOnce();
     loop_rate.sleep();
   }
 }
 
 
-AgentNode::PlanPath(){
+void AgentNode::PlanPath(){
       Agent::PlanPath();
 }
 
-AgentNode::InverseKinematics(){
-    Agent::InverseKinematics();
+void AgentNode::PerformInverseKinematics(){
+    Agent::PerformInverseKinematics();
 }
 
-AgentNode::ForwardKinematics(){
-  Agent::ForwardKinematics();
-  twist_msg_.linear.x = velocity_.x;
+void AgentNode::PerformForwardKinematics(){
+  Agent::PerformForwardKinematics();
+  twist_msg_.linear.x = velocity_.x_;
   twist_msg_.linear.y = 0;
   twist_msg_.linear.z = 0;
   twist_msg_.angular.x = 0;
   twist_msg_.angular.y = 0;
-  twist_msg_.angular.z = velocity_.yaw;
+  twist_msg_.angular.z = velocity_.yaw_;
   vel_pub_.publish(twist_msg_);
 }
