@@ -1,16 +1,13 @@
 <?xml version="1.0"?>
-
 <launch>
     <arg name="config" default="front_laser" doc="Add front argument"/>
 
-    <group ns="agent2">
+    <group>
         <include file="$(find jackal_gazebo)/launch/jackal_world.launch" />
         <param name="config" value="$(arg config)" />
+        <arg name="world_name" value="$(find swarm_robots)/world/Rescue_new.world" />
     </group>
-   <group ns="agent1">
-        <include file="$(find jackal_gazebo)/launch/jackal_world.launch" />
-        <param name="config" value="$(arg config)" />
-    </group>
+
     <node pkg = "teleop_twist_keyboard" type = "teleop_twist_keyboard.py" name = "teleop_controller" output = "screen" />
     <include file="$(find jackal_viz)/launch/view_robot.launch" />
 </launch>
