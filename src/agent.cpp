@@ -29,21 +29,27 @@ Agent::Agent(string agent_id) {
 }
 
 void Agent::PlanPath(){
-    path_planner_->Plan(this->position_, this->goal_pos_);
+    //path_planner_->Plan(this->position_, this->goal_pos_);
 }
 
 void Agent::PerformInverseKinematics(){
+    /*
       if(!path_planner_->waypoints_.size()>0)
         PlanPath();
 
     State intermediate_goal = *( path_planner_->waypoints_.begin() );
+    */
+
+    State intermediate_goal(3,3);
     this->velocity_ = inverse_kinematics_->PerformIK(intermediate_goal, this->position_);
+    
+    /*
     double dist = sqrt(pow(intermediate_goal.x_ - this->position_.x_,2) + pow(intermediate_goal.y_ - this->position_.y_,2));
     double THRESHOLD = 1;
     if(dist<THRESHOLD){
         path_planner_->waypoints_.pop_back();
     }
-    
+    */
 
 }
 
