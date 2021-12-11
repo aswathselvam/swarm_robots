@@ -1,5 +1,5 @@
 #ifndef INCLUDE_SWARM_ROBOTS_PATH_PLANNER_H_
-#define INCLUDE_SWARM_ROBOTS_PATH_PLANNER_HPP_
+#define INCLUDE_SWARM_ROBOTS_PATH_PLANNER_H_
 
 #include <ros/ros.h>
 #include <std_msgs/String.h>
@@ -56,4 +56,4 @@ private:
 
 
 };
-#endif  // INCLUDE_SWARM_ROBOTS_PATH_PLANNER_HPP_
+#endif  // INCLUDE_SWARM_ROBOTS_PATH_PLANNER_H_
