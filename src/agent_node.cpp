@@ -29,7 +29,9 @@ AgentNode::AgentNode(std::string ns):  Agent::Agent(ns) {
   this->path_planner_ = new PathPlanner(ns, nh_);
   this->forward_kinematics_ = new ForwardKinematics();
   this->inverse_kinematics_ = new InverseKinematics(ns, nh_);
-  this->vel_pub_ = this->nh_->advertise<geometry_msgs::Twist>("cmd_vel", this->krate_, this);
+
+  //agent1/cmd_vel
+  this->vel_pub_ = this->nh_->advertise<geometry_msgs::Twist>("agent"+ns+"/cmd_vel", this->krate_, this);
   this->krate_ = 20;
 }
 

@@ -2,7 +2,7 @@
 #include <string>
 #include "swarm_robots/obstacle.h"
 
-using namespace string;
+using std::string;
 
 Obstacle::Obstacle(string ns){
     

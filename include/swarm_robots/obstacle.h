@@ -2,16 +2,16 @@
 #define INCLUDE_SWARM_ROBOTS_OBSTACLE_H_
 
 #include <string>
-using namespace string;
+using std::string;
 
 class Obstacle{
 public:
     Obstacle(string ns);
-    UpdateObstacleLocation();
-    virtual double x_;
-    virtual double y_;
-    virtual double length_;
-    virtual double width_;
+    void UpdateObstacleLocation();
+    double x_;
+    double y_;
+    double length_;
+    double width_;
 
 };
 

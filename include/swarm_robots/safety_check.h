@@ -20,17 +20,19 @@
 #include <utility>
 #include <vector>
 #include <string>
+#include "swarm_robots/state.h"
 
 using std::string;
 
 class SafetyCheck {
     public:        //  NOLINT
         SafetyCheck(string ns, ros::NodeHandle* nh);
+        void ScanCallback(const sensor_msgs::LaserScan::ConstPtr& msg);
         State GetSafeDirection();
 
     private:        //  NOLINT
         double max_range_;
-        const double kfov_degrees_;
+        double kfov_degrees_;
         ros::Subscriber laser_sub_;
         ros::NodeHandle* nh_;
         sensor_msgs::LaserScan laser_scan_;
