@@ -44,6 +44,9 @@ PathPlanner::PathPlanner(std::string ns, ros::NodeHandle* nh){
 	//ros::Subscriber octree_sub = n.subscribe("/octomap_binary", 1, octomapCallback);
 	this->vis_pub_ = nh_->advertise<visualization_msgs::Marker>("visualization_marker"+this->ns, 0 );
     DEBUG_MSG("OMPL version: " << OMPL_VERSION << std::endl);
+
+	//space = ob::StateSpacePtr(new ob::SE2StateSpace());
+
 }
 
 bool PathPlanner::IsStateValid(const ob::State *state){
@@ -67,17 +70,9 @@ bool PathPlanner::IsStateValid(const ob::State *state){
 
 
 bool PathPlanner::Plan(State start, State goal) {
+
+	/*
 	// construct the state space we are planning in
-	ob::StateSpacePtr space(new ob::RealVectorStateSpace(2));
-
-    // set the bounds for the R^3 part of SE(3)
-	space->as<ob::RealVectorStateSpace>()->setBounds(-10, 10);
-
-    // construct an instance of  space information from this state space
-	ob::SpaceInformationPtr si(new ob::SpaceInformation(space));
-
-    // set state validity checking for this space
-	si->setStateValidityChecker(std::bind(&PathPlanner::IsStateValid, std::placeholders::_1));
 
 	// Set our robot's starting state to be the bottom-left corner of
 	// the environment, or (0,0).
@@ -183,18 +178,21 @@ bool PathPlanner::Plan(State start, State goal) {
     }
 
     return success_;
-
+	*/
 }
 
 
 void PathPlanner::CreateEmptyMap(){
-   oct_tree_ = new octomap::OcTree(0.01);
+	/*
+   this->oct_tree_ = new octomap::OcTree(0.01);
 	for (int x =0 ; x<10; x++){
 		for (int y =0 ; y<10; y++){
 			octomap::point3d endpoint((float)x * 0.01f* 1, (float)y * 0.01f * 1, 0.0f);
 			oct_tree_->updateNode(endpoint, false);
 		}
 	}
+
+	*/
 }
 
 
