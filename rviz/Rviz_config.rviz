@@ -28,7 +28,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: agent3-Image
+    SyncSource: Jackal0-Image
 Visualization Manager:
   Class: ""
   Displays:
@@ -136,9 +136,9 @@ Visualization Manager:
               Show Axes: false
               Show Trail: false
               Value: true
-          Name: agent3
-          Robot Description: agent3/robot_description
-          TF Prefix: agent3_tf
+          Name: Jackal0-RobotModel
+          Robot Description: jackal0/robot_description
+          TF Prefix: jackal0
           Update Interval: 0
           Value: true
           Visual Enabled: true
@@ -236,9 +236,9 @@ Visualization Manager:
               Show Axes: false
               Show Trail: false
               Value: true
-          Name: agent1
-          Robot Description: agent1/robot_description
-          TF Prefix: agent1_tf
+          Name: Jackal1-RobotModel
+          Robot Description: jackal1/robot_description
+          TF Prefix: jackal1
           Update Interval: 0
           Value: true
           Visual Enabled: true
@@ -317,9 +317,9 @@ Visualization Manager:
               Show Axes: false
               Show Trail: false
               Value: true
-          Name: agent2
-          Robot Description: agent2/robot_description
-          TF Prefix: agent2_tf
+          Name: Jackal2-RobotModel-RobotModel
+          Robot Description: jackal2/robot_description
+          TF Prefix: jackal2
           Update Interval: 0
           Value: true
           Visual Enabled: true
@@ -333,7 +333,7 @@ Visualization Manager:
           Max Value: 1
           Median window: 5
           Min Value: 0
-          Name: agent3-Image
+          Name: Jackal0-RobotModel-Image
           Normalize Range: true
           Queue Size: 2
           Transport Hint: raw
@@ -357,7 +357,7 @@ Visualization Manager:
           Max Intensity: 999999
           Min Color: 0; 0; 0
           Min Intensity: 8.40779079e-45
-          Name: agent2-LaserScan
+          Name: Jackal2-RobotModel-RobotModel-LaserScan
           Position Transformer: XYZ
           Queue Size: 10
           Selectable: true
@@ -376,7 +376,7 @@ Visualization Manager:
         - Class: rviz/InteractiveMarkers
           Enable Transparency: true
           Enabled: true
-          Name: agent3-InteractiveMarkers
+          Name: Jackal0-RobotModel-InteractiveMarkers
           Show Axes: false
           Show Descriptions: false
           Show Visual Aids: false
@@ -385,7 +385,7 @@ Visualization Manager:
         - Class: rviz/InteractiveMarkers
           Enable Transparency: true
           Enabled: true
-          Name: agent1-InteractiveMarkers
+          Name: Jackal1-RobotModel-InteractiveMarkers
           Show Axes: false
           Show Descriptions: false
           Show Visual Aids: false
@@ -394,7 +394,7 @@ Visualization Manager:
         - Class: rviz/InteractiveMarkers
           Enable Transparency: true
           Enabled: true
-          Name: agent2-InteractiveMarkers
+          Name: Jackal2-RobotModel-RobotModel-InteractiveMarkers
           Show Axes: false
           Show Descriptions: false
           Show Visual Aids: false
@@ -414,7 +414,7 @@ Visualization Manager:
           Length: 0.300000012
           Line Style: Lines
           Line Width: 0.0299999993
-          Name: agent2-PlannedPath
+          Name: Jackal2-RobotModel-PlannedPath
           Offset:
             X: 0
             Y: 0
@@ -432,7 +432,7 @@ Visualization Manager:
           Color Scheme: map
           Draw Behind: false
           Enabled: false
-          Name: agent2-CostMap
+          Name: Jackal2-RobotModel-CostMap
           Topic: /jackal2/move_base/global_costmap/costmap
           Unreliable: false
           Use Timestamp: false
