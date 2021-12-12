@@ -2,7 +2,7 @@
 	<param name="/use_sim_time" value="true" />
 
 	<!-- Arguments for visualization and debugging toold launch -->
-	<arg name="rviz" value="y"/>
+	<arg name="rviz" value="n"/>
 	<arg name="rqt_topic" value="n"/>
 	<arg name="rqt_graph" value="n"/>
 	<arg name="rqt_tf_tree" value="n"/>
@@ -14,234 +14,220 @@
 		<arg name="world_name" value="$(find swarm_robots)/world/Rescue_light.world" />
 		<arg name="paused" value="false"/>
 		<arg name="use_sim_time" value="true"/>
-		<arg name="gui" value="true"/>
+		<arg name="gui" default="false"/>
 		<arg name="headless" value="false"/>
 		<arg name="debug" value="false"/>
 	</include>
-	
-	<group ns="agent1">
-		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-			<arg name="namespace" value="agent1" />
-			<arg name="y" value="6" />
-			<arg name="x" value="4" />
-			<arg name="z" value="0.0" />
-			<arg name="yaw" value = "1.6" />
-			<!-- <arg name="config" value="$(arg config)" /> -->
-			<!-- <arg name="model_name" value="Jackal_1" /> -->
-		</include>
-	</group>
-	<group ns="agent2">
-		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-			<arg name="namespace" value="agent2" />
-			<arg name="y" value="6" />
-			<arg name="x" value="4.6" />
-			<arg name="z" value="0.0" />
-			<arg name="yaw" value = "1.6" />
-			<!-- <arg name="config" value="$(arg config)" /> -->
-			<!-- <arg name="model_name" value="Jackal_2" /> -->
-		</include>
-	</group>
-	<group ns="agent3">
-		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-			<arg name="namespace" value="agent3" />
-			<arg name="y" value="6" />
-			<arg name="x" value="5.2" />
-			<arg name="z" value="0.0" />
-			<arg name="yaw" value = "1.6" />
-			<!-- <arg name="config" value="$(arg config)" /> -->
-			<!-- <arg name="model_name" value="Jackal_3" /> -->
-		</include>
-	</group>
-	<group ns="agent4">
-		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-			<arg name="namespace" value="agent4" />
-			<arg name="y" value="6" />
-			<arg name="x" value="5.8" />
-			<arg name="z" value="0.0" />
-			<arg name="yaw" value = "1.6" />
-			<!-- <arg name="config" value="$(arg config)" /> -->
-			<!-- <arg name="model_name" value="Jackal_4" /> -->
-		</include>
-	</group>
-	<group ns="agent5">
-		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-			<arg name="namespace" value="agent5" />
-			<arg name="y" value="6" />
-			<arg name="x" value="6.4" />
-			<arg name="z" value="0.0" />
-			<arg name="yaw" value = "1.6" />
-			<!-- <arg name="config" value="$(arg config)" /> -->
-			<!-- <arg name="model_name" value="Jackal_5" /> -->
-		</include>
-	</group>
-	<group ns="agent6">
-		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-			<arg name="namespace" value="agent6" />
-			<arg name="y" value="7" />
-			<arg name="x" value="5.6" />
-			<arg name="z" value="0.0" />
-			<arg name="yaw" value = "1.6" />
-			<!-- <arg name="config" value="$(arg config)" /> -->
-			<!-- <arg name="model_name" value="Jackal_6" /> -->
-		</include>
-	</group>
-	<group ns="agent7">
-		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-			<arg name="namespace" value="agent7" />
-			<arg name="y" value="7" />
-			<arg name="x" value="6.2" />
-			<arg name="z" value="0.0" />
-			<arg name="yaw" value = "1.6" />
-			<!-- <arg name="config" value="$(arg config)" /> -->
-			<!-- <arg name="model_name" value="Jackal_7" /> -->
-		</include>
-	</group>
-	<group ns="agent8">
-		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-			<arg name="namespace" value="agent8" />
-			<arg name="y" value="7" />
-			<arg name="x" value="6.8" />
-			<arg name="z" value="0.0" />
-			<arg name="yaw" value = "1.6" />
-			<!-- <arg name="config" value="$(arg config)" /> -->
-			<!-- <arg name="model_name" value="Jackal_8" /> -->
-		</include>
-	</group>
-	<group ns="agent9">
-		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-			<arg name="namespace" value="agent9" />
-			<arg name="y" value="7" />
-			<arg name="x" value="7.4" />
-			<arg name="z" value="0.0" />
-			<arg name="yaw" value = "1.6" />
-			<!-- <arg name="config" value="$(arg config)" /> -->
-			<!-- <arg name="model_name" value="Jackal_9" /> -->
-		</include>
-	</group>
-	<group ns="agent10">
-		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-			<arg name="namespace" value="agent10" />
-			<arg name="y" value="7" />
-			<arg name="x" value="8" />
-			<arg name="z" value="0.0" />
-			<arg name="yaw" value = "1.6" />
-			<!-- <arg name="config" value="$(arg config)" /> -->
-			<!-- <arg name="model_name" value="Jackal_10" /> -->
-		</include>
-	</group>
-	<group ns="agent11">
-		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-			<arg name="namespace" value="agent11" />
-			<arg name="y" value="8" />
-			<arg name="x" value="4" />
-			<arg name="z" value="0.0" />
-			<arg name="yaw" value = "1.6" />
-			<!-- <arg name="config" value="$(arg config)" /> -->
-			<!-- <arg name="model_name" value="Jackal_11" /> -->
-		</include>
-	</group>
-	<group ns="agent12">
-		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-			<arg name="namespace" value="agent12" />
-			<arg name="y" value="8" />
-			<arg name="x" value="4.6" />
-			<arg name="z" value="0.0" />
-			<arg name="yaw" value = "1.6" />
-			<!-- <arg name="config" value="$(arg config)" /> -->
-			<!-- <arg name="model_name" value="Jackal_12" /> -->
-		</include>
-	</group>
-	<group ns="agent13">
-		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-			<arg name="namespace" value="agent13" />
-			<arg name="y" value="8" />
-			<arg name="x" value="5.2" />
-			<arg name="z" value="0.0" />
-			<arg name="yaw" value = "1.6" />
-			<!-- <arg name="config" value="$(arg config)" /> -->
-			<!-- <arg name="model_name" value="Jackal_13" /> -->
-		</include>
-	</group>
-	<group ns="agent14">
-		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-			<arg name="namespace" value="agent14" />
-			<arg name="y" value="8" />
-			<arg name="x" value="5.8" />
-			<arg name="z" value="0.0" />
-			<arg name="yaw" value = "1.6" />
-			<!-- <arg name="config" value="$(arg config)" /> -->
-			<!-- <arg name="model_name" value="Jackal_14" /> -->
-		</include>
-	</group>
-	<group ns="agent15">
-		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-			<arg name="namespace" value="agent15" />
-			<arg name="y" value="8" />
-			<arg name="x" value="6.4" />
-			<arg name="z" value="0.0" />
-			<arg name="yaw" value = "1.6" />
-			<!-- <arg name="config" value="$(arg config)" /> -->
-			<!-- <arg name="model_name" value="Jackal_15" /> -->
-		</include>
-	</group>
-	<group ns="agent16">
-		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-			<arg name="namespace" value="agent16" />
-			<arg name="y" value="9" />
-			<arg name="x" value="5.6" />
-			<arg name="z" value="0.0" />
-			<arg name="yaw" value = "1.6" />
-			<!-- <arg name="config" value="$(arg config)" /> -->
-			<!-- <arg name="model_name" value="Jackal_16" /> -->
-		</include>
-	</group>
-	<group ns="agent17">
-		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-			<arg name="namespace" value="agent17" />
-			<arg name="y" value="9" />
-			<arg name="x" value="6.2" />
-			<arg name="z" value="0.0" />
-			<arg name="yaw" value = "1.6" />
-			<!-- <arg name="config" value="$(arg config)" /> -->
-			<!-- <arg name="model_name" value="Jackal_17" /> -->
-		</include>
-	</group>
-	<group ns="agent18">
-		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-			<arg name="namespace" value="agent18" />
-			<arg name="y" value="9" />
-			<arg name="x" value="6.8" />
-			<arg name="z" value="0.0" />
-			<arg name="yaw" value = "1.6" />
-			<!-- <arg name="config" value="$(arg config)" /> -->
-			<!-- <arg name="model_name" value="Jackal_18" /> -->
-		</include>
-	</group>
-	<group ns="agent19">
-		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-			<arg name="namespace" value="agent19" />
-			<arg name="y" value="9" />
-			<arg name="x" value="7.4" />
-			<arg name="z" value="0.0" />
-			<arg name="yaw" value = "1.6" />
-			<!-- <arg name="config" value="$(arg config)" /> -->
-			<!-- <arg name="model_name" value="Jackal_19" /> -->
-		</include>
-	</group>
-	<group ns="agent20">
-		<include file="$(find swarm_robots)/launch/multi-agent.launch">
-			<arg name="namespace" value="agent20" />
-			<arg name="y" value="9" />
-			<arg name="x" value="8" />
-			<arg name="z" value="0.0" />
-			<arg name="yaw" value = "1.6" />
-			<!-- <arg name="config" value="$(arg config)" /> -->
-			<!-- <arg name="model_name" value="Jackal_20" /> -->
-		</include>
-	</group>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal0"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="3"/>
+		<arg name="y" value="6"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal1"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="4"/>
+		<arg name="y" value="6"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal2"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="5"/>
+		<arg name="y" value="6"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal3"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="6"/>
+		<arg name="y" value="6"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal4"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="7"/>
+		<arg name="y" value="6"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal5"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="3"/>
+		<arg name="y" value="7"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal6"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="4"/>
+		<arg name="y" value="7"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal7"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="5"/>
+		<arg name="y" value="7"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal8"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="6"/>
+		<arg name="y" value="7"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal9"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="7"/>
+		<arg name="y" value="7"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal10"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="3"/>
+		<arg name="y" value="8"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal11"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="4"/>
+		<arg name="y" value="8"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal12"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="5"/>
+		<arg name="y" value="8"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal13"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="6"/>
+		<arg name="y" value="8"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal14"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="7"/>
+		<arg name="y" value="8"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal15"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="3"/>
+		<arg name="y" value="9"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal16"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="4"/>
+		<arg name="y" value="9"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal17"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="5"/>
+		<arg name="y" value="9"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal18"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="6"/>
+		<arg name="y" value="9"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal19"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="7"/>
+		<arg name="y" value="9"/>
+		<arg name="yaw" value="11"/>
+	</include>
 
 	<!-- Visualize in Rviz -->
-	<node if="$(eval arg('rviz') == 'y')"  name="rviz" pkg="rviz" type="rviz" args="-d $(find swarm_robots)/rviz/Rviz_config.rviz" output="screen"/>
+	<group if="$(eval arg('rviz') == 'y')">
+		<node name="rviz" pkg="rviz" type="rviz" args="-d $(find swarm_robots)/rviz/Rviz_config.rviz">
+			<remap from="/move_base_simple/goal" to="/jackal19/move_base_simple/goal"/>
+		</node>
+	</group>
+
 
 	<!-- For Debugging -->
 	<node if="$(eval arg('rqt_topic') == 'y')" name="rqt_topic" pkg="rqt_topic" type="rqt_topic" output="screen" />
