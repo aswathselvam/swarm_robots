@@ -11,11 +11,10 @@
 #include "../include/swarm_robots/forward_kinematics.hpp"
 
 #include <algorithm>
-
-#include "geometry_msgs/Pose.h"
-#include "tf/transform_broadcaster.h"
+#include <iostream>
 
 using std::max;
+using std::min;
 
 ForwardKinematics::ForwardKinematics() {
     kDriveVelocityLimit = 10;
@@ -23,8 +22,20 @@ ForwardKinematics::ForwardKinematics() {
 }
 
 State ForwardKinematics::PerformFK(State velocity) {
-    velocity_.x_ = max(kDriveVelocityLimit, velocity.x_);
-    velocity_.yaw_ = max(kSteerVelocityLimit, velocity.yaw_);
+    if (velocity_.x_ > 0) {
+        velocity_.x_ = min(kDriveVelocityLimit, velocity.x_);
+    } else {
+        velocity_.x_ = max(-kDriveVelocityLimit, velocity.x_);
+    }
+
+    if (velocity_.yaw_ > 0) {
+        velocity_.yaw_ = min(kSteerVelocityLimit, velocity.yaw_);
+    } else {
+        velocity_.yaw_ = max(-kSteerVelocityLimit, velocity.yaw_);
+    }
+
+    // std::cout<<"Final velocity yaw: "<<velocity_.x_;
+
     return velocity_;
 }
 

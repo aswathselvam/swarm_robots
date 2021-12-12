@@ -27,7 +27,16 @@ using std::string;
 
 Agent::Agent(string agent_id) {
     this->agent_id_ = agent_id;
+<<<<<<< HEAD
     path_planner_->Plan(this->position_, this->goal_pos_);
+=======
+    this->position_.x_ = 0;
+    this->position_.y_ = 0;
+    this->position_.yaw_ = 0;
+    this->velocity_.x_ = 0;
+    this->velocity_.y_ = 0;
+    this->velocity_.yaw_ = 0;
+>>>>>>> 47b462286dc7d19138b0716aba9028bbf06b7244
 }
 
 void Agent::PlanPath() {
