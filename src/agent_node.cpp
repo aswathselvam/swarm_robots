@@ -21,7 +21,7 @@
 
 using std::string;
 
-AgentNode::AgentNode(std::string ns):  Agent::Agent(ns) {
+AgentNode::AgentNode(std::string ns): Agent::Agent(ns){
   this->agent_id = ns;
   this->nh_ = new ros::NodeHandle();
   this->path_planner_ = new PathPlanner(ns, nh_);
@@ -33,18 +33,15 @@ AgentNode::AgentNode(std::string ns):  Agent::Agent(ns) {
   this->pos_sub_ = this->nh_->subscribe("/jackal"+ns+"/base_pose_ground_truth", 1, &AgentNode::PosCallback, this);
 
   this->krate_ = 20;
-  Loop();
 }
 
 void AgentNode::Loop(){
   ros::Rate loop_rate(this->krate_);
-  //while(ros::ok()){
-    AgentNode::PlanPath();
-    AgentNode::PerformInverseKinematics();
-    AgentNode::PerformForwardKinematics();
-    ros::spinOnce();
-    //loop_rate.sleep();
-  //}
+  AgentNode::PlanPath();
+  AgentNode::PerformInverseKinematics();
+  AgentNode::PerformForwardKinematics();
+  ros::spinOnce();
+  loop_rate.sleep();
 }
 
 void AgentNode::PosCallback(const nav_msgs::Odometry::ConstPtr& msg){
@@ -62,7 +59,7 @@ void AgentNode::PosCallback(const nav_msgs::Odometry::ConstPtr& msg){
   tf::Matrix3x3(quat).getRPY(roll, pitch, yaw);
   this->position_.yaw_ = yaw;
 
-  //ROS_INFO("Seq: [%d]", msg->header.seq);
+  ROS_INFO("Seq: [%d]", msg->header.seq);
   
 }
 
