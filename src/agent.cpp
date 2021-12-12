@@ -26,6 +26,12 @@ using std::string;
 
 Agent::Agent(string agent_id) {    
     this->agent_id_ = agent_id;
+    this->position_.x_ = 0;
+    this->position_.y_ = 0;
+    this->position_.yaw_ = 0;
+    this->velocity_.x_ = 0;
+    this->velocity_.y_ = 0;
+    this->velocity_.yaw_ = 0;
 }
 
 void Agent::PlanPath(){
