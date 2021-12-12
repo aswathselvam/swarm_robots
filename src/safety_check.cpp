@@ -9,7 +9,9 @@ using std::string;
 
 SafetyCheck::SafetyCheck(string ns, ros::NodeHandle* nh): kfov_degrees_(180){
     this->nh_ = nh;
-    this->laser_sub_ = this->nh_->subscribe("scan"+ns, 1, &SafetyCheck::ScanCallback, this);
+    
+    // Topic name: /jackal0/front/scan
+    this->laser_sub_ = this->nh_->subscribe("/jackal"+ns+"/front/scan", 1, &SafetyCheck::ScanCallback, this);
 }
 
 void SafetyCheck::ScanCallback(const sensor_msgs::LaserScan::ConstPtr& msg) {
