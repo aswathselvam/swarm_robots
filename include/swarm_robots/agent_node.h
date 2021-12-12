@@ -16,6 +16,7 @@
 #include <std_msgs/String.h>
 #include <string>
 #include <vector>
+#include <nav_msgs/Odometry.h>
 #include "state.h"    //  NOLINT
 #include "swarm_robots/agent.h"
 
@@ -26,7 +27,9 @@ class AgentNode : public Agent {
 
   public:
     AgentNode(std::string id);
+    ~AgentNode();
     void PlanPath();
+    void PosCallback(const nav_msgs::Odometry::ConstPtr& msg);
     void PerformInverseKinematics();
     void PerformForwardKinematics();
     void Loop();
@@ -35,6 +38,7 @@ class AgentNode : public Agent {
     int krate_;
     ros::NodeHandle* nh_;
     ros::Publisher vel_pub_;
+    ros::Subscriber pos_sub_;
     geometry_msgs::Twist twist_msg_;
     std::string agent_id;
 };
