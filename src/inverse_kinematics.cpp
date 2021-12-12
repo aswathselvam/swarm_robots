@@ -12,7 +12,7 @@ State InverseKinematics::PerformIK(State start, State goal){
     this->goal_location_ = goal;
     State vel =  PerformModelIK();
     State rep_vel = CheckSafety();
-
+    return vel+rep_vel;
 }
 
 State InverseKinematics::PerformModelIK(){

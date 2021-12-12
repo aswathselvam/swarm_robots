@@ -17,10 +17,10 @@ class State {
   State();
   State(double x, double y);
   State(double x, double y, double yaw);
+  State operator+(State const &state);
   double x_;
   double y_;
   double yaw_;
 };
-
 
 #endif  // INCLUDE_SWARM_ROBOTS_STATE_H_
