@@ -27,15 +27,31 @@ using std::string;
 
 class SafetyCheck {
    public:  //  NOLINT
+    /**
+     * @brief SafetyCheck parameterized constructor,
+     * initializes agent namespace and nodehandle
+     * @param string ns : agent namespace
+     * @param ros::NodeHandle* nh : ros node handle
+     */
     SafetyCheck(string ns, ros::NodeHandle* nh);
+
+    /**
+     * @brief Laser scan callback function
+     * @param const sensor_msgs::LaserScan::ConstPtr& msg : msg pointer
+     */
     void ScanCallback(const sensor_msgs::LaserScan::ConstPtr& msg);
+
+    /**
+     * @brief Gets safce obstacle free distance
+     * @return State : x and y coordinates of safe distance from current
+     */
     State GetSafeDirection();
 
-   private:  //  NOLINT
-    double max_range_;
-    double kfov_degrees_;
-    ros::Subscriber laser_sub_;
-    ros::NodeHandle* nh_;
-    sensor_msgs::LaserScan laser_scan_;
+   private:                              //  NOLINT
+    double max_range_;                   ///< Range for obstacle avoiance
+    double kfov_degrees_;                ///< fov degress = 180
+    ros::Subscriber laser_sub_;          ///< Laser topic subscriber
+    ros::NodeHandle* nh_;                ///< ros nodehandle
+    sensor_msgs::LaserScan laser_scan_;  ///< Variable to store laser scan data
 };
 #endif  // INCLUDE_SWARM_ROBOTS_SAFETY_CHECK_H_        //  NOLINT
