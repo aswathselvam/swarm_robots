@@ -1,0 +1,11 @@
+<map id="include/swarm_robots/agent.hpp" name="include/swarm_robots/agent.hpp">
+<area shape="rect" id="node1" title="The header file for agent control." alt="" coords="403,5,569,47"/>
+<area shape="rect" id="node2" href="$agent__node_8hpp.html" title=" " alt="" coords="179,95,345,136"/>
+<area shape="rect" id="node3" href="$agent__node_8cpp.html" title="The header file for coordinate system used in the project." alt="" coords="5,184,153,211"/>
+<area shape="rect" id="node5" href="$arena_8hpp.html" title="The header file for arena elements." alt="" coords="463,95,629,136"/>
+<area shape="rect" id="node6" href="$agent_8cpp.html" title="The code file for agent control." alt="" coords="371,184,481,211"/>
+<area shape="rect" id="node7" href="$arena_8cpp.html" title="The code file for arena attributes and methods." alt="" coords="635,184,745,211"/>
+<area shape="rect" id="node9" href="$swarm__master_8hpp.html" title="The header file for arena obstacles." alt="" coords="703,95,869,136"/>
+<area shape="rect" id="node4" href="$swarm__master_8cpp.html" title="File for robot main execution methods." alt="" coords="177,184,347,211"/>
+<area shape="rect" id="node8" href="$src_2main_8cpp.html" title="main execution file" alt="" coords="505,184,611,211"/>
+</map>
