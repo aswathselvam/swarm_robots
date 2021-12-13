@@ -23,6 +23,7 @@ class Arena {
    public:  //  NOLINT
     /**
      * @brief Inilializes all agents in arena
+     * @return bool: True if successful
      */
     bool InitializeAgents();
 
