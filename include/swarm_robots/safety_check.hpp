@@ -33,7 +33,7 @@ class SafetyCheck {
      * @param string ns : agent namespace
      * @param ros::NodeHandle* nh : ros node handle
      */
-    SafetyCheck(string ns, ros::NodeHandle* nh);
+    SafetyCheck(string ns, ros::NodeHandlePtr nh);
 
     /**
      * @brief Laser scan callback function
@@ -51,7 +51,7 @@ class SafetyCheck {
     double max_range_;                   ///< Range for obstacle avoiance
     double kfov_degrees_;                ///< fov degress = 180
     ros::Subscriber laser_sub_;          ///< Laser topic subscriber
-    ros::NodeHandle* nh_;                ///< ros nodehandle
+    ros::NodeHandlePtr nh_;                ///< ros nodehandle
     sensor_msgs::LaserScan laser_scan_;  ///< Variable to store laser scan data
 };
 #endif  // INCLUDE_SWARM_ROBOTS_SAFETY_CHECK_H_        //  NOLINT

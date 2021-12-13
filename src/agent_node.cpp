@@ -16,6 +16,7 @@
 #include <nav_msgs/Odometry.h>
 #include <ros/ros.h>
 #include <std_msgs/String.h>
+#include <boost/thread/thread.hpp>
 
 #include <iostream>
 #include <string>
@@ -27,7 +28,7 @@ using std::string;
 
 AgentNode::AgentNode(std::string ns): Agent::Agent(ns){
   this->agent_id = ns;
-  this->nh_ = new ros::NodeHandle();
+  this->nh_ = boost::make_shared<ros::NodeHandle>();
   this->path_planner_ = new PathPlanner(ns, nh_);
   this->forward_kinematics_ = new ForwardKinematics();
   this->inverse_kinematics_ = new InverseKinematics(ns, nh_);
@@ -91,6 +92,5 @@ void AgentNode::PerformForwardKinematics() {
 }
 
 AgentNode::~AgentNode() {
-    delete nh_;
     std::cout << "Deteletd NH";
 }

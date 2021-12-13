@@ -53,7 +53,7 @@ class PathPlanner {
      * initializes agent namespace and nodehandle
      * @param string ns : agent namespace
      */
-    PathPlanner(std::string ns, ros::NodeHandle* nh);
+    PathPlanner(std::string ns, ros::NodeHandlePtr nh);
 
     /**
      * @brief Creates OMPL empty map for path planning
@@ -86,7 +86,7 @@ class PathPlanner {
    private:  //  NOLINT
     //  ROS publishers
     string ns;        ///< Agent namespace
-    ros::NodeHandle* nh_;        ///< ROS node handle
+    ros::NodeHandlePtr nh_;        ///< ROS node handle
     string fixed_frame;        ///< Default value : "map"
     ros::Publisher vis_pub_;        ///< ros velocity publisher
     octomap::OcTree* oct_tree_;        ///< oct_tree_ to store map

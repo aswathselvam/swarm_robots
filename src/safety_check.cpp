@@ -22,7 +22,7 @@
 using std::cout;
 using std::string;
 
-SafetyCheck::SafetyCheck(string ns, ros::NodeHandle* nh) : kfov_degrees_(180) {
+SafetyCheck::SafetyCheck(string ns, ros::NodeHandlePtr nh) : kfov_degrees_(180) {
     this->nh_ = nh;
 
     // Topic name: /jackal0/front/scan
