@@ -189,6 +189,7 @@ if (solved) {
 
 return success_;
     */
+   return true;
 }
 
 void PathPlanner::CreateEmptyMap() {

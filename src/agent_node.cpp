@@ -67,7 +67,7 @@ void AgentNode::PosCallback(const nav_msgs::Odometry::ConstPtr& msg){
   tf::Matrix3x3(quat).getRPY(roll, pitch, yaw);
   this->position_.yaw_ = yaw;
 
-  ROS_INFO("Seq: [%d]", msg->header.seq);
+  //ROS_INFO("Seq: [%d]", msg->header.seq);
   
 }
 

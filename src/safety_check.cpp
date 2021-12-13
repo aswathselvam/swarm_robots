@@ -42,6 +42,7 @@ State SafetyCheck::GetSafeDirection() {
     // cout<<"Laser min: "<<laser_scan_.range_min;
     // cout<<"Laser max: "<<laser_scan_.range_max;
     // for (int i = 0; i < this->kfov_degrees_ / 2; i++) {
+    /*
     for (int i = laser_scan_.range_min; i < laser_scan_.range_max; i++) {
         repel_lateral += (1 / laser_scan_.ranges[i]) * sin(i * M_PI / 180);
         repel_lateral +=
@@ -50,6 +51,7 @@ State SafetyCheck::GetSafeDirection() {
         repel_drive += 1 / laser_scan_.ranges[i] * cos(i * M_PI / 180);
         repel_drive += 1 / laser_scan_.ranges[359 - i] * cos(i * M_PI / 180);
     }
+    */
 
     return State(repel_drive, repel_lateral);
 }

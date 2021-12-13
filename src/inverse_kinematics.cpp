@@ -11,6 +11,7 @@
 
 #include "swarm_robots/inverse_kinematics.hpp"
 
+#include <iostream>
 #include <cmath>
 #include <string>
 
@@ -36,9 +37,10 @@ State InverseKinematics::PerformModelIK() {
                        pow(current_location_.y_ - goal_location_.y_, 2));
     double target_yaw = atan2(goal_location_.x_ - current_location_.x_,
                               goal_location_.y_ - current_location_.y_);
-    int heading_angle_ = (180 / M_PI) * current_location_.yaw_;
-    velocity.yaw_ = target_yaw - (heading_angle_ - 360) % 180;
-
+    double heading_angle_ = current_location_.yaw_;
+    velocity.yaw_ = (target_yaw - heading_angle_);
+    std::cout<<"target yaw: "<<target_yaw<<std::endl;
+    std::cout<<"heading_angle : "<<heading_angle_<<std::endl;
     float Kp = 5;
     // Policy 1:
     // velocity_.x=Kp*dist;

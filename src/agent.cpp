@@ -48,9 +48,9 @@ void Agent::PerformInverseKinematics() {
     State intermediate_goal = *( path_planner_->waypoints_.begin() );
     */
 
-    State intermediate_goal(3, 3);
+    State intermediate_goal(2, 4);
     this->velocity_ =
-        inverse_kinematics_->PerformIK(intermediate_goal, this->position_);
+        inverse_kinematics_->PerformIK( this->position_, intermediate_goal);
 
     /*
     double dist = sqrt(pow(intermediate_goal.x_ - this->position_.x_,2) + pow(intermediate_goal.y_ - this->position_.y_,2));
