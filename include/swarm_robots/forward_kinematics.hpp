@@ -25,15 +25,35 @@ using std::string;
 
 class ForwardKinematics {
    public:  //  NOLINT
+    /**
+     * @brief ForwardKinematics default constructor
+     */
     ForwardKinematics();
+
+    /**
+     * @brief Perform forward kinematics to reach next state
+     * @param State velocity : current agent x,y,z velocities
+     * @return State: Output agent x,y,z velocities
+     */
     State PerformFK(State velocity);
 
+    /**
+     * @brief Set velocity to move agent forward
+     * @param geometry_msgs::Twist robot_vel : reference to velocity variable
+     * @return bool: True is velocities set successfully
+     */
     bool MoveForward(geometry_msgs::Twist *robot_vel);
+
+    /**
+     * @brief Set velocity to stop agent motion
+     * @param geometry_msgs::Twist robot_vel : reference to velocity variable
+     * @return bool: True is velocities set successfully
+     */
     bool Stop(geometry_msgs::Twist *robot_vel);
 
-   private:  //  NOLINT
-    State velocity_;
-    double kDriveVelocityLimit;
-    double kSteerVelocityLimit;
+   private:                      //  NOLINT
+    State velocity_;             ///< Variable to store x,y,z velocity coordinares
+    double kDriveVelocityLimit;  ///< Max drive velocity
+    double kSteerVelocityLimit;  ///< Max steer velocity
 };
 #endif  // INCLUDE_SWARM_ROBOTS_FORWARD_KINEMATICS_HPP_
