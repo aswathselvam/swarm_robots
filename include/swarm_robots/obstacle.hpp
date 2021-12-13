@@ -17,12 +17,22 @@ using std::string;
 
 class Obstacle {
    public:  //  NOLINT
+    /**
+     * @brief AgentNode parameterized constructor,
+     * initializes agent namespace
+     * @param string ns : agent namespace
+     */
     explicit Obstacle(string ns);
+
+    /**
+     * @brief Set values to Obstacle x,y, and dimensions
+     */
     void UpdateObstacleLocation();
-    double x_;
-    double y_;
-    double length_;
-    double width_;
+
+    double x_;       ///< Obstacle x coordinate
+    double y_;       ///< Obstacle y coordinate
+    double length_;  ///< Obstacle length
+    double width_;   ///< Obstacle width
 };
 
 #endif  // INCLUDE_SWARM_ROBOTS_OBSTACLE_HPP_
