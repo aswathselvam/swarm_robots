@@ -19,6 +19,14 @@ Search and rescue is one of the most widely implemented problems in real-life ro
 4. Object : The object to be rescued is a rectangle of dimensions approimately equal to ~ 9m X 3m
  ~~~
 
+#### Jackal Robot interesting facts
+| Clearpath Jackal            |          Turtlebot       	|    
+|---------------------------	|----------------------------	|
+| 20 Kg payload             	| >1.3x more than Turtlebot  	|
+| Run time 40 hrs           	| > 1.6x more than Turtlebot 	|
+| Max speed 2m/s            	| > 7.7x more than Turtlebot 	|
+| Widely used in industries 	|                            	|
+
 <span align="centre">
 <img src="https://clearpathrobotics.com/wp-content/uploads/2015/06/front.jpg" alt="cool Robot"></img>
 
@@ -51,11 +59,19 @@ Search and rescue is one of the most widely implemented problems in real-life ro
 ## UML
 
 ### Activity diagram
-<img src="https://github.com/kavyadevd/swarm_robots/blob/test/UML/ActivityDiagram.png?raw=true" alt="Activity Diagram" width="500px"></img>
+<p align="centre">
+<img src="https://github.com/kavyadevd/swarm_robots/blob/test/UML/ActivityDiagram.png?raw=true" alt="Activity Diagram" width="500px"></img></p>
 
 ### Class diagram
+<p align="centre">
 <img src="https://github.com/kavyadevd/swarm_robots/blob/test/UML/Class%20diagram.png?raw=true" width="500px" alt="Class Diagram"></img>
+</p>
 
+### Quad chart
+###### The Quad chart is as follows. You can access the pdf version [here](https://github.com/kavyadevd/swarm_robots/blob/phase_3/assets/QuadChart.pdf)
+<p align="centre">
+<img src="https://github.com/kavyadevd/swarm_robots/blob/main/assets/QuadChart.png" width="500px" alt="QuadChart"></img>
+</p>
 
 
 ### Assumptions:
@@ -70,27 +86,37 @@ Search and rescue is one of the most widely implemented problems in real-life ro
 ### Development process
 The project will be developed using industry-grade agile methodologies. The agile method being adaptive in nature will quickly adapt to software requirements and changes due to challenges faced if any during the project development cycle. For software development, pair programming strategies will be used which will ensure a robust, bug-free package. We have hierarchical test suites, which will test the submodules by implementing unit test cases and the validity of the whole system. To simulate real-world challenges we plan to use different Gmock test cases and confirm the correctness of the system.
 
-[Meeting notes](https://docs.google.com/document/d/1nNpMe6DLzv8XDJHyTaXOK77MExHqAslBlWCvYTAc9Zk/edit?usp=sharing)
+[Sprint planning notes and review](https://docs.google.com/document/d/1nNpMe6DLzv8XDJHyTaXOK77MExHqAslBlWCvYTAc9Zk/edit?usp=sharing)
 
-[AIP Spreadsheet](https://docs.google.com/spreadsheets/d/1eQ78AiMMgUXJpQEjbjUjjJoJ0I1oSbPfRSU09nT6VKE/edit?usp=sharing)
+[AIP Spreadsheet](https://bit.ly/33jHCMR)
 
 ### Installations
 
 It is assumed that the system has Ubuntu 18.04 and above with ROS Melodic/Noetic installed.
 If not, install Ubuntu from [here](https://ubuntu.com/download/desktop) and ROS from [here](http://wiki.ros.org/melodic/Installation/Ubuntu)
 
-#### First step is to install Jackal robot
+#### First step is to install Jackal robot. Download the setup bash file from [here](https://github.com/kavyadevd/swarm_robots/blob/main/setup.sh).
+Execute the downloaded file using following command
 ```bash
-sudo apt-get install ros-melodic-jackal-simulator ros-melodic-jackal-desktop
-cd ~
-mkdir -p swarm_robots/src
-cd swarm_robots/src && catkin_init_workspace
-git clone https://github.com/jackal/jackal.git
-git clone https://github.com/jackal/jackal_simulator.git
-git clone https://github.com/clearpathrobotics/LMS1xx.git
-git clone https://github.com/ros-drivers/pointgrey_camera_driver.git
-cd ..
-catkin_make
+sh setup.sh
+```
+
+#### Install dependencies
+##### OMPL
+```bash
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu `lsb_release -sc` main" > /etc/apt/sources.list.d/ros-latest.list'
+wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
+
+sudo apt-get update
+sudo apt-get install ros-`rosversion -d`-ompl
+```
+
+##### octomap_mapping
+```bash
+sudo apt-get install ros-<ros-version>-octomap ros-<ros-version>-octomap-mapping
+rosdep install octomap_mapping
+rosmake octomap_mapping
+
 ```
 
 #### Clone git repository
@@ -104,13 +130,35 @@ git clone --recursive https://github.com/kavyadevd/swarm_robots.git
 catkin_make
 roslaunch swarm_robots main.launch
 ```
+On separate terminal run the following command
+```
+rosrun swarm_robots swarm_robots_node 
+```
+###### Different options provided with the launch file are:
+<ol>
+  <li>Launch Rviz : rviz:=y</li>
+  <li>Launch rqt topic list : rqt_topic:=y</li>
+  <li>Launch rqt graph : rqt_graph:=y</li>
+  <li>Launch tf tree : rqt_tf_tree:=y</li>
+  <li>Launch rosbag record node : rosbag_yn:=y</li>
+</ol> 
+
+###### To launch the demo 
+```bash
+catkin_make
+roslaunch swarm_robots demo.launch
+```
+On separate terminal run the following command
+```
+rosrun swarm_robots swarm_robots_node 
+```
 
 ### Running ROS test/ Gtest
 
 To make the test files execute the following commands successively
 ```bash
 catkin_make tests
-catkin_make test
+rostest swarm_robots test.launch
 ```
 
 Output will be similiar to :
@@ -133,10 +181,26 @@ SUMMARY
  * ERRORS: 0
  * FAILURES: 0
 
-rostest log file is in /home/kavya/.ros/log/rostest-Matrix-27255.log
+rostest log file is in /home/user/.ros/log/rostest-Matrix-27255.log
 
 ```
 
+## Project dependencies and Licenses
+<ol>
+  <li></li>
+  <li>ROS1 Melodic and above (Standard three-clause BSD license)</li>
+  <li>ROS packages (all licensed under three-clause BSD license) - roscpp, std_msgs, 
+message_generation, actionlib, actionlib_msgs, geometry_msgs, rospy, tf, octomap_msgs, octomap_ros.
+  </li>
+  <li>The open motion planning library - [OMPL](https://ompl.kavrakilab.org/license.html) (Standard three-clause BSD license)</li>
+  <li>multi-jackal ROS package forked by [amdpaula](https://github.com/amdpaula/multi_jackal/tree/ros-noetic)
+  (Standard three-clause BSD license)</li>
+  <li>[Google Test](https://github.com/google/googletest/blob/main/LICENSE) (Standard three-clause BSD license)</li>
+</ol> 
+
 ## Licensing
-The project is licensed under the [3-Clause BSD License](https://opensource.org/licenses/BSD-3-Clause). Click [here](https://github.com/kavyadevd/swarm_robots/blob/main/LICENSE) to know more
+The project is licensed under the [3-Clause BSD License](https://opensource.org/licenses/BSD-3-Clause). Click [here](https://github.com/kavyadevd/swarm_robots/blob/main/LICENSE) to know more.
+~~~
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+~~~
 

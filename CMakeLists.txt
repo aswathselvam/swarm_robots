@@ -8,8 +8,25 @@ find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
 )
 
+find_package(Boost REQUIRED COMPONENTS system)
+
+
+add_service_files(DIRECTORY srv
+FILES
+service.srv
+)
+
+add_action_files(
+  DIRECTORY action
+  FILES swarmACT.action
+)
+
+generate_messages(DEPENDENCIES 
+  std_msgs 
+  actionlib_msgs
+)
+
 ## System dependencies are found with CMake's conventions
-# find_package(Boost REQUIRED COMPONENTS system)
 find_package(ompl REQUIRED)
 find_package(octomap REQUIRED)
 find_package(Eigen3 REQUIRED)
@@ -19,7 +36,9 @@ catkin_package(
 #   INCLUDE_DIRS include
 #  LIBRARIES swarm_robots
 #  CATKIN_DEPENDS roscpp std_msgs
-#  DEPENDS system_lib
+  DEPENDS 
+  actionlib
+  actionlib_msgs
 )
 
 ###########
@@ -36,12 +55,37 @@ include_directories(
   
 )
 
-add_executable(${PROJECT_NAME}_node src/swarm_master.cpp src/arena.cpp)
+add_executable(${PROJECT_NAME}_node 
+src/swarm_master.cpp 
+src/agent_node.cpp 
+src/agent.cpp 
+src/forward_kinematics.cpp 
+src/inverse_kinematics.cpp 
+src/path_planner.cpp 
+src/safety_check.cpp 
+src/state.cpp 
+src/obstacle.cpp 
+src/arena.cpp
+)
 
 ## Specify libraries to link a library or executable target against
  target_link_libraries(${PROJECT_NAME}_node
    ${catkin_LIBRARIES}
  )
+
+
+ add_executable(${PROJECT_NAME}_action_client_node 
+ src/action_client.cpp
+ )
+target_link_libraries(${PROJECT_NAME}_action_client_node ${catkin_LIBRARIES})
+
+
+ add_executable(${PROJECT_NAME}_action_server_node 
+ src/action_server.cpp
+ )
+target_link_libraries(${PROJECT_NAME}_action_server_node ${catkin_LIBRARIES})
+
+
 
 #############
 ## Install ##
@@ -108,8 +152,18 @@ if(CATKIN_ENABLE_TESTING)
 
   add_rostest_gtest(
   TestSwarm
+  test/test.launch
   test/main.cpp
   test/testswarm.cpp
+  src/agent_node.cpp 
+  src/agent.cpp 
+  src/forward_kinematics.cpp 
+  src/inverse_kinematics.cpp 
+  src/path_planner.cpp 
+  src/safety_check.cpp 
+  src/state.cpp 
+  src/obstacle.cpp 
+  src/arena.cpp
   )
   target_link_libraries(
   TestSwarm

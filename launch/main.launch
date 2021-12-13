@@ -1,13 +1,241 @@
 <launch>
-  <param name="/use_sim_time" value="true" />
+	<param name="/use_sim_time" value="true" />
 
-  <!-- start world -->
-  <node name="gazebo" pkg="gazebo_ros" type="gazebo" 
-   args="$(find swarm_robots)/world/Rescue_small.world" respawn="false" output="screen" />
+	<!-- Arguments for visualization and debugging toold launch -->
+	<arg name="rviz" value="n"/>
+	<arg name="rqt_topic" value="n"/>
+	<arg name="rqt_graph" value="n"/>
+	<arg name="rqt_tf_tree" value="n"/>
+	<arg name="rosbag_yn" default="n" />
 
-  <!-- start gui -->
-  <!-- <node name="gazebo_gui" pkg="gazebo" type="gui" respawn="false" output="screen"/> -->
+	<!-- start world -->
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">
+		<!-- <arg name="config" default="front_laser" doc="Add front argument"/> -->
+		<arg name="world_name" value="$(find swarm_robots)/world/Rescue_nolight.world" />
+		<arg name="paused" value="false"/>
+		<arg name="use_sim_time" value="true"/>
+		<arg name="gui" default="true"/>
+		<arg name="headless" value="false"/>
+		<arg name="debug" value="false"/>
+	</include>
 
-  <!-- include our robots -->
-  <include file="$(find swarm_robots)/launch/multi-agent.launch"/>
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal0"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="3"/>
+		<arg name="y" value="6"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal1"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="4"/>
+		<arg name="y" value="6"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal2"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="5"/>
+		<arg name="y" value="6"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal3"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="6"/>
+		<arg name="y" value="6"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal4"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="7"/>
+		<arg name="y" value="6"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal5"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="3"/>
+		<arg name="y" value="7"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal6"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="4"/>
+		<arg name="y" value="7"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal7"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="5"/>
+		<arg name="y" value="7"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal8"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="6"/>
+		<arg name="y" value="7"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal9"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="7"/>
+		<arg name="y" value="7"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal10"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="3"/>
+		<arg name="y" value="8"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal11"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="4"/>
+		<arg name="y" value="8"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal12"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="5"/>
+		<arg name="y" value="8"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal13"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="6"/>
+		<arg name="y" value="8"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal14"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="7"/>
+		<arg name="y" value="8"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal15"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="3"/>
+		<arg name="y" value="9"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal16"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="4"/>
+		<arg name="y" value="9"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal17"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="5"/>
+		<arg name="y" value="9"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal18"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="6"/>
+		<arg name="y" value="9"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<include file="$(find multi_jackal_base)/launch/jackal_base.launch">
+		<arg name="ns" value="jackal19"/>
+		<arg name="config" value="front_laser"/>
+		<arg name="config_id" value="0"/>
+		<arg name="use_move_base" value="true"/>
+		<arg name="x" value="7"/>
+		<arg name="y" value="9"/>
+		<arg name="yaw" value="11"/>
+	</include>
+
+	<!-- Visualize in Rviz -->
+	<group if="$(eval arg('rviz') == 'y')">
+		<node name="rviz" pkg="rviz" type="rviz" args="-d $(find swarm_robots)/rviz/Rviz_config.rviz">
+			<remap from="/move_base_simple/goal" to="/jackal19/move_base_simple/goal"/>
+		</node>
+	</group>
+
+	<!-- Rosbag node -->
+	<group ns="ros_bag">
+		<node pkg="rosbag" type="record" name="rosbag_record" args="record -O swarm_bag.bag -a" if="$(eval arg('rosbag_yn') == 'y')"/>
+	</group>
+
+
+	<!-- For Debugging -->
+	<node if="$(eval arg('rqt_topic') == 'y')" name="rqt_topic" pkg="rqt_topic" type="rqt_topic" output="screen" />
+	<node if="$(eval arg('rqt_graph') == 'y')" name="rqt_graph" pkg="rqt_graph" type="rqt_graph" output="screen" />
+	<node if="$(eval arg('rqt_tf_tree') == 'y')" name="rqt_tf_tree" pkg="rqt_tf_tree" type="rqt_tf_tree" output="screen" />
 </launch>
