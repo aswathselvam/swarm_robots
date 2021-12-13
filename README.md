@@ -20,7 +20,7 @@ Search and rescue is one of the most widely implemented problems in real-life ro
  ~~~
 
 #### Jackal Robot interesting facts
-| Clearpath Jackal            |          Turtlebot       	|    
+| Clearpath Jackal           |          Turtlebot       	  |    
 |---------------------------	|----------------------------	|
 | 20 Kg payload             	| >1.3x more than Turtlebot  	|
 | Run time 40 hrs           	| > 1.6x more than Turtlebot 	|
@@ -73,6 +73,9 @@ Search and rescue is one of the most widely implemented problems in real-life ro
 <img src="https://github.com/kavyadevd/swarm_robots/blob/main/assets/QuadChart.png" width="500px" alt="QuadChart"></img>
 </p>
 
+### Presentation
+1. Youtube link of our presentation can be found [here](https://youtu.be/-GAqxhDhMFM)
+2. The link to the slides can be found [here](https://docs.google.com/presentation/d/1HoAK7hbcWeumYj-4espzwZ5rqsY8IcnH8YzSlovNmkk/edit)
 
 ### Assumptions:
 1. Robots are not aware of its neighbours.
