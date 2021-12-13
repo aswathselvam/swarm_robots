@@ -47,19 +47,42 @@ class PathPlanner {
     State goal_;
     vector<State> waypoints_;
     bool success_;
+
+    /**
+     * @brief PathPlanner parameterized constructor,
+     * initializes agent namespace and nodehandle
+     * @param string ns : agent namespace
+     */
     PathPlanner(std::string ns, ros::NodeHandle* nh);
+
+    /**
+     * @brief Creates OMPL empty map for path planning
+     */
     void CreateEmptyMap();
+
+    /**
+     * @brief Returns if state is valid
+     * @param const ob::State* state : State coordinates
+     * @return bool: True if state is valid
+     */
     bool IsStateValid(const ob::State* state);
+
+    /**
+     * @brief Main path plan method
+     * @param State state : agent current coordinates
+     * @param State goal : agent goal coordinates
+     * @return bool: True if successful
+     */
     bool Plan(State start, State goal);
 
    private:  //  NOLINT
     //  ROS publishers
-    string ns;
-    ros::NodeHandle* nh_;
-    string fixed_frame;
-    ros::Publisher vis_pub_;
-    octomap::OcTree* oct_tree_;
-    ob::StateSpacePtr space;
-    ob::SpaceInformationPtr si;
+    string ns;        ///< Agent namespace
+    ros::NodeHandle* nh_;        ///< ROS node handle
+    string fixed_frame;        ///< Default value : "map"
+    ros::Publisher vis_pub_;        ///< ros velocity publisher
+    octomap::OcTree* oct_tree_;        ///< oct_tree_ to store map
+    ob::StateSpacePtr space;        ///< State space pointer
+    ob::SpaceInformationPtr si;        ///< space information pointer
 };
 #endif  // INCLUDE_SWARM_ROBOTS_PATH_PLANNER_HPP_
