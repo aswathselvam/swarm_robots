@@ -8,8 +8,25 @@ find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
 )
 
+find_package(Boost REQUIRED COMPONENTS system)
+
+
+add_service_files(DIRECTORY srv
+FILES
+service.srv
+)
+
+add_action_files(
+  DIRECTORY action
+  FILES swarmACT.action
+)
+
+generate_messages(DEPENDENCIES 
+  std_msgs 
+  actionlib_msgs
+)
+
 ## System dependencies are found with CMake's conventions
-# find_package(Boost REQUIRED COMPONENTS system)
 find_package(ompl REQUIRED)
 find_package(octomap REQUIRED)
 find_package(Eigen3 REQUIRED)
@@ -20,6 +37,7 @@ catkin_package(
 #  LIBRARIES swarm_robots
 #  CATKIN_DEPENDS roscpp std_msgs
 #  DEPENDS system_lib
+  actionlib_msgs
 )
 
 ###########
@@ -53,6 +71,7 @@ src/arena.cpp
  target_link_libraries(${PROJECT_NAME}_node
    ${catkin_LIBRARIES}
  )
+
 
 #############
 ## Install ##
