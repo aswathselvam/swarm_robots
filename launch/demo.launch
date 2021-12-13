@@ -1,13 +1,5 @@
 <launch>
 	<param name="/use_sim_time" value="true" />
-
-	<!-- Arguments for visualization and debugging toold launch -->
-	<arg name="rviz" value="n"/>
-	<arg name="rqt_topic" value="n"/>
-	<arg name="rqt_graph" value="n"/>
-	<arg name="rqt_tf_tree" value="n"/>
-	<arg name="rosbag_yn" default="n" />
-
 	<!-- start world -->
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
 		<!-- <arg name="config" default="front_laser" doc="Add front argument"/> -->
@@ -221,21 +213,4 @@
 		<arg name="yaw" value="11"/>
 	</include>
 
-	<!-- Visualize in Rviz -->
-	<group if="$(eval arg('rviz') == 'y')">
-		<node name="rviz" pkg="rviz" type="rviz" args="-d $(find swarm_robots)/rviz/Rviz_config.rviz">
-			<remap from="/move_base_simple/goal" to="/jackal19/move_base_simple/goal"/>
-		</node>
-	</group>
-
-	<!-- Rosbag node -->
-	<group ns="ros_bag">
-		<node pkg="rosbag" type="record" name="rosbag_record" args="record -O swarm_bag.bag -a" if="$(eval arg('rosbag_yn') == 'y')"/>
-	</group>
-
-
-	<!-- For Debugging -->
-	<node if="$(eval arg('rqt_topic') == 'y')" name="rqt_topic" pkg="rqt_topic" type="rqt_topic" output="screen" />
-	<node if="$(eval arg('rqt_graph') == 'y')" name="rqt_graph" pkg="rqt_graph" type="rqt_graph" output="screen" />
-	<node if="$(eval arg('rqt_tf_tree') == 'y')" name="rqt_tf_tree" pkg="rqt_tf_tree" type="rqt_tf_tree" output="screen" />
 </launch>
