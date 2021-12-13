@@ -8,6 +8,14 @@ find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
 )
 
+
+add_service_files(DIRECTORY srv
+FILES
+service.srv
+)
+
+generate_messages(DEPENDENCIES std_msgs)
+
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 find_package(ompl REQUIRED)
@@ -53,13 +61,6 @@ src/arena.cpp
  target_link_libraries(${PROJECT_NAME}_node
    ${catkin_LIBRARIES}
  )
-
- add_service_files(DIRECTORY srv
-  FILES
-  service.srv
-)
-
-generate_messages(DEPENDENCIES std_msgs)
 
 
 #############
