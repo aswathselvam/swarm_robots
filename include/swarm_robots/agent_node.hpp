@@ -28,7 +28,7 @@ class AgentNode : public Agent {
    public:  //  NOLINT
     /**
      * @brief AgentNode parameterized constructor,
-     * initialized agent with given id
+     * initializes agent with given id
      * @param id : id of the agent - assigned to initialized
      * Agent Node object
      */
