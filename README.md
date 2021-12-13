@@ -123,6 +123,13 @@ catkin_make
 roslaunch swarm_robots main.launch
 ```
 
+#### ROS Service
+Stop the robots using this service
+```bash
+rosservice call /service "stop"
+```
+
+
 ### Running ROS test/ Gtest
 
 To make the test files execute the following commands successively
