@@ -26,13 +26,17 @@
 #include <geometry_msgs/Twist.h>
 #include <ros/ros.h>
 #include <std_msgs/String.h>
+#include <actionlib/server/simple_action_server.h>
+#include <swarm_robots/swarmACTAction.h>  // Note: "Action" is appended
 
 #include <string>
+
 
 #include "safety_check.hpp"  //  NOLINT
 #include "state.hpp"         //  NOLINT
 
 using std::string;
+typedef actionlib::SimpleActionServer<swarm_robots::swarmACTAction> Server;
 
 class InverseKinematics {
    public:  //  NOLINT
@@ -63,11 +67,15 @@ class InverseKinematics {
      * @return State: Output x,y,x coordinates
      */
     State CheckSafety();
+    void execute(const swarm_robots::swarmACTGoalConstPtr& goal, Server* as);  
+
 
    private:                      //  NOLINT
     State goal_location_;        ///< Goal x,y,z coordinares
     State current_location_;     ///< Current x,y,z coordinares
     State velocity_;             ///< Variable to store x,y,z velocities
     SafetyCheck* safety_check_;  ///< reference to Safety_check class
+    Server server_;
+
 };
 #endif  // INCLUDE_SWARM_ROBOTS_INVERSE_KINEMATICS_HPP_        //  NOLINT

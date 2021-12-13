@@ -88,6 +88,15 @@ class AgentNode : public Agent {
     bool SwarmService(swarm_robots::service::Request &req,    // NOLINT
                swarm_robots::service::Response &res);  // NOLINT
 
+    /**
+    * @brief Service function that is called with /service, this function changes
+    * the message according to the user's input.
+    * @param req : Request object reference from service file, it contains the
+    * parameters related to the service input.
+    * @param res : Response object reference from service file, it contains the
+    * parameteres of the service output.
+    */
+
    private:                           // NOLINT
     int krate_;                       ///< Variable to store ros loop rate
     ros::NodeHandlePtr nh_;             ///< Variable to store ros node handle for executing node // NOLINT

@@ -36,7 +36,8 @@ catkin_package(
 #   INCLUDE_DIRS include
 #  LIBRARIES swarm_robots
 #  CATKIN_DEPENDS roscpp std_msgs
-#  DEPENDS system_lib
+  DEPENDS 
+  actionlib
   actionlib_msgs
 )
 
@@ -71,6 +72,19 @@ src/arena.cpp
  target_link_libraries(${PROJECT_NAME}_node
    ${catkin_LIBRARIES}
  )
+
+
+ add_executable(${PROJECT_NAME}_action_client_node 
+ src/action_client.cpp
+ )
+target_link_libraries(${PROJECT_NAME}_action_client_node ${catkin_LIBRARIES})
+
+
+ add_executable(${PROJECT_NAME}_action_server_node 
+ src/action_server.cpp
+ )
+target_link_libraries(${PROJECT_NAME}_action_server_node ${catkin_LIBRARIES})
+
 
 
 #############

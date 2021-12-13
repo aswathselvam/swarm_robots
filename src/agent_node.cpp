@@ -29,6 +29,7 @@
 #include <std_msgs/String.h>
 #include <boost/thread/thread.hpp>
 
+
 #include <iostream>
 #include <string>
 
@@ -38,6 +39,8 @@
 
 
 using std::string;
+typedef actionlib::SimpleActionServer<swarm_robots::swarmACTAction> Server;
+
 
 AgentNode::AgentNode(std::string ns): Agent::Agent(ns){
   this->agent_id = ns;
@@ -53,8 +56,6 @@ AgentNode::AgentNode(std::string ns): Agent::Agent(ns){
     this->pos_sub_ = this->nh_->subscribe("/jackal" + ns +
                                               "/base_pose_ground_truth",
                                           1, &AgentNode::PosCallback, this);
-    this->service_ = nh_->advertiseService("service", &AgentNode::SwarmService, this);
-
 
   this->krate_ = 20;
 }
@@ -122,6 +123,7 @@ bool AgentNode::SwarmService(swarm_robots::service::Request &req,     // NOLINT
     return true;
   }
 }
+
 
 AgentNode::~AgentNode() {
     std::cout << "Deteletd NH";
