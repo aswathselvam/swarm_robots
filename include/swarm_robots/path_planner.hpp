@@ -43,10 +43,10 @@ using std::vector;
 
 class PathPlanner {
    public:  //  NOLINT
-    State start_;
-    State goal_;
-    vector<State> waypoints_;
-    bool success_;
+    State start_;        ///< start coordinates
+    State goal_;        ///< end goal coordinates
+    vector<State> waypoints_;        ///< vector of intermediate waypounts
+    bool success_;        ///< sucess/fail flag
 
     /**
      * @brief PathPlanner parameterized constructor,
