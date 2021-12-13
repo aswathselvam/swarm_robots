@@ -6,7 +6,7 @@
 	<arg name="rqt_topic" value="n"/>
 	<arg name="rqt_graph" value="n"/>
 	<arg name="rqt_tf_tree" value="n"/>
-
+	<arg name="rosbag_yn" default="n" />
 
 	<!-- start world -->
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -226,6 +226,11 @@
 		<node name="rviz" pkg="rviz" type="rviz" args="-d $(find swarm_robots)/rviz/Rviz_config.rviz">
 			<remap from="/move_base_simple/goal" to="/jackal19/move_base_simple/goal"/>
 		</node>
+	</group>
+
+	<!-- Rosbag node -->
+	<group ns="ros_bag">
+		<node pkg="rosbag" type="record" name="rosbag_record" args="record -O swarm_bag.bag -a" if="$(eval arg('rosbag_yn') == 'y')"/>
 	</group>
 
 
