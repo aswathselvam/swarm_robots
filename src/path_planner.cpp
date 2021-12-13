@@ -220,11 +220,11 @@ State PathPlanner::GetContactPoint(int agent_id) {
     pp = getModelState.response.pose.position;
     // qq = getModelState.response.pose.orientation;
     std::string x_ = (std::to_string(pp.x));
-    ROS_INFO("Test Box x coordinate [%s]", x_.c_str());
+    //ROS_INFO("Test Box x coordinate [%s]", x_.c_str());
     std::cout << x_;
     State pose_agent(0, 0, 0);
     if (agent_id < 11) {
-        ROS_INFO("Contact point : longer side");
+        //ROS_INFO("Contact point : longer side");
         int left_right = (agent_id > 5 ? 1 : -1);
         pose_agent.x_ = pp.x + (left_right * (3.13 + ((agent_id - 1) * 0.7)));
         pose_agent.y_ = pp.y + 2.24;
