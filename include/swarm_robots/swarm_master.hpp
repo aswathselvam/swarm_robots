@@ -21,11 +21,14 @@
 using std::string;
 
 class SwarmMaster {
-   public:  //  NOLINT
-    string nodename_;
-    ros::NodeHandle n_;
-    Agent agents;
+   public:               //  NOLINT
+    string nodename_;    ///< execution node nodename
+    ros::NodeHandle n_;  ///< ros ros handle
+    Agent agents;        ///< Agent class object
 
+    /**
+     * @brief SwarmMaster default constructor
+     */
     SwarmMaster();
 };
 #endif  // INCLUDE_SWARM_ROBOTS_SWARM_MASTER_HPP_
