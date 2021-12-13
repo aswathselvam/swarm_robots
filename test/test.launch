@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+    <node pkg = "swarm_robots" type = "swarm_robots_node" name = "swarm_robots_node" output = "screen"/>
+    <test pkg = "swarm_robots" test-name = "TestSwarm" type = "TestSwarm" />
+</launch>
