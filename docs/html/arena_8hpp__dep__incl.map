@@ -1,0 +1,6 @@
+<map id="include/swarm_robots/arena.hpp" name="include/swarm_robots/arena.hpp">
+<area shape="rect" id="node1" title="The header file for arena elements." alt="" coords="111,5,276,47"/>
+<area shape="rect" id="node2" href="$agent_8cpp.html" title="The code file for agent control." alt="" coords="5,95,115,121"/>
+<area shape="rect" id="node3" href="$arena_8cpp.html" title="The code file for arena attributes and methods." alt="" coords="139,95,248,121"/>
+<area shape="rect" id="node4" href="$src_2main_8cpp.html" title="main execution file" alt="" coords="273,95,378,121"/>
+</map>
