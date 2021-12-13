@@ -10,6 +10,8 @@
  */
 
 #include "swarm_robots/inverse_kinematics.hpp"
+#include <actionlib/server/simple_action_server.h>
+#include <swarm_robots/swarmACTAction.h> 
 
 #include <iostream>
 #include <cmath>
@@ -17,11 +19,29 @@
 
 #include "swarm_robots/state.hpp"
 
-InverseKinematics::InverseKinematics(string ns, ros::NodeHandlePtr nh) {
+using std::string;
+typedef actionlib::SimpleActionServer<swarm_robots::swarmACTAction> Server;
+
+
+
+InverseKinematics::InverseKinematics(string ns, ros::NodeHandlePtr nh):
+    server_(*nh, "jackal"+ns, boost::bind(&InverseKinematics::execute, this, _1), false)
+ {
     // safety_check_ = new SafetyCheck(ns, nh); // CPP CHECK Error
     SafetyCheck safety_check(ns, nh);
     safety_check_ = &safety_check;
+        server_.start();
+
 }
+
+
+void InverseKinematics::execute(const swarm_robots::swarmACTGoalConstPtr& goal, Server* as)  
+{
+  // Do lots of awesome groundbreaking robot stuff here
+  std::cout<<goal<<std::endl;
+  as->setSucceeded();
+}
+
 
 State InverseKinematics::PerformIK(State start, State goal) {
     this->current_location_ = start;
