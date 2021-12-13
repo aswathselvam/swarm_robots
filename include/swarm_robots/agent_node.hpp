@@ -26,21 +26,51 @@ using std::vector;
 
 class AgentNode : public Agent {
    public:  //  NOLINT
+    /**
+     * @brief AgentNode parameterized constructor,
+     * initialized agent with given id
+     * @param id : id of the agent - assigned to initialized
+     * Agent Node object
+     */
     explicit AgentNode(std::string id);
+
+    /**
+     * @brief AgentNode destructor
+     */
     ~AgentNode();
+
+    /**
+     * @brief Path planner method for agent node
+     */
     void PlanPath();
+
+    /**
+     * @brief Fetched and initialized current position of agent
+     */
     void PosCallback(const nav_msgs::Odometry::ConstPtr& msg);
+
+    /**
+     * @brief Invokes IK method from agent class
+     */
     void PerformInverseKinematics();
+
+    /**
+     * @brief Invokes FK method from agent class
+     */
     void PerformForwardKinematics();
+
+    /**
+     * @brief Checks if ROS::OK and invokes methods in loop
+     */
     void Loop();
 
-   private:  // NOLINT
-    int krate_;
-    ros::NodeHandle* nh_;
-    ros::Publisher vel_pub_;
-    ros::Subscriber pos_sub_;
-    geometry_msgs::Twist twist_msg_;
-    std::string agent_id;
+   private:                           // NOLINT
+    int krate_;                       ///< Variable to store ros loop rate
+    ros::NodeHandle* nh_;             ///< Variable to store ros node handle for executing node
+    ros::Publisher vel_pub_;          ///< Variable to store velocity publisher
+    ros::Subscriber pos_sub_;         ///< Variable to store position subscriber
+    geometry_msgs::Twist twist_msg_;  ///< Variable to store velocity twist message to pass to publisher
+    std::string agent_id;             ///< Variable to store object agent id
 };
 
 #endif  // INCLUDE_SWARM_ROBOTS_AGENT_NODE_HPP_
