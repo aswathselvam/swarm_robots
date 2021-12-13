@@ -8,7 +8,7 @@
  * @copyright BSD3 Copyright (c) 2021
  *
  */
-#include "../include/swarm_robots/path_planner.hpp"
+#include "swarm_robots/path_planner.hpp"
 
 #include <geometry_msgs/Pose.h>
 #include <message_filters/subscriber.h>
@@ -31,7 +31,7 @@
 
 #include <algorithm>
 
-#include "../include/swarm_robots/state.hpp"
+#include "swarm_robots/state.hpp"
 #include "gazebo_msgs/GetModelState.h"
 #include "gazebo_msgs/ModelStates.h"
 #include "tf/transform_broadcaster.h"

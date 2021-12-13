@@ -9,7 +9,7 @@
  *
  */
 
-#include "../include/swarm_robots/obstacle.hpp"
+#include "swarm_robots/obstacle.hpp"
 
 #include <string>
 

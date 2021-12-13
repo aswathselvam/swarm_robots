@@ -8,12 +8,12 @@
  * @copyright BSD3 Copyright (c) 2021
  *
  */
-#include "../include/swarm_robots/arena.hpp"
+#include "swarm_robots/arena.hpp"
 
 #include <ros/ros.h>
 #include <std_msgs/String.h>
 
-#include "../include/swarm_robots/agent.hpp"
+#include "swarm_robots/agent.hpp"
 
 bool Arena::InitializeAgents() {
     /*

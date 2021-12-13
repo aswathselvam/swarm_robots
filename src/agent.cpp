@@ -9,34 +9,30 @@
  *
  */
 
-#include "../include/swarm_robots/agent.hpp"
+#include "swarm_robots/agent.hpp"
 
 #include <ros/ros.h>
 #include <std_msgs/String.h>
 
 #include <cmath>
 
-#include "../include/swarm_robots/arena.hpp"
-#include "../include/swarm_robots/forward_kinematics.hpp"
-#include "../include/swarm_robots/inverse_kinematics.hpp"
-#include "../include/swarm_robots/path_planner.hpp"
-#include "../include/swarm_robots/safety_check.hpp"
-#include "../include/swarm_robots/state.hpp"
+#include "swarm_robots/arena.hpp"
+#include "swarm_robots/forward_kinematics.hpp"
+#include "swarm_robots/inverse_kinematics.hpp"
+#include "swarm_robots/path_planner.hpp"
+#include "swarm_robots/safety_check.hpp"
+#include "swarm_robots/state.hpp"
 
 using std::string;
 
 Agent::Agent(string agent_id) {
     this->agent_id_ = agent_id;
-<<<<<<< HEAD
-    path_planner_->Plan(this->position_, this->goal_pos_);
-=======
     this->position_.x_ = 0;
     this->position_.y_ = 0;
     this->position_.yaw_ = 0;
     this->velocity_.x_ = 0;
     this->velocity_.y_ = 0;
     this->velocity_.yaw_ = 0;
->>>>>>> 47b462286dc7d19138b0716aba9028bbf06b7244
 }
 
 void Agent::PlanPath() {

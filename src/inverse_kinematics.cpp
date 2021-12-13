@@ -9,12 +9,12 @@
  *
  */
 
-#include "../include/swarm_robots/inverse_kinematics.hpp"
+#include "swarm_robots/inverse_kinematics.hpp"
 
 #include <cmath>
 #include <string>
 
-#include "../include/swarm_robots/state.hpp"
+#include "swarm_robots/state.hpp"
 
 InverseKinematics::InverseKinematics(string ns, ros::NodeHandle* nh) {
     safety_check_ = new SafetyCheck(ns, nh);

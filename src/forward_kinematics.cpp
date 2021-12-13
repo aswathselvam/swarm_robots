@@ -8,7 +8,7 @@
  * @copyright BSD3 Copyright (c) 2021
  *
  */
-#include "../include/swarm_robots/forward_kinematics.hpp"
+#include "swarm_robots/forward_kinematics.hpp"
 
 #include <algorithm>
 #include <iostream>

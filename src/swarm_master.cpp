@@ -12,7 +12,7 @@
 #include <string>
 #include <vector>
 
-#include "../include/swarm_robots/agent_node.hpp"
+#include "swarm_robots/agent_node.hpp"
 
 using std::cout;
 using std::string;

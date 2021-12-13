@@ -8,7 +8,7 @@
  * @copyright BSD3 Copyright (c) 2021
  *
  */
-#include "../include/swarm_robots/state.hpp"
+#include "swarm_robots/state.hpp"
 
 State::State() {
     this->x_ = 0;

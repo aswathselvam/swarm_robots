@@ -9,7 +9,7 @@
  *
  */
 
-#include "../include/swarm_robots/agent_node.hpp"
+#include "swarm_robots/agent_node.hpp"
 
 #include <geometry_msgs/Quaternion.h>
 #include <geometry_msgs/Twist.h>
@@ -20,8 +20,8 @@
 #include <iostream>
 #include <string>
 
-#include "../include/swarm_robots/agent.hpp"
-#include "../include/swarm_robots/path_planner.hpp"
+#include "swarm_robots/agent.hpp"
+#include "swarm_robots/path_planner.hpp"
 
 using std::string;
 

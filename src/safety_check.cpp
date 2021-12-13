@@ -8,7 +8,7 @@
  * @copyright BSD3 Copyright (c) 2021
  *
  */
-#include "../include/swarm_robots/safety_check.hpp"
+#include "swarm_robots/safety_check.hpp"
 
 #include <ros/ros.h>
 #include <sensor_msgs/LaserScan.h>
@@ -17,7 +17,7 @@
 #include <iostream>
 #include <string>
 
-#include "../include/swarm_robots/state.hpp"
+#include "swarm_robots/state.hpp"
 
 using std::cout;
 using std::string;
