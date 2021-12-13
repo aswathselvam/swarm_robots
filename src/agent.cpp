@@ -33,6 +33,7 @@ Agent::Agent(string agent_id) {
     this->velocity_.x_ = 0;
     this->velocity_.y_ = 0;
     this->velocity_.yaw_ = 0;
+    this->heading_angle_ = 180;
 }
 
 void Agent::PlanPath() {

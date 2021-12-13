@@ -60,7 +60,7 @@ PathPlanner::PathPlanner(std::string ns, ros::NodeHandle *nh) {
     // ros::Subscriber octree_sub =
     // n.subscribe("/octomap_binary", 1, octomapCallback);
     this->vis_pub_ =
-        nh_->advertise<visualization_msgs::Marker>("visualization_marker" + this->ns, 0);       // NOLINT
+        nh_->advertise<visualization_msgs::Marker>("visualization_marker" + this->ns, 0);  // NOLINT
     DEBUG_MSG("OMPL version: " << OMPL_VERSION << std::endl);
 
     // space = ob::StateSpacePtr(new ob::SE2StateSpace());
@@ -206,10 +206,10 @@ this->oct_tree_ = new octomap::OcTree(0.01);
 
 State GetContactPoint(int agent_id, ros::NodeHandle n) {
     ros::ServiceClient client =
-    n.serviceClient<gazebo_msgs::GetModelState>("/gazebo/get_model_state");
+        n.serviceClient<gazebo_msgs::GetModelState>("/gazebo/get_model_state");
     gazebo_msgs::GetModelState getModelState;
     geometry_msgs::Point pp;
-    geometry_msgs::Quaternion qq;
+    // geometry_msgs::Quaternion qq;
     std::string modelName = (std::string) "unit_box_custom";
     std::string relativeEntityName = (std::string) "world";
     getModelState.request.model_name = modelName;
@@ -217,7 +217,7 @@ State GetContactPoint(int agent_id, ros::NodeHandle n) {
     client.call(getModelState);
 
     pp = getModelState.response.pose.position;
-    qq = getModelState.response.pose.orientation;
+    // qq = getModelState.response.pose.orientation;
     std::string x_ = (std::to_string(pp.x));
     ROS_INFO("Test Box x coordinate [%s]", x_.c_str());
     std::cout << x_;

@@ -22,8 +22,8 @@ bool Arena::InitializeAgents() {
         agents.Initiaize(id, nh);
         agents.push_back(Agent());
     }
-    return true;
     */
+    return true;
 }
 
 int Arena::GetSwarmSize() {

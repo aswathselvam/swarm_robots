@@ -27,7 +27,7 @@ using std::string;
 
 AgentNode::AgentNode(std::string ns) : Agent::Agent(ns) {
     this->agent_id = ns;
-    this->nh_ = new ros::NodeHandle();
+    // this->nh_ = new ros::NodeHandle(); // CPP dynamic allocation issue
     this->path_planner_ = new PathPlanner(ns, nh_);
     this->forward_kinematics_ = new ForwardKinematics();
     this->inverse_kinematics_ = new InverseKinematics(ns, nh_);
