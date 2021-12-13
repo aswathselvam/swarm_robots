@@ -20,6 +20,8 @@
 
 #include "agent.hpp"
 #include "state.hpp"  //  NOLINT
+#include "swarm_robots/service.h"
+
 
 using std::string;
 using std::vector;
@@ -64,6 +66,18 @@ class AgentNode : public Agent {
      */
     void Loop();
 
+    /**
+    * @brief Service function that is called with /service, this function changes
+    * the message according to the user's input.
+    * @param req : Request object reference from service file, it contains the
+    * parameters related to the service input.
+    * @param res : Response object reference from service file, it contains the
+    * parameteres of the service output.
+    * @return bool flag indicating success or failure of service method.
+    */
+    bool SwarmService(swarm_robots::service::Request &req,    // NOLINT
+               swarm_robots::service::Response &res);  // NOLINT
+
    private:                           // NOLINT
     int krate_;                       ///< Variable to store ros loop rate
     ros::NodeHandlePtr nh_;             ///< Variable to store ros node handle for executing node // NOLINT
@@ -71,6 +85,8 @@ class AgentNode : public Agent {
     ros::Subscriber pos_sub_;         ///< Variable to store position subscriber
     geometry_msgs::Twist twist_msg_;  ///< Variable to store velocity twist message to pass to publisher // NOLINT
     std::string agent_id;             ///< Variable to store object agent id
+    ros::ServiceServer service_;  ///< Service object
+
 };
 
 #endif  // INCLUDE_SWARM_ROBOTS_AGENT_NODE_HPP_

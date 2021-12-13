@@ -23,6 +23,8 @@
 
 #include "swarm_robots/agent.hpp"
 #include "swarm_robots/path_planner.hpp"
+#include "swarm_robots/service.h"
+
 
 using std::string;
 
@@ -40,6 +42,8 @@ AgentNode::AgentNode(std::string ns): Agent::Agent(ns){
     this->pos_sub_ = this->nh_->subscribe("/jackal" + ns +
                                               "/base_pose_ground_truth",
                                           1, &AgentNode::PosCallback, this);
+    this->service_ = nh_->advertiseService("service", &AgentNode::SwarmService, this);
+
 
   this->krate_ = 20;
 }
@@ -89,6 +93,23 @@ void AgentNode::PerformForwardKinematics() {
     twist_msg_.angular.y = 0;
     twist_msg_.angular.z = velocity_.yaw_;
     vel_pub_.publish(twist_msg_);
+}
+
+
+bool AgentNode::SwarmService(swarm_robots::service::Request &req,     // NOLINT
+               swarm_robots::service::Response &res) {  // NOLINT
+  if (req.service_input.empty()) {
+    ROS_ERROR_STREAM("Input string from ROS service is empty!");
+    return false;
+  } else {
+      string stop = "stop";
+      if(stop.compare(req.service_input)==0){
+        Stop();
+      ROS_WARN_STREAM("Stopping the Robots");
+      res.service_output = "Successfully Stopped Robots";
+    }
+    return true;
+  }
 }
 
 AgentNode::~AgentNode() {

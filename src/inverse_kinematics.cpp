@@ -41,8 +41,8 @@ State InverseKinematics::PerformModelIK() {
     velocity.yaw_ = target_yaw-heading_angle_;
     
     //Debug Target and Heading angles:
-    std::cout<<"target yaw: "<<target_yaw<<std::endl;
-    std::cout<<"heading_angle : "<<heading_angle_<<std::endl;
+    //std::cout<<"target yaw: "<<target_yaw<<std::endl;
+    //std::cout<<"heading_angle : "<<heading_angle_<<std::endl;
     
     float Kp = 1;
     // Policy 1:
