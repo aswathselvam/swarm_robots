@@ -56,10 +56,10 @@ class Agent {
      */
     void Stop();
 
+    double heading_angle_;     ///< Variable to calculate agngle for IK
    protected:                    //  NOLINT
     State position_;           ///< Variable to store coordinates of agent
     State velocity_;           ///< Variable to store x,y,z velocities of agent
-    double heading_angle_;     ///< Variable to calculate agngle for IK
     State goal_pos_;           ///< Variable to store x,y,z of destination
     PathPlanner* path_planner_;  ///< PathPlanner object for agent node
 
