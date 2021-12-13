@@ -34,6 +34,8 @@ Agent::Agent(string agent_id) {
     this->velocity_.y_ = 0;
     this->velocity_.yaw_ = 0;
     this->heading_angle_ = 180;
+    this->forward_kinematics_= NULL;
+    this->inverse_kinematics_ = NULL;
 }
 
 void Agent::PlanPath() {

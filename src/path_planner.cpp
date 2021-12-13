@@ -53,16 +53,18 @@ using std::string;
     } while (false)
 #endif
 
-PathPlanner::PathPlanner(std::string ns, ros::NodeHandlePtr nh) {
+PathPlanner::PathPlanner(const std::string ns, ros::NodeHandlePtr nh) {
     this->ns = "_jackal_" + ns;
     this->fixed_frame = "map";
     this->nh_ = nh;
+    this->success_ = false;
+    this->oct_tree_ = NULL;
     // ros::Subscriber octree_sub =
     // n.subscribe("/octomap_binary", 1, octomapCallback);
     this->vis_pub_ =
         nh_->advertise<visualization_msgs::Marker>("visualization_marker" + this->ns, 0);  // NOLINT
     DEBUG_MSG("OMPL version: " << OMPL_VERSION << std::endl);
-
+    CreateEmptyMap();
     // space = ob::StateSpacePtr(new ob::SE2StateSpace());
 }
 
@@ -86,7 +88,7 @@ bool PathPlanner::IsStateValid(const ob::State *state) {
     }
 }
 
-bool PathPlanner::Plan(State start, State goal) {
+bool PathPlanner::Plan(const State &start, State &goal) {
     /*
     // construct the state space we are planning in
 

@@ -8,6 +8,8 @@ Done processing ./include/swarm_robots/path_planner.hpp
 Done processing ./include/swarm_robots/safety_check.hpp
 Done processing ./include/swarm_robots/state.hpp
 Done processing ./include/swarm_robots/swarm_master.hpp
+Done processing ./src/action_client.cpp
+Done processing ./src/action_server.cpp
 Done processing ./src/agent.cpp
 Done processing ./src/agent_node.cpp
 Done processing ./src/arena.cpp
@@ -21,3 +23,4 @@ Done processing ./src/state.cpp
 Done processing ./src/swarm_master.cpp
 Done processing ./test/main.cpp
 Done processing ./test/testswarm.cpp
+Total errors found: 55

@@ -43,7 +43,7 @@ void InverseKinematics::execute(const swarm_robots::swarmACTGoalConstPtr& goal, 
 }
 
 
-State InverseKinematics::PerformIK(State start, State goal) {
+State InverseKinematics::PerformIK(const State& start, const State& goal) {
     this->current_location_ = start;
     this->goal_location_ = goal;
     State vel =  PerformModelIK();

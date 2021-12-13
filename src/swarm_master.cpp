@@ -20,8 +20,8 @@ int main(int argc, char** argv) {
     ros::init(argc, argv, "swarm_master");
     ROS_INFO_STREAM("Initialized node swarm_master.");
     vector<AgentNode*> agent_nodes;
-    int n = 20;
     try {
+        int n = 20;
         for (int i = 0; i < n; i++) {
             AgentNode* agent_node = new AgentNode(std::to_string(i));
             agent_nodes.push_back(agent_node);
