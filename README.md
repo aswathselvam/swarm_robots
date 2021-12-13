@@ -64,7 +64,7 @@ Search and rescue is one of the most widely implemented problems in real-life ro
 
 ### Class diagram
 <p align="centre">
-<img src="https://github.com/kavyadevd/swarm_robots/blob/test/UML/Class%20diagram.png?raw=true" width="500px" alt="Class Diagram"></img>
+<img src="https://github.com/kavyadevd/swarm_robots/blob/test/UML/ClassDiagram.png?raw=true" width="500px" alt="Class Diagram"></img>
 </p>
 
 ### Quad chart
