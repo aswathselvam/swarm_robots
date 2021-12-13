@@ -1,0 +1,32 @@
+<map id="include/swarm_robots/swarm_master.hpp" name="include/swarm_robots/swarm_master.hpp">
+<area shape="rect" id="node1" title="The header file for arena obstacles." alt="" coords="802,5,967,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="781,326,860,353"/>
+<area shape="rect" id="node3" title=" " alt="" coords="885,326,1023,353"/>
+<area shape="rect" id="node4" title=" " alt="" coords="290,326,349,353"/>
+<area shape="rect" id="node5" href="$agent_8hpp.html" title="The header file for agent control." alt="" coords="639,95,725,121"/>
+<area shape="rect" id="node6" title=" " alt="" coords="90,326,266,353"/>
+<area shape="rect" id="node7" title=" " alt="" coords="5,326,65,353"/>
+<area shape="rect" id="node8" href="$forward__kinematics_8hpp.html" title=" " alt="" coords="719,169,898,196"/>
+<area shape="rect" id="node9" href="$path__planner_8hpp.html" title=" " alt="" coords="2069,244,2204,271"/>
+<area shape="rect" id="node27" href="$state_8hpp.html" title="The header file for state of agents." alt="" coords="674,326,757,353"/>
+<area shape="rect" id="node28" href="$inverse__kinematics_8hpp.html" title=" " alt="" coords="467,169,644,196"/>
+<area shape="rect" id="node29" href="$safety__check_8hpp.html" title=" " alt="" coords="458,244,594,271"/>
+<area shape="rect" id="node10" title=" " alt="" coords="3732,326,3907,353"/>
+<area shape="rect" id="node11" title=" " alt="" coords="3931,326,4140,353"/>
+<area shape="rect" id="node12" title=" " alt="" coords="4164,326,4331,353"/>
+<area shape="rect" id="node13" title=" " alt="" coords="4355,326,4507,353"/>
+<area shape="rect" id="node14" title=" " alt="" coords="1048,326,1244,353"/>
+<area shape="rect" id="node15" title=" " alt="" coords="1268,326,1483,353"/>
+<area shape="rect" id="node16" title=" " alt="" coords="1507,326,1707,353"/>
+<area shape="rect" id="node17" title=" " alt="" coords="1732,326,1984,353"/>
+<area shape="rect" id="node18" title=" " alt="" coords="2008,319,2265,360"/>
+<area shape="rect" id="node19" title=" " alt="" coords="2289,319,2491,360"/>
+<area shape="rect" id="node20" title=" " alt="" coords="2515,326,2625,353"/>
+<area shape="rect" id="node21" title=" " alt="" coords="2649,326,2872,353"/>
+<area shape="rect" id="node22" title=" " alt="" coords="2896,319,3081,360"/>
+<area shape="rect" id="node23" title=" " alt="" coords="3105,319,3291,360"/>
+<area shape="rect" id="node24" title=" " alt="" coords="3315,319,3537,360"/>
+<area shape="rect" id="node25" title=" " alt="" coords="3561,319,3707,360"/>
+<area shape="rect" id="node26" title=" " alt="" coords="587,326,649,353"/>
+<area shape="rect" id="node30" title=" " alt="" coords="373,326,562,353"/>
+</map>
