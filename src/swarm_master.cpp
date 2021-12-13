@@ -1,28 +1,36 @@
-#include <vector>
+/**
+ * @file swarm_master.cpp
+ * @author Kavyashree Devadiga (kavya@umd.edu), Aswath Muthuselvam
+ * (aswath@umd.edu)
+ * @brief File for robot main execution methods
+ * @version 0.2
+ * @date 2021-12-11
+ * @copyright BSD3 Copyright (c) 2021
+ *
+ */
+
 #include <string>
-#include <iostream>
-#include "swarm_robots/agent_node.h"
+#include <vector>
 
-using std::vector;
-using std::string;
+#include "swarm_robots/agent_node.hpp"
+
 using std::cout;
-int main(int argc, char **argv) {
-  ros::init(argc,argv,"swarm_master");
+using std::string;
+int main(int argc, char** argv) {
+    ros::init(argc, argv, "swarm_master");
 
-  vector<AgentNode*> agent_nodes;
-  int n = 2;
-  for (int i = 0; i < n; i++) {
-    AgentNode* agent_node = new AgentNode(std::to_string(i));
-    agent_nodes.push_back(agent_node);
-  }
-
-  while (ros::ok())
-  {
+    vector<AgentNode*> agent_nodes;
+    int n = 2;
     for (int i = 0; i < n; i++) {
-      agent_nodes[i]->Loop();
+        AgentNode* agent_node = new AgentNode(std::to_string(i));
+        agent_nodes.push_back(agent_node);
     }
-  }
-  
 
-  return 0;
+    while (ros::ok()) {
+        for (int i = 0; i < n; i++) {
+            agent_nodes[i]->Loop();
+        }
+    }
+
+    return 0;
 }

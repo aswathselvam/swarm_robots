@@ -8,16 +8,20 @@
  * @copyright BSD3 Copyright (c) 2021
  *
  */
-#include <ros/ros.h>
-#include <geometry_msgs/Twist.h>
-#include <std_msgs/String.h>
-#include <string>
-#include <iostream>
-#include <nav_msgs/Odometry.h>
+
+#include "swarm_robots/agent_node.hpp"
+
 #include <geometry_msgs/Quaternion.h>
-#include "swarm_robots/agent.h"
-#include "swarm_robots/agent_node.h"
-#include "swarm_robots/path_planner.h"
+#include <geometry_msgs/Twist.h>
+#include <nav_msgs/Odometry.h>
+#include <ros/ros.h>
+#include <std_msgs/String.h>
+
+#include <iostream>
+#include <string>
+
+#include "swarm_robots/agent.hpp"
+#include "swarm_robots/path_planner.hpp"
 
 using std::string;
 
@@ -28,9 +32,13 @@ AgentNode::AgentNode(std::string ns): Agent::Agent(ns){
   this->forward_kinematics_ = new ForwardKinematics();
   this->inverse_kinematics_ = new InverseKinematics(ns, nh_);
 
-  //agent1/cmd_vel
-  this->vel_pub_ = this->nh_->advertise<geometry_msgs::Twist>("/jackal"+ns+"/jackal_velocity_controller/cmd_vel", this->krate_, this);
-  this->pos_sub_ = this->nh_->subscribe("/jackal"+ns+"/base_pose_ground_truth", 1, &AgentNode::PosCallback, this);
+    // agent1/cmd_vel
+    this->vel_pub_ = this->nh_->advertise<geometry_msgs::Twist>
+    ("/jackal" + ns + "/jackal_velocity_controller/cmd_vel",
+    this->krate_, this);
+    this->pos_sub_ = this->nh_->subscribe("/jackal" + ns +
+                                              "/base_pose_ground_truth",
+                                          1, &AgentNode::PosCallback, this);
 
   this->krate_ = 20;
 }
@@ -63,29 +71,26 @@ void AgentNode::PosCallback(const nav_msgs::Odometry::ConstPtr& msg){
   
 }
 
-
-
-void AgentNode::PlanPath(){
-      Agent::PlanPath();
+void AgentNode::PlanPath() {
+    Agent::PlanPath();
 }
 
-void AgentNode::PerformInverseKinematics(){
+void AgentNode::PerformInverseKinematics() {
     Agent::PerformInverseKinematics();
 }
 
-void AgentNode::PerformForwardKinematics(){
-  Agent::PerformForwardKinematics();
-  twist_msg_.linear.x = velocity_.x_;
-  twist_msg_.linear.y = 0;
-  twist_msg_.linear.z = 0;
-  twist_msg_.angular.x = 0;
-  twist_msg_.angular.y = 0;
-  twist_msg_.angular.z = velocity_.yaw_;
-  vel_pub_.publish(twist_msg_);
+void AgentNode::PerformForwardKinematics() {
+    Agent::PerformForwardKinematics();
+    twist_msg_.linear.x = velocity_.x_;
+    twist_msg_.linear.y = 0;
+    twist_msg_.linear.z = 0;
+    twist_msg_.angular.x = 0;
+    twist_msg_.angular.y = 0;
+    twist_msg_.angular.z = velocity_.yaw_;
+    vel_pub_.publish(twist_msg_);
 }
 
-
-AgentNode::~AgentNode(){
-delete nh_;
-  std::cout<<"Deteletd NH";
+AgentNode::~AgentNode() {
+    delete nh_;
+    std::cout << "Deteletd NH";
 }
