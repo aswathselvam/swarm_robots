@@ -1,5 +1,5 @@
 /**
- * @file arena.h
+ * @file arena.hpp
  * @author Kavyashree Devadiga (kavya@umd.edu), Aswath Muthuselvam
  * (aswath@umd.edu)
  * @brief The header file for arena elements
@@ -20,19 +20,28 @@
 
 using std::vector;
 class Arena {
-   private:  //  NOLINT
-    const int total_agents = 4;
-    // TODO(kavya): change number to 20 - total nodes
-    vector<Agent> agents;
-    // vector<double, double> boundary;
-    State origin;
-
    public:  //  NOLINT
+    /**
+     * @brief Inilializes all agents in arena
+     */
     bool InitializeAgents();
-    State GetOrigin();
-    std::vector<std::vector<double>> GetBoundary();
-    void Play();
+
+    // Method Not needed for current flow
+    // State GetOrigin();
+    // std::vector<std::vector<double>> GetBoundary();
+    // void Play();
+
+    /**
+     * @brief Returns total active agents in swarm
+     * @return int: swarm size
+     */
     int GetSwarmSize();
+
+   private:                       //  NOLINT
+    const int total_agents = 20;  ///< Number of agents in arena
+    vector<Agent> agents;         ///< Vector of all agent objects in arena
+    // vector<double, double> boundary;
+    // State origin;
 };
 
 #endif  // INCLUDE_SWARM_ROBOTS_ARENA_HPP_        //  NOLINT
