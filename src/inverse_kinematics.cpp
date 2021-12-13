@@ -35,13 +35,16 @@ State InverseKinematics::PerformModelIK() {
     State velocity;
     double dist = sqrt(pow(current_location_.x_ - goal_location_.x_, 2) +
                        pow(current_location_.y_ - goal_location_.y_, 2));
-    double target_yaw = atan2(goal_location_.x_ - current_location_.x_,
-                              goal_location_.y_ - current_location_.y_);
+    double target_yaw = atan2(goal_location_.y_ - current_location_.y_,
+                              goal_location_.x_ - current_location_.x_);
     double heading_angle_ = current_location_.yaw_;
-    velocity.yaw_ = (target_yaw - heading_angle_);
+    velocity.yaw_ = target_yaw-heading_angle_;
+    
+    //Debug Target and Heading angles:
     std::cout<<"target yaw: "<<target_yaw<<std::endl;
     std::cout<<"heading_angle : "<<heading_angle_<<std::endl;
-    float Kp = 5;
+    
+    float Kp = 1;
     // Policy 1:
     // velocity_.x=Kp*dist;
 
