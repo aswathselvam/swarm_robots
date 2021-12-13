@@ -17,7 +17,7 @@
 
 #include "swarm_robots/state.hpp"
 
-InverseKinematics::InverseKinematics(string ns, ros::NodeHandle* nh) {
+InverseKinematics::InverseKinematics(string ns, ros::NodeHandlePtr nh) {
     // safety_check_ = new SafetyCheck(ns, nh); // CPP CHECK Error
     SafetyCheck safety_check(ns, nh);
     safety_check_ = &safety_check;

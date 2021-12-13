@@ -31,7 +31,7 @@ class InverseKinematics {
      * @param string ns : namespace of agent node
      * @param string nh : reference to node handle
      */
-    InverseKinematics(string ns, ros::NodeHandle* nh);
+    InverseKinematics(string ns, ros::NodeHandlePtr nh);
 
     /**
      * @brief Invoke PerformModelIK() and CheckSafety()

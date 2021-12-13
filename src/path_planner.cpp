@@ -53,7 +53,7 @@ using std::string;
     } while (false)
 #endif
 
-PathPlanner::PathPlanner(std::string ns, ros::NodeHandle *nh) {
+PathPlanner::PathPlanner(std::string ns, ros::NodeHandlePtr nh) {
     this->ns = "_jackal_" + ns;
     this->fixed_frame = "map";
     this->nh_ = nh;
