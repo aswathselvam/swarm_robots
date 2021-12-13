@@ -1,5 +1,6 @@
 <map id="include/swarm_robots/agent_node.hpp" name="include/swarm_robots/agent_node.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="87,5,253,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="179,5,345,47"/>
 <area shape="rect" id="node2" href="$agent__node_8cpp.html" title="The header file for coordinate system used in the project." alt="" coords="5,95,153,121"/>
 <area shape="rect" id="node3" href="$swarm__master_8cpp.html" title="File for robot main execution methods." alt="" coords="177,95,347,121"/>
+<area shape="rect" id="node4" href="$testswarm_8cpp.html" title="Cpp file to define test cases." alt="" coords="371,95,518,121"/>
 </map>

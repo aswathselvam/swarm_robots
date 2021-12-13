@@ -1,13 +1,14 @@
 <map id="include/swarm_robots/forward_kinematics.hpp" name="include/swarm_robots/forward_kinematics.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="227,5,410,47"/>
-<area shape="rect" id="node2" href="$agent_8hpp.html" title="The header file for agent control." alt="" coords="236,95,401,136"/>
-<area shape="rect" id="node7" href="$agent_8cpp.html" title="The code file for agent control." alt="" coords="5,273,115,300"/>
-<area shape="rect" id="node11" href="$forward__kinematics_8cpp.html" title="File for robot motion methods." alt="" coords="426,102,627,129"/>
-<area shape="rect" id="node3" href="$agent__node_8hpp.html" title=" " alt="" coords="545,184,711,225"/>
-<area shape="rect" id="node4" href="$agent__node_8cpp.html" title="The header file for coordinate system used in the project." alt="" coords="674,273,822,300"/>
-<area shape="rect" id="node6" href="$arena_8hpp.html" title="The header file for arena elements." alt="" coords="116,184,281,225"/>
-<area shape="rect" id="node8" href="$arena_8cpp.html" title="The code file for arena attributes and methods." alt="" coords="269,273,379,300"/>
-<area shape="rect" id="node10" href="$swarm__master_8hpp.html" title="The header file for arena obstacles." alt="" coords="356,184,521,225"/>
-<area shape="rect" id="node5" href="$swarm__master_8cpp.html" title="File for robot main execution methods." alt="" coords="481,273,650,300"/>
-<area shape="rect" id="node9" href="$src_2main_8cpp.html" title="main execution file" alt="" coords="139,273,245,300"/>
+<area shape="rect" id="node1" title=" " alt="" coords="458,5,641,47"/>
+<area shape="rect" id="node2" href="$agent_8hpp.html" title="The header file for agent control." alt="" coords="381,95,547,136"/>
+<area shape="rect" id="node6" href="$testswarm_8cpp.html" title="Cpp file to define test cases." alt="" coords="473,273,620,300"/>
+<area shape="rect" id="node8" href="$agent_8cpp.html" title="The code file for agent control." alt="" coords="5,273,115,300"/>
+<area shape="rect" id="node12" href="$forward__kinematics_8cpp.html" title="File for robot motion methods." alt="" coords="647,102,849,129"/>
+<area shape="rect" id="node3" href="$agent__node_8hpp.html" title=" " alt="" coords="647,184,812,225"/>
+<area shape="rect" id="node4" href="$agent__node_8cpp.html" title="The header file for coordinate system used in the project." alt="" coords="838,273,986,300"/>
+<area shape="rect" id="node7" href="$arena_8hpp.html" title="The header file for arena elements." alt="" coords="116,184,281,225"/>
+<area shape="rect" id="node9" href="$arena_8cpp.html" title="The code file for arena attributes and methods." alt="" coords="269,273,379,300"/>
+<area shape="rect" id="node11" href="$swarm__master_8hpp.html" title="The header file for arena obstacles." alt="" coords="356,184,521,225"/>
+<area shape="rect" id="node5" href="$swarm__master_8cpp.html" title="File for robot main execution methods." alt="" coords="645,273,814,300"/>
+<area shape="rect" id="node10" href="$src_2main_8cpp.html" title="main execution file" alt="" coords="139,273,245,300"/>
 </map>

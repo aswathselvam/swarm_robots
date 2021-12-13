@@ -26,8 +26,10 @@ class Obstacle {
 
     /**
      * @brief Set values to Obstacle x,y, and dimensions
+     * @param double x : new x value
+     * @param double y : new y value
      */
-    void UpdateObstacleLocation();
+    bool UpdateObstacleLocation(double x, double y);
 
     double x_;       ///< Obstacle x coordinate
     double y_;       ///< Obstacle y coordinate

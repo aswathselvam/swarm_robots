@@ -16,7 +16,16 @@
 using std::string;
 
 Obstacle::Obstacle(string ns) {
+    if (!ns.empty()) {
+        x_ = 0;
+        y_ = 0;
+        length_ = 1;
+        width_ = 1;
+    }
 }
 
-void Obstacle::UpdateObstacleLocation() {
+bool Obstacle::UpdateObstacleLocation(double x, double y) {
+    x_ = x;
+    y_ = y;
+    return true;
 }

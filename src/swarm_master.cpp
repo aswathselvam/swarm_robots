@@ -18,19 +18,24 @@ using std::cout;
 using std::string;
 int main(int argc, char** argv) {
     ros::init(argc, argv, "swarm_master");
-
+    ROS_INFO_STREAM("Initialized node swarm_master.");
     vector<AgentNode*> agent_nodes;
     int n = 20;
-    for (int i = 0; i < n; i++) {
-        AgentNode* agent_node = new AgentNode(std::to_string(i));
-        agent_nodes.push_back(agent_node);
-    }
-
-    while (ros::ok()) {
+    try {
         for (int i = 0; i < n; i++) {
-            agent_nodes[i]->Loop();
+            AgentNode* agent_node = new AgentNode(std::to_string(i));
+            agent_nodes.push_back(agent_node);
         }
-    }
 
-    return 0;
+        while (ros::ok()) {
+            for (int i = 0; i < n; i++) {
+                agent_nodes[i]->Loop();
+            }
+        }
+
+        return 0;
+    } catch (const char* msg) {
+        ROS_ERROR_STREAM("ERROR IN MAIN");
+        ROS_ERROR_STREAM(msg);
+    }
 }
