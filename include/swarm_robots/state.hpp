@@ -13,13 +13,27 @@
 #define INCLUDE_SWARM_ROBOTS_STATE_HPP_
 
 class State {
-   public:    //  NOLINT
+   public:  //  NOLINT
+    /**
+     * @brief State default constructor
+     */
     State();
+
+    /**
+     * @brief State parameterized constructor,
+     * initializes x,y state coordinates
+     */
     State(double x, double y);
+
+    /**
+     * @brief State parameterized constructor,
+     * initializes x,y,yaw state coordinates
+     */
     State(double x, double y, double yaw);
-    double x_;
-    double y_;
-    double yaw_;
+
+    double x_;    ///< Sate x coordinate
+    double y_;    ///< Sate y coordinate
+    double yaw_;  ///< Sate yaw value
 };
 
 #endif  // INCLUDE_SWARM_ROBOTS_STATE_HPP_
