@@ -74,6 +74,69 @@ The project will be developed using industry-grade agile methodologies. The agil
 
 [AIP Spreadsheet](https://docs.google.com/spreadsheets/d/1eQ78AiMMgUXJpQEjbjUjjJoJ0I1oSbPfRSU09nT6VKE/edit?usp=sharing)
 
+### Installations
+
+It is assumed that the system has Ubuntu 18.04 and above with ROS Melodic/Noetic installed.
+If not, install Ubuntu from [here](https://ubuntu.com/download/desktop) and ROS from [here](http://wiki.ros.org/melodic/Installation/Ubuntu)
+
+#### First step is to install Jackal robot
+```bash
+sudo apt-get install ros-melodic-jackal-simulator ros-melodic-jackal-desktop
+cd ~
+mkdir -p swarm_robots/src
+cd swarm_robots/src && catkin_init_workspace
+git clone https://github.com/jackal/jackal.git
+git clone https://github.com/jackal/jackal_simulator.git
+git clone https://github.com/clearpathrobotics/LMS1xx.git
+git clone https://github.com/ros-drivers/pointgrey_camera_driver.git
+cd ..
+catkin_make
+```
+
+#### Clone git repository
+```bash
+cd swarm_robots/src
+git clone --recursive https://github.com/kavyadevd/swarm_robots.git
+```
+
+#### Execute program
+```bash
+catkin_make
+roslaunch swarm_robots main.launch
+```
+
+### Running ROS test/ Gtest
+
+To make the test files execute the following commands successively
+```bash
+catkin_make tests
+catkin_make test
+```
+
+Output will be similiar to :
+
+```bash
+... logging to /home/kavya/.ros/log/rostest-Matrix-27255.log
+[ROSUNIT] Outputting test results to /home/kavya/.ros/test_results/swarm_robots
+/rostest-test_testswarm.xml
+[ WARN] [1636828912.923804367]: Publisher message will be changed.
+[Testcase: testtestswarm] ... ok
+
+[ROSTEST]-----------------------------------------------------------------------
+
+[swarm_robots.rosunit-testswarm/TestArentsInit][passed]
+[swarm_robots.rosunit-testswarm/TestSwarmSize][passed]
+
+SUMMARY
+ * RESULT: SUCCESS
+ * TESTS: 2
+ * ERRORS: 0
+ * FAILURES: 0
+
+rostest log file is in /home/kavya/.ros/log/rostest-Matrix-27255.log
+
+```
+
 ## Licensing
 The project is licensed under the [3-Clause BSD License](https://opensource.org/licenses/BSD-3-Clause). Click [here](https://github.com/kavyadevd/swarm_robots/blob/main/LICENSE) to know more
 
