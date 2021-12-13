@@ -119,8 +119,18 @@ if(CATKIN_ENABLE_TESTING)
 
   add_rostest_gtest(
   TestSwarm
+  test/test.launch
   test/main.cpp
   test/testswarm.cpp
+  src/agent_node.cpp 
+  src/agent.cpp 
+  src/forward_kinematics.cpp 
+  src/inverse_kinematics.cpp 
+  src/path_planner.cpp 
+  src/safety_check.cpp 
+  src/state.cpp 
+  src/obstacle.cpp 
+  src/arena.cpp
   )
   target_link_libraries(
   TestSwarm
