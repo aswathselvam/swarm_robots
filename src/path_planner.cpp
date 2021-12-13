@@ -205,9 +205,9 @@ this->oct_tree_ = new octomap::OcTree(0.01);
     */
 }
 
-State GetContactPoint(int agent_id, ros::NodeHandle n) {
+State PathPlanner::GetContactPoint(int agent_id) {
     ros::ServiceClient client =
-        n.serviceClient<gazebo_msgs::GetModelState>("/gazebo/get_model_state");
+        nh_->serviceClient<gazebo_msgs::GetModelState>("/gazebo/get_model_state");
     gazebo_msgs::GetModelState getModelState;
     geometry_msgs::Point pp;
     // geometry_msgs::Quaternion qq;

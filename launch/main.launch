@@ -11,10 +11,10 @@
 	<!-- start world -->
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
 		<!-- <arg name="config" default="front_laser" doc="Add front argument"/> -->
-		<arg name="world_name" value="$(find swarm_robots)/world/Rescue_light.world" />
+		<arg name="world_name" value="$(find swarm_robots)/world/Rescue_nolight.world" />
 		<arg name="paused" value="false"/>
 		<arg name="use_sim_time" value="true"/>
-		<arg name="gui" default="false"/>
+		<arg name="gui" default="true"/>
 		<arg name="headless" value="false"/>
 		<arg name="debug" value="false"/>
 	</include>

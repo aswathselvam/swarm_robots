@@ -44,11 +44,14 @@ void Agent::PerformInverseKinematics() {
     /*
       if(!path_planner_->waypoints_.size()>0)
         PlanPath();
-
+    
     State intermediate_goal = *( path_planner_->waypoints_.begin() );
     */
 
-    State intermediate_goal(2, 4);
+    //Provide a Sample goal state: 
+    //State intermediate_goal(2, 4);
+    
+    State intermediate_goal = path_planner_->GetContactPoint(std::stoi(agent_id_));
     this->velocity_ =
         inverse_kinematics_->PerformIK( this->position_, intermediate_goal);
 

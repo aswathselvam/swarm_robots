@@ -75,6 +75,14 @@ class PathPlanner {
      */
     bool Plan(State start, State goal);
 
+    /**
+     * @brief Get Contact Points on the surface of object
+     * @param agent_id : ID of current agent
+     * @return State: Point of contact of given agent
+     */
+    State GetContactPoint(int agent_id);
+
+
    private:  //  NOLINT
     //  ROS publishers
     string ns;        ///< Agent namespace
