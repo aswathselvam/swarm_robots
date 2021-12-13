@@ -155,6 +155,18 @@ rostest log file is in /home/kavya/.ros/log/rostest-Matrix-27255.log
 
 ```
 
+## Guidelines:
+```bash
+#cppcheck
+cppcheck --enable=all --std=c++11 -I include/ --suppress=missingIncludeSystem $( find . -name *.cpp -or -name *.hpp | grep -vE -e "^./build/" -e "^./vendor/") > Results/cppcheckoutput.txt
+```
+
+```bash
+#cpplint
+cpplint $( find . -name *.cpp | grep -vE -e "^./build/" -e "^./vendor/") $( find . -name *.hpp | grep -vE -e "^./build/" -e "^./vendor/") > Results/cpplintoutput.txt
+```
+
+
 ## Licensing
 The project is licensed under the [3-Clause BSD License](https://opensource.org/licenses/BSD-3-Clause). Click [here](https://github.com/kavyadevd/swarm_robots/blob/main/LICENSE) to know more
 
