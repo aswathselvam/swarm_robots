@@ -21,4 +21,3 @@ Done processing ./src/state.cpp
 Done processing ./src/swarm_master.cpp
 Done processing ./test/main.cpp
 Done processing ./test/testswarm.cpp
-Total errors found: 8

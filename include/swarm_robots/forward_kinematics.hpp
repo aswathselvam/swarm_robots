@@ -52,7 +52,7 @@ class ForwardKinematics {
     bool Stop(geometry_msgs::Twist *robot_vel);
 
    private:                      //  NOLINT
-    State velocity_;             ///< Variable to store x,y,z velocity coordinares
+    State velocity_;   ///< Variable to store x,y,z velocity coordinates
     double kDriveVelocityLimit;  ///< Max drive velocity
     double kSteerVelocityLimit;  ///< Max steer velocity
 };

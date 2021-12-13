@@ -34,8 +34,10 @@ AgentNode::AgentNode(std::string ns) : Agent::Agent(ns) {
 
     // agent1/cmd_vel
     this->vel_pub_ = this->nh_->advertise<geometry_msgs::Twist>
-      ("/jackal" + ns + "/jackal_velocity_controller/cmd_vel", this->krate_, this);
-    this->pos_sub_ = this->nh_->subscribe("/jackal" + ns + "/base_pose_ground_truth",
+    ("/jackal" + ns + "/jackal_velocity_controller/cmd_vel",
+    this->krate_, this);
+    this->pos_sub_ = this->nh_->subscribe("/jackal" + ns +
+                                              "/base_pose_ground_truth",
                                           1, &AgentNode::PosCallback, this);
 
     this->krate_ = 20;
@@ -69,7 +71,6 @@ void AgentNode::PosCallback(const nav_msgs::Odometry::ConstPtr& msg) {
 
     // ROS_INFO("Seq: [%d]", msg->header.seq);
 }
-
 
 void AgentNode::PlanPath() {
     Agent::PlanPath();

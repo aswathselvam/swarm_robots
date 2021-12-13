@@ -56,14 +56,17 @@ class Agent {
      */
     void Stop();
 
-   protected:                                //  NOLINT
-    State position_;                         ///< Variable to store coordinates of agent
-    State velocity_;                         ///< Variable to store x,y,z velocities of agent
-    double heading_angle_;                   ///< Variable to calculate agngle for IK
-    State goal_pos_;                         ///< Variable to store x,y,z of destination
-    PathPlanner* path_planner_;              ///< PathPlanner object for agent node
-    ForwardKinematics* forward_kinematics_;  ///< ForwardKinematics object for agent node
-    InverseKinematics* inverse_kinematics_;  ///< InverseKinematics object for agent node
+   protected:                    //  NOLINT
+    State position_;           ///< Variable to store coordinates of agent
+    State velocity_;           ///< Variable to store x,y,z velocities of agent
+    double heading_angle_;     ///< Variable to calculate agngle for IK
+    State goal_pos_;           ///< Variable to store x,y,z of destination
+    PathPlanner* path_planner_;  ///< PathPlanner object for agent node
+
+    ForwardKinematics* forward_kinematics_;  ///< ForwardKinematics object for agent node   // NOLINT
+
+    ///< InverseKinematics object for agent node
+    InverseKinematics* inverse_kinematics_;
 
    private:            //  NOLINT
     string agent_id_;  ///< ID of agent to refer it's namespace

@@ -66,10 +66,10 @@ class AgentNode : public Agent {
 
    private:                           // NOLINT
     int krate_;                       ///< Variable to store ros loop rate
-    ros::NodeHandle* nh_;             ///< Variable to store ros node handle for executing node
+    ros::NodeHandle* nh_;             ///< Variable to store ros node handle for executing node // NOLINT
     ros::Publisher vel_pub_;          ///< Variable to store velocity publisher
     ros::Subscriber pos_sub_;         ///< Variable to store position subscriber
-    geometry_msgs::Twist twist_msg_;  ///< Variable to store velocity twist message to pass to publisher
+    geometry_msgs::Twist twist_msg_;  ///< Variable to store velocity twist message to pass to publisher // NOLINT
     std::string agent_id;             ///< Variable to store object agent id
 };
 

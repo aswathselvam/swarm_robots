@@ -31,9 +31,9 @@
 
 #include <algorithm>
 
-#include "swarm_robots/state.hpp"
 #include "gazebo_msgs/GetModelState.h"
 #include "gazebo_msgs/ModelStates.h"
+#include "swarm_robots/state.hpp"
 #include "tf/transform_broadcaster.h"
 
 namespace ob = ompl::base;
@@ -59,7 +59,8 @@ PathPlanner::PathPlanner(std::string ns, ros::NodeHandle *nh) {
     this->nh_ = nh;
     // ros::Subscriber octree_sub =
     // n.subscribe("/octomap_binary", 1, octomapCallback);
-    this->vis_pub_ = nh_->advertise<visualization_msgs::Marker>("visualization_marker" + this->ns, 0);
+    this->vis_pub_ =
+        nh_->advertise<visualization_msgs::Marker>("visualization_marker" + this->ns, 0);       // NOLINT
     DEBUG_MSG("OMPL version: " << OMPL_VERSION << std::endl);
 
     // space = ob::StateSpacePtr(new ob::SE2StateSpace());
@@ -72,7 +73,8 @@ bool PathPlanner::IsStateValid(const ob::State *state) {
         state->as<ob::RealVectorStateSpace::StateType>();
 
     // check validity of state defined by pos
-    // fcl::Vector3<double> translation(pos->values[0],pos->values[1],pos->values[2]);
+    // fcl::Vector3<double>
+    // translation(pos->values[0],pos->values[1],pos->values[2]);
 
     octomap::point3d query(pos->values[0], pos->values[1], 0);
     octomap::OcTreeNode *result = oct_tree_->search(query);
@@ -203,7 +205,8 @@ this->oct_tree_ = new octomap::OcTree(0.01);
 }
 
 State GetContactPoint(int agent_id, ros::NodeHandle n) {
-    ros::ServiceClient client = n.serviceClient<gazebo_msgs::GetModelState>("/gazebo/get_model_state");
+    ros::ServiceClient client =
+    n.serviceClient<gazebo_msgs::GetModelState>("/gazebo/get_model_state");
     gazebo_msgs::GetModelState getModelState;
     geometry_msgs::Point pp;
     geometry_msgs::Quaternion qq;
