@@ -77,7 +77,7 @@ Search and rescue is one of the most widely implemented problems in real-life ro
 </p>
 
 ### Quad chart
-###### The Quad chart is as follows. You can access the pdf version [here](https://github.com/kavyadevd/swarm_robots/blob/phase_3/assets/QuadChart.pdf)
+###### The Quad chart is as follows. You can access the pdf version [here](https://github.com/kavyadevd/swarm_robots/blob/main/assets/QuadChart.pdf)
 <p align="centre">
 <img src="https://github.com/kavyadevd/swarm_robots/blob/main/assets/QuadChart.png" width="500px" alt="QuadChart"></img>
 </p>
